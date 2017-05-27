@@ -1,0 +1,37 @@
+#!/bin/bash
+
+[ $# -eq 0 ] && {
+    echo "Usage: $0 <file.tex> [latex|pdflatex] [bibtex cmd]"
+    exit
+}
+
+tex=${1%.tex}.tex
+[ -e $tex ] || {
+    echo "Error: $tex does not exist"
+    exit 1
+}
+aux=${tex%.tex}.aux
+log=${tex%.tex}.log
+dvi=${tex%.tex}.dvi
+pdf=${tex%.tex}.pdf
+
+latex=${2-pdflatex}
+[ $latex = latex ] && dvipdf=dvipdf
+
+bibtex=${3-bibtex}
+
+
+$latex $tex || exit $?
+grep -q 'There were undefined citations' $log && {
+    $bibtex $aux || exit $?
+    $latex $tex || exit $?
+}
+while grep -q 'Citation(s) may have changed' $log; do
+    $latex $tex || exit $?
+done
+while grep -q 'Label(s) may have changed' $log; do
+    $latex $tex || exit $?
+done
+if [ $dvipdf ]; then
+    $dvipdf $dvi || exit $?
+fi

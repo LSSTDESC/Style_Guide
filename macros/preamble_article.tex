@@ -1,0 +1,51 @@
+%%% NB: Because hyperref can cause a fatal and obscure crash when a link ends up spanning a page break, we will use the "draft" option until the last possible minute.
+
+\usepackage{color}
+\definecolor{citecol}{rgb}{0.0,0.0,0.5}
+\usepackage[draft,breaklinks=true,colorlinks=true,citecolor=citecol,linkcolor=citecol]{hyperref}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{multicol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Page dimensions %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\textwidth}{7in} 
+\setlength{\textheight}{9.75in}
+\setlength{\topmargin}{-0.5in}%{-0.0625in} 
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\evensidemargin}{-0.25in} 
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in} 
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+
+% customize captions
+\usepackage[margin=10pt,font=small,labelfont=bf]{caption}
+\setlength{\abovecaptionskip}{5pt}
+\setlength{\belowcaptionskip}{5pt}
+
+% % customize headers/footers
+% \usepackage{fancyhdr}
+% \fancyhead{}                % clear all header fields
+% \fancyhead[RO]{\rightmark}  % section
+% \fancyhead[LE]{\leftmark}   % chapter
+% \fancyfoot{}                % clear all footer fields
+% \fancyfoot[CE,CO]{\thepage} % page number
+% \renewcommand{\headrulewidth}{0.4pt}
+
+% single column (non-float) figures
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+% single column (non-float) tables (identical to Figure)
+\newenvironment{Table}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+% for compatibility in both report and article versions
+\newcommand*{\mytitle}[2][]{\title{#2}}
+
+%\input{user_macros}

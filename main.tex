@@ -1,0 +1,47 @@
+\documentclass[letterpaper,11pt]{article}
+
+\input{macros/preamble_article}
+\hypersetup{draft=false}
+\setlength{\textheight}{9in}
+
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{}
+\fancyhead[R]{
+  \centering{\includegraphics[width=5.25in,angle=0]{figures/header}}
+}
+\fancyfoot{}
+\pagestyle{fancy}
+
+\begin{document}
+
+\input{macros/affiliations}
+\title{\vspace{5cm}LSST DESC Style Guide}
+\author{DESC Publications Board: Adam B.\ Mantz$^1$ and everyone else
+  \smallskip\\{\small
+    $^1$\suphysics
+}}
+\date{Compiled \today}
+\maketitle
+\thispagestyle{fancy}
+
+\clearpage
+\fancyhead{}
+\fancyfoot[C]{\thepage}
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+\tableofcontents
+
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{section}
+
+
+
+%\bibliographystyle{bib/refs}
+%\bibliography{bib/references}
+
+\end{document}

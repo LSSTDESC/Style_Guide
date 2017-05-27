@@ -1,8 +1,12 @@
 \documentclass[letterpaper,11pt]{article}
 
+\usepackage{datetime2}
+\newcommand*{\version}{Version \today}
+
 \input{macros/preamble_article}
 \hypersetup{draft=false}
-\setlength{\textheight}{9in}
+\setlength{\textheight}{9.5in}
+\setlength{\headsep}{0.25in} 
 
 \usepackage{fancyhdr}
 \renewcommand{\headrulewidth}{0pt}
@@ -12,6 +16,7 @@
 }
 \fancyfoot{}
 \pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 
 \input{Planck_Style_Guide/Planck}
 
@@ -25,19 +30,22 @@
   \smallskip\\{\small
     $^1$\suphysics
 }}
-\date{Compiled \today}
+\date{\version}
 \maketitle
 \thispagestyle{fancy}
 
 \clearpage
 \fancyhead{}
-\fancyfoot[C]{\thepage}
+%\fancyfoot[C]{\thepage}
+\fancyhead[L]{\version}
+\fancyhead[R]{\thepage}
 \pagenumbering{roman}
 \setcounter{page}{1}
 
 \tableofcontents
 
 \clearpage
+\fancyhead[C]{\rightmark}
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
@@ -55,7 +63,6 @@ to authors provided by the  Astronomy \& Astrophysics Author's guide
 
 \noindent Both can be found under ``Author Information'' at
 \url{http://www.aanda.org/}.
-
 
 %\bibliographystyle{bib/refs}
 %\bibliography{bib/references}

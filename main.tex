@@ -64,6 +64,51 @@ to authors provided by the  Astronomy \& Astrophysics Author's guide
 \noindent Both can be found under ``Author Information'' at
 \url{http://www.aanda.org/}.
 
+
+\section{\TeX\ STUFF}
+
+The A\&A format is implemented in the A\&A document class file |aa.cls|,
+available from 
+
+\url{http://www.aanda.org/}
+
+\noindent and from the \Planck\ SVN at
+
+\url{https://scisvn01.esac.esa.int/Planck_Publication_Management}
+
+\noindent In the 2013 papers, we used \verb|aa.cls v7.0|.  A\&A is now up to
+\verb|v8.2|, although \verb|v7.0| is still allowed by A\&A.  Most of the differences between \verb|v7.0| and \verb|v8.2|
+need no comment here, but there are three compatibility issues of note.
+
+The ``structured'' abstract that was the default in \verb|v7.0| no longer
+exists in \verb|v8.0|, eliminating the need for the \verb|[traditabstract]| option in
+the \verb|\document{aa}| command at the beginning of the La\TeX\ file.  
+
+The 2013 version of the \verb|Planck.tex| file (see below) is not compatible
+with \verb|aa.cls v8.2|.  Make sure to use the current version of \verb|Planck.tex|,
+always available at
+
+\url{https://scisvn01.esac.esa.int/Planck_Publication_Management}
+
+Up until September 2014, \Planck\ author lists were generated
+with ``\verb|\\ \and|'' between institution names.  With \verb|aa.cls v7.0|, the
+resulting double space between institution names at the end of \Planck\ papers
+could be fixed by putting \verb|\raggedright| immediately before \verb|\end{document}|.
+This kludge no longer works with \verb|aa.cls v8.2|.  Author lists are now generated
+with ``\verb|\goodbreak \and|'' between institutions.  No \verb|\raggedright| is
+required.  This is still a kludge to deal with a problem that A\&A should fix
+in \verb|aa.cls|, but it works until they do.  
+
+\medskip
+
+Unfortunately, \verb|aa.cls v8.2| puts
+long lists of institutions (the kind \Planck\ papers always have!) immediately
+following the references, and before the appendices (if any).  This is weird,
+to put it politely, and we are trying to get it changed.  {\bf Until we do, however, it is best to use aa.cls v7.0.  (Specify ``traditabstract,'' of course.
+The institution list fix is backwards compatible.)}
+
+
+
 %\bibliographystyle{bib/refs}
 %\bibliography{bib/references}
 

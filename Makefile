@@ -90,7 +90,7 @@ $(PAPER).pdf $(PAPER).aux $(PAPER).bbl $(PAPER).blg: $(PAPER).tex $(OTHERTEX) $(
 $(DIFF).pdf: $(DIFF).tex $(OTHERTEX) $(FIGURES)
 	./maketex $<
 
-$(DIFF).tex: $(DIFDIR) $(DRAFT).tex $(PAPER).tex
+$(DIFF).tex: $(DRAFT).tex $(PAPER).tex
 	latexdiff $^ | grep -v multicolumn > $@
 
 $(DRAFT).tex:

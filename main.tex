@@ -22,9 +22,7 @@
 
 \usepackage{sidecap}
 
-\input{Planck_Style_Guide/Planck}
-
-
+\input{macros/DESC_macros}
 
 \begin{document}
 
@@ -62,91 +60,32 @@
 
 \section{PURPOSE}
 
-This Style Guide is intended to help authors of \Planck-related papers prepare
-high-quality manuscripts in a uniform style. It supplements the instructions
-to authors provided by the  Astronomy \& Astrophysics Author's guide 
+This Style Guide is intended to help authors of DESC collaboration papers prepare
+high-quality manuscripts in a uniform style, and to make the process of internal reviewing more efficient. It supplements the instructions
+to authors provided by the journals.  The advice in this guide is applicable to other DESC products, such as DESC Notes and conference papers, but some content is specific to journal papers.
 
-\url{http://www.aanda.org/doc_journal/instructions/aa_instructions.pdf}.
+%\url{http://www.aanda.org/doc_journal/instructions/aa_instructions.pdf}.
 
-\noindent A\&A also has a useful English usage guide, available at 
+%\noindent A\&A also has a useful English usage guide, available at 
 
-\url{http://www.aanda.org/doc_journal/instructions/aa_english_guide.pdf}.
+%\url{http://www.aanda.org/doc_journal/instructions/aa_english_guide.pdf}.
 
-\noindent Both can be found under ``Author Information'' at
-\url{http://www.aanda.org/}.
+%\noindent Both can be found under ``Author Information'' at
+%\url{http://www.aanda.org/}.
 
 
 \section{\TeX\ STUFF}
 
-The A\&A format is implemented in the A\&A document class file |aa.cls|,
-available from 
+\subsection{start\_paper}
 
-\url{http://www.aanda.org/}
+The start\_paper package is available to facilitate DESC paper development, in LaTeX and in GitHub...
 
-\noindent and from the \Planck\ SVN at
+\subsection{DESC\_macros.tex}
 
-\url{https://scisvn01.esac.esa.int/Planck_Publication_Management}
-
-\noindent In the 2013 papers, we used \verb|aa.cls v7.0|.  A\&A is now up to
-\verb|v8.2|, although \verb|v7.0| is still allowed by A\&A.  Most of the differences between \verb|v7.0| and \verb|v8.2|
-need no comment here, but there are three compatibility issues of note.
-
-The ``structured'' abstract that was the default in \verb|v7.0| no longer
-exists in \verb|v8.0|, eliminating the need for the \verb|[traditabstract]| option in
-the \verb|\document{aa}| command at the beginning of the La\TeX\ file.  
-
-The 2013 version of the \verb|Planck.tex| file (see below) is not compatible
-with \verb|aa.cls v8.2|.  Make sure to use the current version of \verb|Planck.tex|,
-always available at
-
-\url{https://scisvn01.esac.esa.int/Planck_Publication_Management}
-
-Up until September 2014, \Planck\ author lists were generated
-with ``\verb|\\ \and|'' between institution names.  With \verb|aa.cls v7.0|, the
-resulting double space between institution names at the end of \Planck\ papers
-could be fixed by putting \verb|\raggedright| immediately before \verb|\end{document}|.
-This kludge no longer works with \verb|aa.cls v8.2|.  Author lists are now generated
-with ``\verb|\goodbreak \and|'' between institutions.  No \verb|\raggedright| is
-required.  This is still a kludge to deal with a problem that A\&A should fix
-in \verb|aa.cls|, but it works until they do.  
-
-\medskip
-
-Unfortunately, \verb|aa.cls v8.2| puts
-long lists of institutions (the kind \Planck\ papers always have!) immediately
-following the references, and before the appendices (if any).  This is weird,
-to put it politely, and we are trying to get it changed.  {\bf Until we do, however, it is best to use aa.cls v7.0.  (Specify ``traditabstract,'' of course.
-The institution list fix is backwards compatible.)}
-
-
-\subsection{Planck.tex}
-
-La\TeX\ commands useful and specific to \Planck\ papers are found in
-\verb|Planck.tex|, available on the PPM web page.  To use, insert the line
-\verb|\input Planck.tex| after the initial \verb|\documentclass| command in your input
+La\TeX\ commands useful and specific to DESC papers are found in
+\verb|DESC\_macros.tex|, available <somewhere>.  To use, insert the line
+\verb|\input DESC\_macros| after the initial \verb|\documentclass| command in your input
 file.
-
-There are two important changes in \verb|Planck.tex| in 2015.  First,
-as mentioned above, a command defined in earlier versions conflicted with
-\verb|aa.cls| versions 8.0 and later.  That command has been removed.  If you use
-\verb|Planck.tex| from 2013 with these later versions of \verb|aa.cls|, you'll get an
-immediate and unhelpful error message.  Second, the \verb|\setsymbol{|$\ldots$\verb|}|
-definition machinery to specify instrumental and other parameters proved
-unworkable.  All of the \verb|\setsymbol| commands have been removed.  Attempts to
-use this  machinery will fail.
-
-
-\subsection{A fix for an annoying La\TeX\ problem}
-
-Sometimes La\TeX\ puts figures in the wrong order.  For example,
-single-column Fig.\,10 may appear before double-column Fig.\,9.  The solution
-is to add
-
-\verb|\usepackage{fixltx2e}|
-
-\smallskip
-\noindent a ``La\TeX\ bug fix package'' that usually fixes this problem and a
-few others.
 
 \subsection{Active links}
 
@@ -159,83 +98,23 @@ a page break --- in such cases, then simplest solution is to find the
 offending link and enclose it within \verb|\mbox{}|.
 
 
-\section{HOW TO REFER TO PLANCK AND OTHER PROJECTS}
+\section{HOW TO REFER TO DESC AND LSST \label{sec:lsst_refs}}
 
-Refer to ``the \Planck\ project,''  ``the \Planck\ spacecraft,'' or ``\Planck.''
-The name should be italicized.
-This can be done in all font environments (e.g., normal text, bold titles, or
-section headings) with \verb|\textit{Planck}|.  \verb|\Planck| is so defined in
-\verb|Planck.tex| for convenience.  Additionally ``Planck'' is not in italics in
-references that include the phrase ``Planck Collaboration.'' 
+Some advice goes here about how to refer to DESC, LSST, the LSST Project, and the LSST Camera Project, including recommended references.
 
-By the same logic ``Planck'' is not italicized in other proper noun phrases,
-such as ``Planck Catalogue of Compact Sources.'' Italics are never used for
-``Planck constant'' or ``Max Planck.''
+Footnote a URL for the DESC Web site?
 
-
-\subsection{Other experiments}
-
-For the 2013 papers, we requested that all spacecraft names be
-italicized.  This conflicts with the A\&A house style, which we will
-adopt for the 2015 papers (irrespective of whether we all agree that it
-makes sense!).  In this scheme, an instrument name is {\it not\/}
-italicized unless it is named after a person, so it is
-``{\it Chandra},'' ``{\it Fermi},'' ``{\it Herschel},'' and ``{\it Spitzer},''
-but ``Gaia,'' ``GALEX,'' ``IRAS,'' and ``ISO.''  The names of instruments and
-non-satellite experiments remain in roman font, e.g., ``ACT,'' ``DIRBE,''
-``HFI,'' ``LFI,'' ``SPIRE,'' and ``SPT.''  Note that the convention means that
-you should write
-``{\it Hubble\/} Space Telescope,'' 
-``{\it Wilkinson\/} Microwave Anisotropy Probe,''
-and ``XMM-{\it Newton},''
-but just ``HST,'' ``WMAP,'' and ``XMM.''
-
+LSST should be spelled out at the first use (in both the abstract and the main text of the paper).
 
 \subsection{The possessive form}
 
-The possessive version of \Planck\ is ``\Planck's,'' written |\Planck's|.
-Note that the apostrophe and the ``s'' are roman, and that the italic
-correction is built into the definition of |\Planck|, so you don't have to
-worry about spacing.
-
-
-\section{HOW TO REFER TO PLANCK SPECIFICS}
-
-Use ``Planck Early Release Compact Source Catalogue (ERCSC)'' at the first
-reference to it in the text, and ``ERCSC'' thereafter.  The ERCSC contains the
-Early Sunyaev-Zeldovich (ESZ) catalogue and the Early Cold Cores (ECC)
-catalogue, which should be referred to similarly.  Don't worry that the
-expression ``the ESZ'' seems to be missing a noun.
-
-Similarly, use ``Planck Catalogue of Compact Sources (PCCS)'' and
-``Planck Cluster Catalogue (PCC)'' for the catalogues released in
-March 2013.  Names for the second and likely final versions of the catalogues
-to be released in 2015 are not yet settled.  When they are, they'll be added
-here.
-
-The  \Planck\ cryocoolers should be referred to as the
-``sorption cooler,'' the ``\HeJT\ cooler,'' and the ``dilution cooler.''
-The command \verb|\HeJT|, defined in \verb|Planck.tex|, produces \HeJT\ for convenience. 
-
-Individual \Planck\ surveys are precisely defined subsets of the data and
-should be referred to using capital letters, i.e., ``Survey~1,'' ``Survey~2,''
-etc.  Similarly for ``Year~1,'' etc.
+Do not write LSST's or DESC's.
 
 \section{DATES}
 
-A\&A is flexible about the format for dates, ``as long as you remain
-consistent.''
-A\&A itself writes {\it Received\/} and {\it Accepted\/} dates in
-``day month year'' format, e.g., 11 January 2011.  We will adopt that as the
-standard for dates in the \Planck\ papers.
+Use Year Month Day format, UTC.
 
-There are two exceptions.  The A\&A ``Guide to the English Editing''
-(see Sect.~1 above) says ``When the
-date is an integral part of the event's name, the use of the IAU format
-is recommended but not mandatory (for example, ``the 2003 January 17 CME
-event'').  Dates included in tables should be in IAU abridged format (for
-example, 2003 Jul 4).''  
-
+Advice about hours-minutes-seconds?   
 
 \section{ACRONYMS}
 
@@ -249,33 +128,6 @@ acronym is determined by how the acronym is conventionally pronounced,
 so it is ``an SFR estimate,'' but ``a UFO.''  Although most acronyms are
 pronounced as a series of letters, there are exceptions, which can also affect
 the article, e.g., ``a NASA mission.''
-If you use many acronyms, include a list of them at the end of the paper.
-
-
-\section{TITLE}
-
-The title of \Planck\ general and special ``early'' papers is of the form
-``\Planck\ early results. XX. Specific title of paper,'' while the products
-and cosmology papers from 2013 were similarly ``\Planck\ 2013 results. XX.
-Specific title of paper,'' with XX being an
-assigned sequence number.  Note the punctuation and capitalization.  In
-general, only ``\Planck'' and the first word of the specific title are
-capitalized; however, anything that would normally be capitalized in the middle
-of a text sentence should also be capitalized.  Do not use abbreviations and
-acronyms, except those that are in general use.  Try to avoid use of Greek
-letters and other special symbols (indexing services often cannot reproduce
-these accurately).  See Sect.~3 above about the italics.  
-
-For intermediate papers use ``\Planck\ intermediate results. XX. Specific title
-of paper'' (with no punctuation at the end).  For cosmology and product papers
-in 2015 use ``\Planck\ 2015 results. XX. Specific title of paper'' (once again,
-no punctuation at the end).
-
-The ``running title'' (which appears at the top of each page of the paper)
-should be the title, or a shorter version of the title, but does not need the
-series name and roman numerals.  The ``running author'' should simply be
-``Planck Collaboration.''
- 
 
 \section{ABSTRACT}
 
@@ -291,20 +143,12 @@ levels) when appropriate.  Avoid vague statements such as ``We discuss the
 implications of the observations.''  It is usually best to write an abstract
 in an impersonal style (avoiding ``I'' and ``we'').
 
-Use the ``traditional'' abstract style. {In \verb|aa.cls v7.0|, used for the
-2011 and 2013 \Planck\ papers, the default was the A\&A ``structured'' abstract
-with its amateurish-looking headings.  To obtain the ``traditional'' abstract,
-one had to specify \verb|\documentclass[traditabstract]{aa}| on the first line of
-the input file.  With \verb|aa.cls v8.2|, the ``structured'' abstract has
-disappeared (good riddance!); all that's required is
-\verb|\documentclass{aa}|.}
-
-It is preferable to write the abstract as a single paragraph.  Shorter is
+It is preferable to write the abstract as a single paragraph, if not using the A\&A format.  Shorter is
 better.  References should be avoided in the abstract.  Acronyms should only
 be defined if they are used again in the abstract.
 
 Key words appear at the end of the abstract.  These must be selected from
-the approved list:
+the approved lists:
 
 \url{http://www.aanda.org/index.php?option=com_content\&task=view\&id=170\&Itemid=173},
 
@@ -312,56 +156,7 @@ the approved list:
 rather than just made up!  Key words should be separated by en-dashes (\verb|--| in
 \TeX), not some other form of abbreviation.
 
-
-\section{CORRESPONDING AUTHOR AND ACKNOWLEDGEMENTS}
-
-The corresponding author, the single point of contact with A\&A, is
-``generated'' during the submission process, and not specified in the paper
-itself.  For that reason, submission must be performed by the corresponding
-author.  Nonetheless, so that we can keep track of who is handling these
-secretarial duties for all the papers, insert \verb|\thanks{Corresponding author: J. J. Doe \url{<email.address>}}| immediately after the corresponding author's
-name and footnote reference in the \verb|Proj_Ref_n_n_authors_and_institutes.tex|
-file (see Sect.~2.3 for the use of \verb|\url{}|).
-
-\smallskip
-
-Every paper should include the following footnote immediately after the first
-instance of ``\Planck'' in the text.  Don't try to footnote ``\Planck'' in the
-title or abstract!
-
-\begin{verbatim}
-\footnote{\Planck\ (\url{http://www.esa.int/Planck}) is a project of the European Space
-Agency (ESA) with instruments provided by two scientific consortia funded by ESA member
-states and led by Principal Investigators from France and Italy, telescope reflectors
-provided through a collaboration between ESA and a scientific consortium led and funded
-by Denmark, and additional contributions from NASA (USA).}
-\end{verbatim}
-
-A standard acknowledgement in both long and short forms was provided for use
-at the end of the early and intermediate papers, and has also been used for the
-cosmology and product papers.  The current version of the basic \Planck\
-acknowledgement is:
-
-
-\begin{verbatim}
-The Planck Collaboration acknowledges the support of: ESA; CNES, and CNRS/INSU-IN2P3-INP
-(France); ASI, CNR, and INAF (Italy); NASA and DoE (USA); STFC and UKSA (UK); CSIC,
-MINECO, JA, and RES (Spain); Tekes, AoF, and CSC (Finland); DLR and MPG (Germany); CSA
-(Canada); DTU Space (Denmark); SER/SSO (Switzerland); RCN (Norway); SFI (Ireland);
-FCT/MCTES (Portugal); ERC and PRACE (EU). A description of the Planck Collaboration and
-a list of its members, indicating which technical or scientific activities they have been
-involved in, can be found at \url{http://www.cosmos.esa.int/web/planck/planck-collaboration}.
-\end{verbatim}
-
-Additional acknowledgements will be appropriate
-for individual papers, for example, the use of the {\tt HEALPix} package, or
-data from another instrument, mission, or repository, such as {\it XMM\/},
-{\it Herschel\/}, 2MASS, SDSS, LAMBDA, etc.
-
-The acknowledgements section should not contain references.  Instead, cite the
-relevant paper somewhere in the main body of the text.
-
-
+{\bf SD:  Is there an ApJ-specific list of keywords, or are they standardized?}
 
 \section{UNITS}
 
@@ -383,20 +178,21 @@ a numerical value), they are not capitalized even if formed from a proper name,
 and the plural is always formed by adding an ``s.''  For example, ``the flux
 density values were converted to janskys,''  not ``janskies.''
 
-\item Use SI units. Avoid as far as possible non-SI units (including ergs,
-inches, cm, cu.ft.). Use the correct SI abbreviations, e.g., ``kV'' not
-``KV,'' ``GHz'' not ``Ghz,''
+%\item Use SI units. Avoid as far as possible non-SI units (including ergs,
+%inches, cm, cu.ft.). Use the correct SI abbreviations, e.g., ``kV'' not
+I %``KV,'' ``GHz'' not ``Ghz,''
 
-\item Microns as a unit of length should be written ``$\!$\micron,'' defined in
-Planck.tex as both \verb|\micron| and \verb|\microns| (so you don't have to remember).
+%\item Microns as a unit of length should be written ``$\!$\micron,'' defined in
+%DESC\_macros.tex as both \verb|\micron| and \verb|\microns| (so you don't have to remember).
 
 \item Units should be separated from numbers (and from other units) by a
 ``thinspace,'' available in La\TeX\ in both math and non-math modes as
-``\verb|\,|\,\,''  For example, $H_0 = 68$\kmsMpc\ is obtained by
-\verb|$H_0=68$\,km\,s$^{-1}$\,Mpc$^{-1}$|
-or \verb|$H_0=68\,{\rm km}\,{\rm s}^{-1}\,{\rm Mpc}^{-1}$|.
-Note that in Planck.tex, \verb|\kmsMpc| is defined
-to produce proper units either inside or outside of math mode.
+``\verb|\,|\,\,''  
+%For example, $H_0 = 68$\kmsMpc\ is obtained by
+%\verb|$H_0=68$\,km\,s$^{-1}$\,Mpc$^{-1}$|
+%or \verb|$H_0=68\,{\rm km}\,{\rm s}^{-1}\,{\rm Mpc}^{-1}$|.
+%Note that in Planck.tex, \verb|\kmsMpc| is defined
+%to produce proper units either inside or outside of math mode.
 
 \item Avoid units in subscripts --- it's better to define an appropriate
 notation at the first use, e.g., ``the flux density at 70\,GHz,
@@ -407,20 +203,14 @@ units, e.g., MJy\,sr$^{-1}$, rather than MJy/sr.
 
 \item Write ``s,'' {\it not\/} ``sec.''
 
-\item In figure labels and tables, enclose units in brackets, e.g.,
-``Time [s],''  ``Frequency [Hz],'' ``Sensitivity [\muKs].''  A\&A apparently
-prefer to have units in round brackets, e.g., ``Time (s).''  However,
-we succeeded with some Early Papers and will persevere.  The less used
-square brackets are more distinctive, and if used consistently make it easy to
-distinguish units from other quantities.
-See Sect.~18.13 for an example of how units should be
-specified in a table (whatever kind of brackets are used).
+%\item In figure labels and tables, enclose units in brackets, e.g.,
+%``Time [s],''  ``Frequency [Hz],'' ``Sensitivity [\muKs].''  '
 
 \item Degrees, arcminutes, and arcseconds are generally typeset as symbols,
 \deg, \arcm, \arcs, which can be obtained with \verb|\deg|, \verb|\arcm|, and \verb|\arcs|,
 defined in Planck.tex.  Non-integer values should place the symbol over the
 decimal point.  Spacing is a bit tricky because of the different shapes of the
-digits 0--9, but the commands \verb|\pdeg|, \verb|\parcm|, and \verb|\parcs| in Planck.tex
+digits 0--9, but the commands \verb|\pdeg|, \verb|\parcm|, and \verb|\parcs| in DESC\_macros.tex
 work well.  For example, \verb|2\pdeg8|, \verb|2\parcm8|, and \verb|2\parcs8| produce 2\pdeg8,
 2\parcm8, and 2\parcs8, respectively.  All of these commands work in or out of
 math mode.  A\&A provides \verb|\degr|, \verb|\arcmin|, \verb|\arcsec|, \verb|\fdg|, \verb|\farcm|, and
@@ -434,16 +224,16 @@ apply to both values and uncertainties, e.g., $x=(3\pm1)\,$m, not $x=3\pm1\,$m.
  Similarly write ``we use the 70\,\% and 80\,\% masks'' rather than ``we use
 the 70 and 80\,\% masks.''
 
-\item If a cosmological model is required, use the fiducial \Planck\ model
-found at
+%\item If a cosmological model is required, use the fiducial \Planck\ model
+%found at
 
-\url{http://hfilfi.planck.fr/index.php/Site/Commonalities}.
+%\url{http://hfilfi.planck.fr/index.php/Site/Commonalities}.
 
-This will be updated for the 2015 papers.
+%This will be updated for the 2015 papers.
 
-\item For the temperature of the CMB, use $T_0=(2.7255\pm0.0006)\,$K
-(Fixsen 2009).  That's the rounded version of what Fixsen says in the paper
-for the fit to FIRAS plus other experiments.
+%\item For the temperature of the CMB, use $T_0=(2.7255\pm0.0006)\,$K
+%(Fixsen 2009).  That's the rounded version of what Fixsen says in the paper
+%for the fit to FIRAS plus other experiments.
 
 \end{enumerate}
 
@@ -461,19 +251,19 @@ Galactic longitude is written ``$l$,'' obtained with \verb|$l$|.
 \item The plural of $C_\ell$ (\verb|$C_\ell$|) should be written $C_\ell$s
 (\verb|$C_\ell$s|), {\it not\/} $C_\ell$'s (\verb|$C_\ell$'s|).
  
-\item
-``E'' and ``B'' should be in italics in phrases such as $B$-modes, as
-well as in subscripts and superscripts such as $C_\ell^{EE}$.  The same applies
-to $T$, $Q$, and $U$.  Although these are used as labels, they are also
-variables, and this rule ensures consistency in sentences such as
-``we estimate the $B$-mode power spectrum, $C_\ell^{BB}$.''
+%\item
+%``E'' and ``B'' should be in italics in phrases such as $B$-modes, as
+%well as in subscripts and superscripts such as $C_\ell^{EE}$.  The same applies
+%to $T$, $Q$, and $U$.  Although these are used as labels, they are also
+%variables, and this rule ensures consistency in sentences such as
+%``we estimate the $B$-mode power spectrum, $C_\ell^{BB}$.''
 
 
-\item The symbol for flux density is $S_\nu$ (obtained with \verb|$S_\nu$|),
-{\it not\/} $f_\nu$ or anything else.  \Planck\ measures flux density,
-{\it not\/} ``flux,''  and the use of ``flux'' as shorthand for ``flux
-density'' is {\bf never} allowed, since ``flux'' is a physically distinct
-quantity.
+%\item The symbol for flux density is $S_\nu$ (obtained with \verb|$S_\nu$|),
+%{\it not\/} $f_\nu$ or anything else.  \Planck\ measures flux density,
+%{\it not\/} ``flux,''  and the use of ``flux'' as shorthand for ``flux
+%density'' is {\bf never} allowed, since ``flux'' is a physically distinct
+%quantity.
 
 \item Use the percent symbol ``\%'' rather than ``per cent'' or ``percent''
 following a number, with a thin space (\verb|\,|) before the \% sign (e.g., 73\,\%).
@@ -481,40 +271,32 @@ But in a phrase such as ``a few percent'' write out the words.
 
 \item Use \verb|\Msolar| and \verb|\Lsolar| for \Msolar\ and \Lsolar.
 
-\item Write CO (or similar) transitions as ``CO $J$=1$\rightarrow$0,''
-obtained with \verb|CO $J$=1$\rightarrow$0|.  Note that setting ``=1'' in text mode
-bypasses the normal math mode spacing of the equals sign, which is too wide
-for this situation; as an alternative use small spaces, i.e.,
-``CO $J\,{=}\,1\,{\rightarrow}\,0$,''
-obtained with \verb|CO $J\,{=}\,1\,{\rightarrow}\,0$|.
-If there are many instances, abbreviation to
-``CO(1$\rightarrow$0)'' after the first instance is all right. 
+%\item Write CO (or similar) transitions as ``CO $J$=1$\rightarrow$0,''
+%obtained with \verb|CO $J$=1$\rightarrow$0|.  Note that setting ``=1'' in text mode
+%bypasses the normal math mode spacing of the equals sign, which is too wide
+%for this situation; as an alternative use small spaces, i.e.,
+%``CO $J\,{=}\,1\,{\rightarrow}\,0$,''
+%obtained with \verb|CO $J\,{=}\,1\,{\rightarrow}\,0$|.
+%If there are many instances, abbreviation to
+%``CO(1$\rightarrow$0)'' after the first instance is all right. 
 
-\item
-The notation for all cosmological parameters should follow table~1 in the
-2013 parameters paper, Planck Collaboration XVI.
+%\item
+%The notation for all cosmological parameters should follow table~1 in the
+%2013 parameters paper, Planck Collaboration XVI.
 
 
 \item
 Avoid the use of excessive numbers of digits when presenting numerical results.
-See Sect.~18.1 for more details.
-
+See Sect.~\ref{sec:tables} for more details.
 
 \item
 Ordinal numbers should be written $17$th, rather than $17$-th or $17^{\rm th}$.
 The same applies to variables, e.g., $i$th.
 
-
-\item
-Specific WMAP releases and results can be referred to as, e.g.,
-``the WMAP 9-year data set'' or shortened to ``WMAP-9.''
-
-
 \item
 Use ``$\gamma$-ray'' not ``gamma-ray'' (and mixing them in the same paper is
 even worse!).  It should always be hyphenated, even when used as a noun,
 just as in ``X-ray.''
-
 
 \item
 A\&A prefer to use ``S/N'' for ``signal-to-noise ratio,'' rather than ``SNR''
@@ -523,16 +305,6 @@ to go with ``S/N'' (even if we suspect that the two uses of ``SNR'' would
 always be distinguished by context).  Note that this is an abbreviation for
 ``signal-to-noise ratio'' and not ``signal-to-noise.''
 
-\item
-For atomic ionization states, use the A\&A macro: e.g., ``\verb|\ion{H}{ii}|,''
-which yields ``H\,{\sc II}.''
-
-
-\item
-The transpose symbol (for vectors and tensors) should be capital and should
-{\it not\/} be in italic font, since that causes possible confusion with the
-variable $T$.  The best solution is probably to use the sans-serif font,
-e.g., ``\verb|\vec{x}^{\sf T}|'' or ``\verb|\vec{x}^\mathsf{T}|.''
 
 \end{enumerate}
 
@@ -562,7 +334,7 @@ more, e.g., ``chocolate, strawberry, and vanilla.''  The same applies to
 
 \item According to the A\&A Author's Guide, ``The following expressions should
 always be abbreviated unless they appear at the beginning of a sentence (i.e.,
-Sect., Sects., Fig., Figs., Col., Cols.).  Table is never abbreviated.''
+Sect., Sects., Fig., Figs., Col., Cols.).  Table is never abbreviated.''  {\bf SD:  Do we agree?}
 
 \item  Every internal reference to a figure or table should use
 \verb|\ref{label}| to ensure that a hyperlink is created in the final PDF file.
@@ -579,7 +351,7 @@ To reference an equation number with parentheses,
 If referring to a figure, table, or equation in {\it another\/} paper, it is
 good practice to use the full uncapitalized words ``figure,'' ``table,'' or
 ``equation,'' to avoid any confusion between the numbered items in the paper
-being referred to and those in the paper being written. 
+being referred to and those in the paper being written.   {\bf SD:  Is this A\&A specific?}
 
 \item The IAU formally recommends that the initial letters of the names of
 individual astronomical objects should be printed as capitals (see the IAU
@@ -595,14 +367,15 @@ should {\it not\/} be capitalized.
 Capitalize ``Universe'' when referring to the cosmos in which we live,
 reserving ``universe'' for different theoretical possibilities.
 
-\item ``Zeldovich'' should be written without the apostrophe in the middle.
-In general, names that are normally not written in Latin characters should be
-transliterated following the preference of the owner of the name, as far as
-possible.
+%\item ``Zeldovich'' should be written without the apostrophe in the middle.
+%In general, names that are normally not written in Latin characters should be
+%transliterated following the preference of the owner of the name, as far as
+%possible.
 
 \item Software program names should be set in the fixed-width ``tt'' font,
-e.g., {\tt HEALPix}, {\tt PLIK}, and {\tt Commander} (obtained with
-\verb|{\tt HEALPix}|, \verb|{\tt PLIK}|, and \verb|{\tt Commander}|). 
+e.g., {\tt HEALPix}.
+%, {\tt PLIK}, and {\tt Commander} (obtained with
+%\verb|{\tt HEALPix}|, \verb|{\tt PLIK}|, and \verb|{\tt Commander}|). 
 
 
 \item The abbreviation of declination is ``Dec,'' not ``DEC'' or ``Dec.''
@@ -614,8 +387,7 @@ The abbreviation of right ascension is ``RA,'' not ``R.A.''
 
 
 \item The Oxford English Dictionary (OED, the ultimate authority for standard
-English) capitalizes ``Gaussian.''  We will adopt that as the \Planck\
-convention.
+English) capitalizes ``Gaussian.''  
 
 \item
 Italics should be reserved for emphasis.
@@ -674,13 +446,15 @@ introduction.  Journal articles are not review articles. Cite all
 closely-related papers and any papers yours depends on, but don't review the
 whole history of the subject.
 
-\item There will be many \Planck\ papers and we will fatigue readers if we
-reproduce the same description of the instruments in every one.
- There is no longer a requirement to use a ``standard paragraph,''
+\item In the case of multiple citations for the same topic, the references should be cited in chronological order; if there's some reason to cite them out of order, the reason should be explained in the text.
+
+\item There will be many DESC papers and we will fatigue readers if we
+reproduce the same description of LSST in every one.
+ There is no requirement to use a ``standard paragraph,''
 but it is still appropriate to cite {\it all\/} instrument and product papers
-on which a new paper depends.
+on which a new paper depends
 Refer (once)
-to the relevant instrument-description papers, and summarize as briefly as
+to the relevant LSST or DESC product papers (see Sect.~\ref{sec:lsst_refs}), and summarize as briefly as
 possible any characteristics of the instrument that the reader needs to know
 to understand the present paper.
 
@@ -716,35 +490,8 @@ To repeat, use standard British usage!
 
 \begin{enumerate}
 
-\item {\it Performance\/} as it will be used in \Planck\ papers is a singular
-noun.  For example, ``The {\bf performance} of \Planck'' is correct.  ``The
-{\bf performances} of \Planck'' is not.
-
-\smallskip
-
-\begin{quote}
-``Performance'' is a
-noun with two related meanings.  One type of ``performance'' is quantized and
-can be counted, the other is 
-continuous and can be measured.  Example 1: ``The orchestra will give one
-performance on Monday and two {\bf performances} on Thursday.''  Example 2:
-``The {\bf performance} of the \Planck\ telescope at cryogenic temperatures
-was difficult to measure.''  The key distinction is that the quantized,
-countable type of performance has number, i.e., it is singular or plural
-depending on the count.  But the continuous, measurable version, has no number.
-It {\it never\/} has an ``s'' at the end.  The countable type of
-``performance'' is unlikely in the \Planck\ papers.  Therefore a global search
-and replace of ``performances'' with ``performance'' will safely eliminate
-misuse.
-\end{quote}
-
-\item {\it Noise\/} as it will be used in \Planck\/ papers is also measurable
-and continuous, and therefore a singular noun.  ``The {\bf noises} of
-\Planck'' is not correct.
-
-\item {\it Emission\/}, as in ``bright diffuse emission,'' and as it will most
-likely be used in the \Planck\ papers, is also singular.
-``Bright diffuse {\bf emissions}'' is not correct.
+\item {\it Noise\/} as it will be used in DESC papers is a singular noun.  ``The {\bf noises} of
+the images is not correct.
 
 \item
  {\it Significance\/} is similarly used as a singular noun, so that
@@ -808,21 +555,6 @@ from that of the dark-matter halo.''
 If that doesn't all make sense, concentrate on the example, and remember that
 no comma should precede ``that,'' but a comma should always precede ``which.''
 
-\item A\&A itself is flexible on spelling.  Their basic principle is ``to ask
-for consistency within an article, whether in the punctuation, capitalization,
-spelling, or abbreviations.''  Our choice for the \Planck\ papers is to follow
-common British conventions.  Table~1 gives examples of
-differences.  \Planck\ will adopt the versions in maroon.  
-
-\noindent Note that we
-specify ``polarize'' instead of ``polarise.''  Although both ``-ize'' and
-``-ise'' are used in British English, the OED prefers ``-ize.''
-``Polarise'' certainly appears a few times in the Early and Intermediate
-Results papers,
-the major use of ``polarize'' and related nouns is now with us, so it
-seems worth a minor inconsistency with previous papers in order to follow
-the OED more closely in the future.
-
 \item ``Between A and B,'' ``from A to B,'' or ``in the range A--B'' are
 \hbox{OK}.  ``Between A to B,'' ``from A--B,'' and ``between A--B'' are not.
 
@@ -853,8 +585,6 @@ the usage consistent or clarify the distinctions(s), as appropriate.
 pioneered$\ldots$'' to describe the present work.  The novelty should be
 apparent without being highlighted.  Similarly try to minimize claims that a
 result is ``interesting,'' ``important,'' or ``critical.''
-Do not mention your own work in progress
-within the text (cross reference the appropriate \Planck\ paper).
 
 \item ``A and B'' or variants such as ``A together with B'' are plural
 subjects and need a plural verb, e.g., ``A and B are\dots.''
@@ -869,16 +599,8 @@ Nucleus (AGN),''
 and ``cosmic microwave background (CMB),'' not
 ``Cosmic Microwave Background (CMB).''
 
-\item ``Time-ordered data'' should be hyphenated.
-``Bandpass,''
-``feedhorn,''
-``mapmaking,''
-``nonlinear,''
-``sidelobe,''
-and
-``submillimetre''
-should not.  As another example, it
-should be ``far sidelobes,'' rather than ``far-side lobes.''
+\item ``Nonlinear''
+should not be hyphenated.  
 Furthermore, ``stray light'' should be written as two words.
 The rules of hyphenation can be daunting because there are so many cases
 (see, e.g., \url{http://en.wikipedia.org/wiki/English_compound}), but most of them
@@ -918,7 +640,7 @@ Avoid the use of whole sentences in brackets.  This can be a useful device in
 conversational emails, but when writing a paper its intended meaning is often
 unclear.  Instead put the comment at the end of the previous sentence (in
 brackets, or after a semi-colon), convert to a footnote if deemed necessary, or
-simply remove the brackets altogether.
+simply remove the brackets altogether.  {\bf SD:  I'm not getting this one}
 
 \item Use ``reliability'' rather than ``purity'' for the probability that a
 source is real.  For example, the reliability of the catalogue is 0.95.
@@ -944,7 +666,12 @@ calibration procedure'' rather than ``we did the calibration procedure.''
 As the word ``as'' can be used as an adverb or preposition, as well as as a
 conjunction (note this example!), then sentences can sometimes be difficult
 to parse.  Substitution of ``since'' or ``because'' for ``as'' where
-appropriate (particularly as a conjunction) may avoid confusion.
+appropriate (particularly as a conjunction) may avoid confusion.  Note that ``since'' has a connotation
+of relative time and may be more appropriate in that context.
+
+\item
+In comparisons, ``greater'' and ``smaller'' are preferable to ``higher'' and ``lower'' unless you are
+in fact comparing heights.
 
 \item
 The word ``comprised'' is sometimes misused in the phrase ``is comprised of,''
@@ -959,6 +686,9 @@ using the word at all.
 \item
 ``Non'' is a prefix, not a word, and hence a hyphen is required in words such
 as ``non-Gaussian'' and ``non-relativistic.''
+
+\item
+The use of British or American spelling depends on the journal.  Table {\bf reference the table} summarizes the differences.
 
 \end{enumerate}
 
@@ -1081,10 +811,10 @@ E=mc^2,
 where $c$ is the speed of light in vacuum.
 \end{verbatim}
 
-\item {\it Quotation marks\/}. Use ``{\tt``}'' and ``{\tt''},'' not the
+\item {\it Quotation marks\/}. In LaTeX, use ``{\tt``}'' and ``{\tt''},'' not the
 double-quote character found on English keyboards above the apostrophe.
 A comma or period goes inside the quotation marks, not outside, e.g.,
-``\Planck\ is a great mission.''
+``DESC is an international collaboration.''
 
 \item {\it Dashes\/}. Distinguish hyphen (-), produced with a single dash
 ({\tt -}) and used for compound words (e.g., ``free-free'') and word breaks;
@@ -1115,8 +845,9 @@ including in such expressions as ``high-$z$'' (obtained with \verb|high-$z$|).
 text.   Write an equation, or use words.  For example, write ``frequencies of
 30\,GHz and above,'' rather than ``frequencies $\ge 30$ GHz.''  Similarly,
 write ``an average factor of about 1.8,'' rather than ``an average factor of
-$\simeq 1.8$.''  Better yet (see 15.9 below), write ``an average factor of
-1.8,'' omitting the meaningless ``about.''  
+$\simeq 1.8$.''  
+%Better yet (see 15.9 below), write ``an average factor of
+%1.8,'' omitting the meaningless ``about.''  
 
 \item {\it Approximations\/}.
 Use ``about,'' ``around,'' and ``approximately'' in preference to
@@ -1133,11 +864,11 @@ the same paper unless you explicitly mean something different.  If in doubt,
 use ``$\approx$'' (and see the point above!).
 
 For ``less (and greater) than approximately'' either use the A\&A macro
-``$\backslash$la'' (and ``$\backslash$ga'') or the Planck.tex macro
+``$\backslash$la'' (and ``$\backslash$ga'') or the DESC\_macros.tex macro
 ``$\backslash$lsim'' (and ``$\backslash$gsim''), but don't mix them.
 
 Avoid using the ``$O(x)$'' or ``${\cal O}(x)$'' notation except for describing
-asymptotic behaviour or scaling.  Instead just say ``about $10^{-6}$'' or
+asymptotic behavior or scaling.  Instead just say ``about $10^{-6}$'' or
 ``approximately $10^{120}$.''
 
 \item {\it Superscripts\/}.
@@ -1149,12 +880,11 @@ while $z_{\rm i}$ (obtained with \verb|$z_{\rm i}$|) might be defined as the
 reionization redshift.
 
 An exception is made for labels that are {\it also\/} variables, e.g.,
-``the $x$-component of vector {\tt FATAL ERROR} %$\elevenboldmath V$
- is $V_x$.''  This will often
-apply to $T$, $Q$, $U$, $E$, and $B$ (see Sect.~11, item 4).
+``the $x$-component of vector {\bf V} %$\elevenboldmath V$
+ is $V_x$.''  
 
 Particle physicists sometimes write particle names in italics, e.g., $n_e$
-instead of $n_{\rm e}$.  We suspect they are just being lazy.  But some
+instead of $n_{\rm e}$.  But some
 typesetters always use italics for a single-letter symbol, perhaps because
 they don't know if it is a variable or a tag.  The important thing is that
 multi-letter symbols should be in roman to avoid the confusion of whether
@@ -1168,11 +898,11 @@ preclude capitalization of these operators, which is almost always incorrect.
 
 %\input boldmathfonts
 
-\item {\it Vectors and tensors\/}.
-A\&A recommends typesetting vectors and tensors with \verb|\vec{A}| and
-\verb|\tens{B}|.  These produce bold italics and upright sans-serif characters,
-i.e., {\tt FATAL ERROR} %$\elevenboldmath A$ and {\ss B}
-, respectively.
+%\item {\it Vectors and tensors\/}.
+%A\&A recommends typesetting vectors and tensors with \verb|\vec{A}| and
+%\verb|\tens{B}|.  These produce bold italics and upright sans-serif characters,
+%i.e., {\tt FATAL ERROR} %$\elevenboldmath A$ and {\ss B}
+%, respectively.
 
 \item {\it Brackets\/}. The usual ordering of brackets is
 $\left\{ \left[ \left( \dots \right) \right] \right\}$.  Only deviate
@@ -1219,8 +949,8 @@ by a thin space \verb|\,| or a medium space \verb|\>|.
 number all equations.  Even if you don't intend to refer to the equation
 elsewhere in the paper, other people might want to do so (e.g., the referee).
 
-\item {\it Stokes parameters\/}. Since his name was ``Stokes,'' write
-``Stokes $Q$,'' not ``Stoke's $Q$.''
+%\item {\it Stokes parameters\/}. Since his name was ``Stokes,'' write
+%``Stokes $Q$,'' not ``Stoke's $Q$.''
 
 \item {\it Spacing of exponents\/}.  Now and then, depending on characters,
 exponents come out too close to the exponentiated symbol, e.g., $\nu^\beta$.
@@ -1228,13 +958,13 @@ Space can be added with, e.g., \verb|$\nu^{\,\beta}$|, giving $\nu^{\,\beta}$ or
 (better) \verb|$\nu^{\hbox{\hglue 0.7pt}\beta}$|, giving
 $\nu^{\hbox{\hglue 0.7pt}\beta}$, which makes it easy to ``tune'' the space.
 
-\item {\it Thousands separator\/}.  A\&A doesn't give a preference for how to
-write numbers with many digits.  The SI standard is to use spaces rather than
-commas or periods (1,000,000 or 1.000.000) to separate thousands.  Thin spaces
-(\verb|\,|) should be used, giving 1\,000\,000.  {\it Never\/} simply type a space
-in the input file (\verb|10 000|), as that would allow a line break in the middle of
-the number.  Numbers with only 4 digits probably don't need a space -- use
-common sense.
+%\item {\it Thousands separator\/}.  A\&A doesn't give a preference for how to
+%write numbers with many digits.  The SI standard is to use spaces rather than
+%commas or periods (1,000,000 or 1.000.000) to separate thousands.  Thin spaces
+%(\verb|\,|) should be used, giving 1\,000\,000.  {\it Never\/} simply type a space
+%in the input file (\verb|10 000|), as that would allow a line break in the middle of
+%the number.  Numbers with only 4 digits probably don't need a space -- use
+%common sense.
 
 \item {\it Writing ``$\sigma$''}.  Write
 \verb|$5\,\sigma$| ($5\,\sigma$) or possibly
@@ -1249,7 +979,7 @@ change $d \rightarrow $ d in the proof stage.  The reason for not following
 the A\&A style is that the \TeX\ input is more straightforward and less prone
 to error with italic ``{\it d\/}''s, and the \Planck\ papers will require fewer
 corrections in the final edit stage.  A\&A can then make the corrections
-uniformly. 
+uniformly. {\bf SD:  Do we have a preference?}
 
 \end{enumerate}
 
@@ -1258,54 +988,52 @@ uniformly.
 
 \begin{enumerate}
 
-\item Use \verb|Planck_bib.bib| in the aa.cls environment to ensure correct
-references to the \Planck\ papers.  When referring to a \Planck\ paper in text,
-use, e.g., \verb|as described in \cite{planck2011-7.2}|, which becomes ``as
-described in Planck Collaboration XX (2011).''  Alternatively some sentences
-could refer to work (rather than a specific paper) ``by the Planck
-Collaboration''; note that here ``the'' is not capitalized.  For a
-parenthetical reference, \verb|\citep{Planck2011-7.2}| produces ``(Planck
-Collaboration XX 2011).'' 
+%\item Use \verb|Planck_bib.bib| in the aa.cls environment to ensure correct
+%references to the \Planck\ papers.  When referring to a \Planck\ paper in text,
+%use, e.g., \verb|as described in \cite{planck2011-7.2}|, which becomes ``as
+%described in Planck Collaboration XX (2011).''  Alternatively some sentences
+%could refer to work (rather than a specific paper) ``by the Planck
+%Collaboration''; note that here ``the'' is not capitalized.  For a
+%parenthetical reference, \verb|\citep{Planck2011-7.2}| produces ``(Planck
+%Collaboration XX 2011).'' 
 
-\item Make sure that you use the current version of \verb|Planck_bib.bib|,
-available at 
+%\item Make sure that you use the current version of \verb|Planck_bib.bib|,
+%available at 
 
-\url{http://www.sciops.esa.int/index.php?project=PLANCK&page=Repositories}
+%\url{http://www.sciops.esa.int/index.php?project=PLANCK&page=Repositories}
 
-\item  The bibliography style file \verb|aat.bst| should be used, which will
-give full titles (helpful for distinguishing \Planck\ papers) as well as
-arXiv hyperlinks in the reference list.  This may require care over inclusion
-(and/or exclusion) of appropriate packages (e.g., \verb|ifthen|); if there's a problem, follow what
-was done in a previous \Planck\ paper.
+%\item  The bibliography style file \verb|aat.bst| should be used, which will
+%give full titles (helpful for distinguishing \Planck\ papers) as well as
+%arXiv hyperlinks in the reference list.  This may require care over inclusion
+%(and/or exclusion) of appropriate packages (e.g., \verb|ifthen|); if there's a problem, follow what
+%was done in a previous \Planck\ paper.
 
-\item ADS+Bib\TeX\ does not always put references in the correct
-format for the journal.  Check them carefully.  Take special care with
-articles in books and conference proceedings: include the title of the book,
-the editors' names, the publisher and place of publication, and the page
-number.  ADS+Bib\TeX+A\&A also usually omits the arXiv preprint number, which
-is wrong.  This can be fixed by editing the .bib file.
+%\item ADS+Bib\TeX\ does not always put references in the correct
+%format for the journal.  Check them carefully.  Take special care with
+%articles in books and conference proceedings: include the title of the book,
+%the editors' names, the publisher and place of publication, and the page
+%number.  ADS+Bib\TeX+A\&A also usually omits the arXiv preprint number, which
+%is wrong.  This can be fixed by editing the .bib file.
 
-SPIRES Bib\TeX\ entries for \Planck\ papers should not be
-used at present, since they result in the author being ``Ade et al.''\ and do
-not include the identifying roman numerals.  (We're trying to get this fixed,
-but in the meantime don't use them.)
+%\item A useful reference for use of \verb|natbib| can be found at
+%\url{http://merkel.zoneo.net/Latex/natbib.php}.
+%There are many ways to produce bad combinations of parentheses, commas,
+%semicolons, and years.  Beware!
 
-\item A useful reference for use of \verb|natbib| can be found at
-\url{http://merkel.zoneo.net/Latex/natbib.php}.
-There are many ways to produce bad combinations of parentheses, commas,
-semicolons, and years.  Beware!
-
-One example is the incorrect
-\verb|\citep[as studied by][]{FirstPaper, SecondPaper, ThirdPaper}|, which produces
-``(as studied by FirstPaper; SecondPaper; ThirdPaper).''  To obtain the
-correctly punctuated ``(as studied by FirstPaper, SecondPaper, and ThirdPaper)''
-requires three separate uses of \verb|\citealt|.
+%One example is the incorrect
+%\verb|\citep[as studied by][]{FirstPaper, SecondPaper, ThirdPaper}|, which produces
+%``(as studied by FirstPaper; SecondPaper; ThirdPaper).''  To obtain the
+%correctly punctuated ``(as studied by FirstPaper, SecondPaper, and ThirdPaper)''
+%requires three separate uses of \verb|\citealt|.
 
 \item
 Use a consistent format for journal abbreviations, i.e., avoid having a
 mixture of ``ApJ'' and ``Astrophys.\ J.''  Best practice is to use the
 built-in abbreviations, e.g., \verb|\aap| for ``A\&A,'' \verb|\apj| for ``ApJ,'' and
 \verb|\mnras| for ``MNRAS.''
+
+\item
+For papers with more than five authors, ApJ requires that the first three authors be listed before `et al.'
 
 \end{enumerate}
 
@@ -1314,127 +1042,54 @@ built-in abbreviations, e.g., \verb|\aap| for ``A\&A,'' \verb|\apj| for ``ApJ,''
 
 \subsection{General comments on figures}
 
-Figures in the cosmology and product papers must satisfy a much higher standard
-of quality and uniformity than was the case with the Early Results and earlier
-Intermediate papers.  To meet this high standard, requirements are given
-for various types of figures.  These specifications must be followed in general
-by all figures.  Exceptions can be made, but only for good reason.  
+%Scripts have been developed showing how to drive {\tt Python} (Andrea Zonca),
+%{\tt IDL} (Locke Spencer) and {\tt PGPlot} (Tim Pearson, to be posted soon)
+%to produce figures satisfying the requirements.  The companion paper in A\&A
+%La\TeX\ format ``Paperplots.tex'' and ``Paperplots.pdf'' show examples
+%produced by the scripts and how they are incorporated into papers.  The
+%scripts themselves are available at 
 
-Scripts have been developed showing how to drive {\tt Python} (Andrea Zonca),
-{\tt IDL} (Locke Spencer) and {\tt PGPlot} (Tim Pearson, to be posted soon)
-to produce figures satisfying the requirements.  The companion paper in A\&A
-La\TeX\ format ``Paperplots.tex'' and ``Paperplots.pdf'' show examples
-produced by the scripts and how they are incorporated into papers.  The
-scripts themselves are available at 
+%\url{http://github.com/zonca/paperplots/}
 
-\url{http://github.com/zonca/paperplots/}
+%\noindent This is a public site for convenience; no \Planck\ data are used in
+%the scripts.  If you need help, ask Andrea, Locke, or Tim
+%(see \url{http://www.rssd.esa.int/index.php?project=IDIS&page=people}).
 
-\noindent This is a public site for convenience; no \Planck\ data are used in
-the scripts.  If you need help, ask Andrea, Locke, or Tim
-(see \url{http://www.rssd.esa.int/index.php?project=IDIS&page=people}).
-
-Pay particular attention to the size of characters (Sect.~17.3.3) and
-extraneous white space around figures (Sect.~17.7.2).  The most common problems
-in draft figures in the 2013 papers were in these two areas.
+Pay particular attention to the size of characters and
+extraneous white space around figures.
 \medskip
 
-We start with an extract from the A\&A Author's Guide giving the sizes
-of figures used in the journal and some general guidance for multi-panel
-figures and captions (legends).
-
-\subsection{From the A\&A Author's Guide}
-
-``Figures submitted to the Journal must be of the highest quality to
-ensure accuracy and clarity in the final published copy. We urge the
-author to limit the empty space in and around figures. Artwork should
-be in sharp focus, with clean, clear numbers and letters and with
-sharp black lines. Thin lines should be avoided, particularly in
-figures requiring considerable reduction.
-
-``The author is warned that changes in the size and arrangement of
-figures can be made by the publisher at the production stage. Because of
-the bulk of the Journal [we realize this isn't English!],
-the production office will reduce most
-figures to fit a one-column format ($88\,$mm). If necessary, figures may
-extend across the entire page width (max.\ $180\,$mm). Intermediate widths
-with a side caption are also possible (max.\ $120\,$mm). The illustrations
-should be placed at the top of the column and flush-left according to
-layout conventions.
-
-``If lettered parts of a figure (e.g., 1a, 1b, 1c, etc.) are referred to
-in the figure legend, each part of the figure should be labeled with
-the appropriate letter within the image area. Symbols should be
-explained in the caption and not in the figure.
-
-``Figure legends should concisely label and explain figures and parts of
-figures.  The first sentence of each figure legend should be a
-descriptive phrase, omitting the initial article (the, a, an). In
-multipart figures, the legends should distinguish (a), (b), (c), etc.,
-components of the figure.  Note that if parts are identified in the
-legend as (a), (b), (c), particularly for single figures composed of
-multiple panels, these letters should be clearly labeled in the figure
-itself. Otherwise panels should be referred to by position (top right,
-top left, middle, bottom, etc.). All lines (solid, dashed, dot-dashed,
-dash-dotted, etc.)\ and symbols (filled or open circles, squares,
-triangles, crosses, arrows, etc.) should be explained in the
-legend. Graphics should not be used in figure legends.  The scientific
-discussion of the table or figure contents should appear in the main
-body of the article, not in the table title or figure legend.''
+%\subsection{From the A\&A Author's Guide}
+%
+%
+%``If lettered parts of a figure (e.g., 1a, 1b, 1c, etc.) are referred to
+%in the figure legend, each part of the figure should be labeled with
+%the appropriate letter within the image area. Symbols should be
+%explained in the caption and not in the figure.
+%
+%``Figure legends should concisely label and explain figures and parts of
+%figures.  The first sentence of each figure legend should be a
+%descriptive phrase, omitting the initial article (the, a, an). In
+%multipart figures, the legends should distinguish (a), (b), (c), etc.,
+%components of the figure.  Note that if parts are identified in the
+%legend as (a), (b), (c), particularly for single figures composed of
+%multiple panels, these letters should be clearly labeled in the figure
+%itself. Otherwise panels should be referred to by position (top right,
+%top left, middle, bottom, etc.). All lines (solid, dashed, dot-dashed,
+%dash-dotted, etc.)\ and symbols (filled or open circles, squares,
+%triangles, crosses, arrows, etc.) should be explained in the
+%legend. Graphics should not be used in figure legends.  The scientific
+%discussion of the table or figure contents should appear in the main
+%body of the article, not in the table title or figure legend.''
 
 In general, the first part of a caption should be a phrase ending with a period that functions as a title. This means that captions usually will {\it not\/} start with an article (``a'' or ``the'').  However, there may be exceptions, and brevity should be the rule!  Captions should certainly never start with ``This
-figure shows \dots''
+figure shows \dots''. {\bf SD:  I agree with the last part but not the first}
 
 \subsection{Line plots}
 
 \begin{enumerate}
 \item {\it Format\/}. Output should be EPS, PDF, or other vector format
 compatible with the La\TeX\ |includegraphics| command.
-
-\item {\it Size\/}.  A\&A prints figures in three widths,
-88\,mm, 120\,mm, and up to 
-180\,mm. {\bf Each figure should be designed for its final size, whether
-single-column, side caption, or two-column.} Simply rescaling a figure
-to fit is rarely acceptable, because font sizes and line widths will be wrong.
-Anisotropic scaling of a figure to make it fit is {\it never\/} appropriate.
-Circles become ellipses, and letters are distorted.  Figures designed for
-posters or presentations are unlikely to be appropriate for the journal.
-
-The second paragraph of section~16.1 says ``The author is warned that \dots
-the production office will reduce most figures to fit a one-column format
-(88\,mm).''  Therefore, design figures for a single column unless there is a
-strong reason why they must be larger.
-
-In some cases a ``full width'' figure will fit on the page better or
-look better at a smaller width than the 180\,mm maximum set by the width of
-the printed page.  For example, a full-page figure may be too tall to fit if
-its width is 180\,mm.  Start with 180\,mm and adjust if it seems
-necessary.
-
-\item {\it Lettering\/}.  There are differing opinions about whether labels
-look better in a similar font to the paper text or in a sans-serif font.  For
-consistency in \Planck\ papers the latter preference has been adopted.  Most
-lettering (including axis labels) should be 
-8\,pt\footnote{In the digital publishing world,
-$1\,{\rm pt} \equiv 1/72\,{\rm in} = 0.352\bar{7}\,{\rm mm}$.}
-Helvetica, Arial (the Microsoft
-equivalent of Helvetica), or equivalent sans-serif font, with upper-case
-letters 1.9--2\,mm high {\it as printed in the journal\/}. Smaller 
-or larger lettering (6\,pt--12\,pt) can be used sparingly for exponents, or
-where it increases clarity.  Mathematical symbols should match as closely as
-possible those used by A\&A in the text (i.e., La\TeX\ math fonts).  
-
-
-% \medskip\noindent
-
-% \boxit{\hbox{\heleight This is 8-pt Helvetica: Redshift 0, 1, 10, 1000.}}
-
-% \medskip\noindent
-
-% \boxit{\hbox{\helten This is 10-pt Helvetica: Redshift 0, 1, 10, 1000.}}
-
-% \medskip\noindent
-
-% \boxit{\hbox{\heltwelve This is 12-pt Helvetica: Redshift 0, 1, 10, 1000.}}
 
 \item {\it Line widths for axes, tick marks, etc.\/} Line widths in the range 0.5--0.8\,pt 
 as printed by A\&A work well.  Lines of width 1\,pt are a bit too heavy for
@@ -1461,7 +1116,7 @@ fortunately, is simple: run the numbers parallel to the axis.
 \item {\it Background grid\/}.  If a grid is needed, it should be drawn with
 thin lines (0.5pt?) or grey lines, not dashed or dotted lines.
 
-\item {\it Legends\/}.  A legend within the plot identifying colours and
+\item {\it Legends\/}.  A legend within the plot identifying colors and
 symbols should be included when necessary.  Opaque is preferable to
 transparent, but in any case  the legend should not obscure data.
 \end{enumerate}
@@ -1532,7 +1187,7 @@ The La\TeX\ commands used to produce these are
 \subsection{Maps}
 
 {\Planck\ maps are in general ``pseudocolour'' maps, that is, they map
-intensity or another quantity onto a colour scale chosen to highlight the
+intensity or another quantity onto a color scale chosen to highlight the
 features of interest.  
 
 Making a pseudocolour map of a quantity $z$ involves the following steps.
@@ -1543,27 +1198,27 @@ minimum or maximum as appropriate, or replaced by an ``undefined'' value).
 
 \smallskip\noindent {\it Transfer function\/}. Apply a linear or nonlinear
 transformation to map the range from $z_1$ to $z_2$ to an integer range of
-colour indices (often 0 to 255; 256 different colour levels is usually
+colour indices (often 0 to 255; 256 different color levels is usually
 sufficient, although a larger range can be useful in some cases if the
 software supports it). One very nonlinear transfer function is ``histogram
 equalization;'' while this may be useful for  a first look at a map, it is
 only very rarely appropriate for publication.
 
-\smallskip\noindent {\it Colour map\/}. Choose colour values for each colour
-index (R, G, B or C, M, Y, K values). Choice of a colour map requires careful
+\smallskip\noindent {\it Color map\/}. Choose color values for each color
+index (R, G, B or C, M, Y, K values). Choice of a color map requires careful
 deliberation, depending on what features of the map are to be highlighted.
-``Undefined'' or unmeasured pixel values should be indicated using a colour
-that does not appear in the colour map (e.g., white or grey).
+``Undefined'' or unmeasured pixel values should be indicated using a color
+that does not appear in the color map (e.g., white or grey).
 
 \smallskip
 
 One of three standard transfer functions should be used for most map figures.
 \begin{itemize}
-\item The transfer function/colour map used in figure~15 of {\it Planck 2013
+\item The transfer function/color map used in figure~15 of {\it Planck 2013
 results.~I\/}.  This is suitable for maps with low dynamic range and zero mean
 (e.g., the CMB).
 
-\item The transfer function/colour map used in figures~9 and 10 of
+\item The transfer function/color map used in figures~9 and 10 of
 {\it Planck 2013 results.~I\/}.  This is suitable for maps with high dynamic
 range and zero mean (e.g., the \Planck\ frequency maps).  It can be used for
 $I$, $Q$, and $U$ maps at all frequencies (but note that different scalings
@@ -1576,93 +1231,93 @@ quantities which are inherently positive.
 
 \smallskip
 
-Details of these, with code for use in {\tt IDL} and {\tt Python}, can be found
-in Paperplots.pdf and the code repository (specify).
+%Details of these, with code for use in {\tt IDL} and {\tt Python}, can be found
+%in Paperplots.pdf and the code repository (specify).
 
-If the quantity being mapped is quite different, a completely different colour
-scheme to set it apart may be appropriate.  For example, the ``lensing
-potential map of the Universe'' in the 2013 mission paper (Planck 2013 results.
-I.), figure~18.  These should be discussed with the EB as early as possible to
-ensure consistency between papers.  As far as possible, similar maps should be
-displayed using the same pseudocolour display across all papers. 
+%If the quantity being mapped is quite different, a completely different colour
+%scheme to set it apart may be appropriate.  For example, the ``lensing
+%potential map of the Universe'' in the 2013 mission paper (Planck 2013 results.
+%I.), figure~18.  These should be discussed with the EB as early as possible to
+%ensure consistency between papers.  As far as possible, similar maps should be
+%displayed using the same pseudocolour display across all papers. 
 
-\smallskip\noindent {\it Projection\/}.  Full-sky maps should normally be
-displayed in Mollweide projection in Galactic coordinates.  Sky-patch maps
-should usually be displayed in the orthographic (tan) projection.  When several
-patches are displayed together, they should be on the same scale (mm per
-degree) even if they cover different areas.  Maps from different sources
-intended for direct comparison should always have the same sky coverage, scale,
-and projection; this is best achieved by plotting them with the same graphics
-program.
+%\smallskip\noindent {\it Projection\/}.  Full-sky maps should normally be
+%displayed in Mollweide projection in Galactic coordinates.  Sky-patch maps
+%should usually be displayed in the orthographic (tan) projection.  When several
+%patches are displayed together, they should be on the same scale (mm per
+%degree) even if they cover different areas.  Maps from different sources
+%intended for direct comparison should always have the same sky coverage, scale,
+%and projection; this is best achieved by plotting them with the same graphics
+%program.
+%
+%\smallskip\noindent {\it Resolution\/}.
+%Rendering a map for display on screen or paper involves repixelization.
+%Typically the printer will use no more than 300 pixels per inch.  Beware of
+%information loss in this process.  If the original {\tt HEALPix} pixels are
+%smaller than the print pixels, it is advisable to smooth the map before
+%rendering.  The visual effect of even mild smoothing can be dramatic.
+%Any smoothing should be noted in the caption.
+%
+%\smallskip\noindent {\it Annotation\/}.  Annotation should be added to the map
+%image using a vector-based graphics program, preferably in a separate layer.
+%All maps need proper annotation, including colour scale (always) and scale and
+%location (except for the standard Mollweide all-sky view in Galactic
+%coordinates centred on the Galactic centre).  It should be possible to read
+%off the sky location and pixel value.  The caption for a figure containing a
+%map or maps should state clearly the source of the data (including the name of
+%the file in the PLA when appropriate), the projection, and the coordinate
+%system.  For large-area maps in which the lines of longitude and latitude are
+%strongly curved, a coordinate grid should be superimposed in the map.  For
+%small areas, it may be sufficient to label the coordinates around the edge.
+%The colour bar should be labelled in such a way that the value corresponding
+%to specific colour can be read off precisely.  In general, and definitely
+%for a nonlinear mapping, this requires more than just labelling the end points.
+%} 
+%
+%See Paperplots.pdf and associated scripts at \url{http://github.com/zonca/paperplots/}.
+%
+%\subsection{Requirements for figures with shading}
+%
+%See Paperplots.pdf and associated scripts at \url{http://github.com/zonca/paperplots/}.
+%
+%\subsection{Additional points}
+%
+%\begin{enumerate}
+%\item {\it File formats\/}.  Use graphics software that produces scaleable,
+%vector-graphic output, such as EPS, PDF, or \hbox{SVG}.  Do not use bitmap
+%formats (e.g., PNG, JPEG) except for photographs or images without annotation.
+%If an image needs to be annotated, the bitmap should be embedded in a vector
+%format such as \hbox{PDF}.  Never convert the annotation to a bitmap format.
+%If it is impossible to use a scalable vector format, then use a non-lossy,
+%high-resolution ($>300$\,pixels\,inch\mo) bitmap format such as \hbox{TIFF}.
+%Do not use JPEG: it will blur the annotation.
+%
+%
+%\item {\it File sizes\/}.  Giant files are awkward to deal with, and may make
+%submission to the journal and the arXiv difficult.  There is no specific limit
+%to the number of MB in any particular file, but general guidelines are: not to
+%use more pixels per inch than needed in images; and to apply (modest) JPEG
+%compression if necessary (but do not apply JPEG compression to line drawings
+%or to the annotation in images).  As a specific example, it is not possible to
+%represent all the information in an $N_{\rm side}=2048$ image in a journal
+%figure, so you shouldn't try.  It may be a good idea to smooth images before
+%downsampling them.  Note also that PostScript is an inefficient format for
+%figures; conversion to PDF will usually reduce the file size
+%(without loss) quite effectively.
 
-\smallskip\noindent {\it Resolution\/}.
-Rendering a map for display on screen or paper involves repixelization.
-Typically the printer will use no more than 300 pixels per inch.  Beware of
-information loss in this process.  If the original {\tt HEALPix} pixels are
-smaller than the print pixels, it is advisable to smooth the map before
-rendering.  The visual effect of even mild smoothing can be dramatic.
-Any smoothing should be noted in the caption.
 
-\smallskip\noindent {\it Annotation\/}.  Annotation should be added to the map
-image using a vector-based graphics program, preferably in a separate layer.
-All maps need proper annotation, including colour scale (always) and scale and
-location (except for the standard Mollweide all-sky view in Galactic
-coordinates centred on the Galactic centre).  It should be possible to read
-off the sky location and pixel value.  The caption for a figure containing a
-map or maps should state clearly the source of the data (including the name of
-the file in the PLA when appropriate), the projection, and the coordinate
-system.  For large-area maps in which the lines of longitude and latitude are
-strongly curved, a coordinate grid should be superimposed in the map.  For
-small areas, it may be sufficient to label the coordinates around the edge.
-The colour bar should be labelled in such a way that the value corresponding
-to specific colour can be read off precisely.  In general, and definitely
-for a nonlinear mapping, this requires more than just labelling the end points.
-} 
-
-See Paperplots.pdf and associated scripts at \url{http://github.com/zonca/paperplots/}.
-
-\subsection{Requirements for figures with shading}
-
-See Paperplots.pdf and associated scripts at \url{http://github.com/zonca/paperplots/}.
-
-\subsection{Additional points}
-
-\begin{enumerate}
-\item {\it File formats\/}.  Use graphics software that produces scaleable,
-vector-graphic output, such as EPS, PDF, or \hbox{SVG}.  Do not use bitmap
-formats (e.g., PNG, JPEG) except for photographs or images without annotation.
-If an image needs to be annotated, the bitmap should be embedded in a vector
-format such as \hbox{PDF}.  Never convert the annotation to a bitmap format.
-If it is impossible to use a scalable vector format, then use a non-lossy,
-high-resolution ($>300$\,pixels\,inch\mo) bitmap format such as \hbox{TIFF}.
-Do not use JPEG: it will blur the annotation.
-
-
-\item {\it File sizes\/}.  Giant files are awkward to deal with, and may make
-submission to the journal and the arXiv difficult.  There is no specific limit
-to the number of MB in any particular file, but general guidelines are: not to
-use more pixels per inch than needed in images; and to apply (modest) JPEG
-compression if necessary (but do not apply JPEG compression to line drawings
-or to the annotation in images).  As a specific example, it is not possible to
-represent all the information in an $N_{\rm side}=2048$ image in a journal
-figure, so you shouldn't try.  It may be a good idea to smooth images before
-downsampling them.  Note also that PostScript is an inefficient format for
-figures; conversion to PDF will usually reduce the file size
-(without loss) quite effectively.
-
-
-\item {\it Bounding Boxes\/}.  If you are working with an EPS or PDF file,
-make sure that the bounding box is set correctly within the file.  The bounding
-box should be the minimum required to enclose the visible parts of the figure.
-If you have several figures that should all be displayed on the same scale,
-make sure they have identical bounding boxes.
-{The Python and IDL scripts described and used in Paperplots.pdf and found
-at \url{http://github.com/zonca/paperplots/} show how to do this.  As a last
-resort, white space can be cropped out one figure at a time with {\tt Preview}
-on Apple computers (click on the dotted square in the tool bar, draw a box
-tight to the visible parts of the figure, copy, paste into a new file, and
-save) or with the ``Document Setup/Edit Artboards'' tool in
-{\tt Illustrator}.}
+%\item {\it Bounding Boxes\/}.  If you are working with an EPS or PDF file,
+%make sure that the bounding box is set correctly within the file.  The bounding
+%box should be the minimum required to enclose the visible parts of the figure.
+%If you have several figures that should all be displayed on the same scale,
+%make sure they have identical bounding boxes.
+%{The Python and IDL scripts described and used in Paperplots.pdf and found
+%at \url{http://github.com/zonca/paperplots/} show how to do this.  As a last
+%resort, white space can be cropped out one figure at a time with {\tt Preview}
+%on Apple computers (click on the dotted square in the tool bar, draw a box
+%tight to the visible parts of the figure, copy, paste into a new file, and
+%save) or with the ``Document Setup/Edit Artboards'' tool in
+%{\tt Illustrator}.}
 
 \item {\it More on fonts\/}.  Some graphics software packages use outline or
 ``Hershey'' fonts designed for use with pen-plotters.  They usually include a
@@ -1709,16 +1364,16 @@ with the first letter capitalized and no full stop.  Layering type directly
 over shaded or textured areas and using reversed type (white lettering on a
 coloured background) should be avoided where possible.
 
-\item {\it Colour\/}.  In general, use colour only if it adds significantly to
-the scientific clarity of the figure.  For example, use colour rather than grey
-and dashed lines if there are many components to be distinguished (more than
-three or four, say).  Always provide a colour bar scale for grey-scale or
-pseudo-colour images.  A graphical legend in the figure, or labelling curves
-individually, is better than describing elements in the caption (avoid ``the
-green dotted line'' etc.; the reader may be viewing a black-and-white copy of
-the paper, or may be colour blind).  
+%\item {\it Colour\/}.  In general, use colour only if it adds significantly to
+%the scientific clarity of the figure.  For example, use colour rather than grey
+%and dashed lines if there are many components to be distinguished (more than
+%three or four, say).  Always provide a colour bar scale for grey-scale or
+%pseudo-colour images.  A graphical legend in the figure, or labelling curves
+%individually, is better than describing elements in the caption (avoid ``the
+%green dotted line'' etc.; the reader may be viewing a black-and-white copy of
+%the paper, or may be colour blind).  
 
-\item {\it Consistency of style and colour across figures\/}.  Use a uniform
+\item {\it Consistency of style and color across figures\/}.  Use a uniform
 style for figures throughout the paper.  If a quantity is represented by a red
 dashed line in one figure, use the same style for it in other related figures.  
 
@@ -1734,26 +1389,12 @@ necessary.  In case two panels are referenced in the caption, use
 etc.  To achieve this, type, e.g., |\emph{Left}:| \dots.
 Note that the colon is outside the brackets.
 
-\item {\it Time axes in days\/}.  Time should be plotted in days rather than
-operational days (since an operational day is well-defined operationally, but
-it is not a well-defined time interval).  Time axes labelled with dates are
-typically quite hard to read, and should be avoided.
-
-\item {\it SEDs\/}.  SEDs should be plotted with frequency increasing to the
-right.  If you insist on plotting against wavelength, have it increase to the
-left.  
-
-N.B. --- This instruction was not followed in some Early Results papers, on
-the grounds that long-established traditions in sub-fields of astrophysics
-used different conventions.  Time was short, and we didn't insist.  However,
-consistency across \Planck\ papers takes precedence.  For the Intermediate
-Results and Cosmology and Product Papers, we will insist. 
 
 \item {\it Mathematical symbols in figures\/}.  Mathematical symbols in
 figures should match those in the text. Use \TeX/La\TeX\ to make the symbols
 and paste them into the figure if necessary.
 
-\item {\it Geometric distortion\/}.  {\bf Do not} scale the height and width of a figure independently to make it fit a spot in a paper.  The geometrical distortion introduced is unacceptable.  The consequences are particularly undesirable for Mollweide projections, whose geometrical characteristics are ruined.
+\item {\it Geometric distortion\/}.  {\bf Do not} scale the height and width of a figure independently to make it fit a spot in a paper.  The geometrical distortion introduced is unacceptable.  
 \end{enumerate}
 
 
@@ -1761,23 +1402,23 @@ and paste them into the figure if necessary.
 
 \subsection{General comments on tables}
 
-La\TeX\ packages, including A\&A's aa.cls, try to simplify tables by writing
-elaborate overlays for \verb|\halign|, a basic \TeX\ command.    Unfortunately,
-they introduce their own complexity at the same time, as they reduce
-flexibility and make it harder to do many things that are important for the
-readability of tables, things that are simple enough in \verb|\halign|.  Overall,
-it's easier and better to just use \verb|\halign|.  
-
-\verb|\halign| works just fine inside the table environments of aa.cls.  For a
-one-column table, use the \verb|\begin{table}|\dots\verb|\end{table}| environment.  For
-a two-column table, use the
-\verb|\begin{table*}|\dots\verb||\goodbreak\noindent\dots\verb|\end{table*}| environment.
-A template table file is given in \verb|PlanckTable.tex|, which can be found at
-
-\url{http://www.sciops.esa.int/index.php?project=PLANCK&page=Repositories}.
-
-A tutorial on how to use \verb|\halign| to produce tables for \Planck\ is given in
-Sect.~18.2.  Before that, we list some things to do and not to do in tables.
+%La\TeX\ packages, including A\&A's aa.cls, try to simplify tables by writing
+%elaborate overlays for \verb|\halign|, a basic \TeX\ command.    Unfortunately,
+%they introduce their own complexity at the same time, as they reduce
+%flexibility and make it harder to do many things that are important for the
+%readability of tables, things that are simple enough in \verb|\halign|.  Overall,
+%it's easier and better to just use \verb|\halign|.  
+%
+%\verb|\halign| works just fine inside the table environments of aa.cls.  For a
+%one-column table, use the \verb|\begin{table}|\dots\verb|\end{table}| environment.  For
+%a two-column table, use the
+%\verb|\begin{table*}|\dots\verb||\goodbreak\noindent\dots\verb|\end{table*}| environment.
+%A template table file is given in \verb|PlanckTable.tex|, which can be found at
+%
+%\url{http://www.sciops.esa.int/index.php?project=PLANCK&page=Repositories}.
+%
+%A tutorial on how to use \verb|\halign| to produce tables for \Planck\ is given in
+%Sect.~18.2.  Before that, we list some things to do and not to do in tables.
 
 \begin{enumerate}
 \item Excessive numbers of digits should not be given.  In general, the number
@@ -1802,16 +1443,11 @@ when there is an important scientific point to make by comparing uncertainties.
 However, this should be the exception, and there should be a clear rationale
 for using increased numbers of digits.
 
-\item In Sect.~15, item~4 we emphasized that minus signs can only be typeset in
-math mode, including in tables.  One of the most pervasive mistakes in tables
-in the Early Results papers was the use of hyphens instead of minus signs in
-tables.  {\bf Don't do it!}
-
-\item Footnotes in tables should be identified by roman superscript letters,
-which can be set with \verb|\tablefootmark{}| and \verb|\tablefoottext{}|.  Better yet, make tables with \verb|\halign| as described below starting in Sect.~18.2, and use the prescription given in Sect.~18.15.
-
-\item Don't use check marks in tables as a substitute for ``yes'' or ``Y.''
-It's tacky.  Better still, don't use boolean columns in tables at all.
+%\item Footnotes in tables should be identified by roman superscript letters,
+%which can be set with \verb|\tablefootmark{}| and \verb|\tablefoottext{}|.  Better yet, make tables with \verb|\halign| as described below starting in Sect.~18.2, and use the prescription given in Sect.~18.15.
+%
+%\item Don't use check marks in tables as a substitute for ``yes'' or ``Y.''
+%It's tacky.  Better still, don't use boolean columns in tables at all.
 
 \item Missing values should be indicated by an ellipsis, ``\dots,'' obtained
 most easily with the \verb|\dots| command defined in Planck.tex, which works in
@@ -1819,22 +1455,7 @@ both text and math modes.  Don't try to produce an ellipsis with periods (full
 stops).  The spacing will be wrong...
 
 \item When entries in a column are to be compared, align the decimal points in
-both the quantity and the uncertainty (Example 1 in Table~2).  When entries in
-a column are not to be compared, centre the entries and uncertainties in the
-column.  Do not align the decimal point (Example~2 in Table~2).  {\bf Note
-that the style and placement of the table numbers and captions in the examples
-in this section are not those used by \hbox{A\&A}.}  The A\&A scheme is better
-suited to two-column output and gives weird-looking results in the
-single-column format we use here.  The \verb|\caption| command from A\&A La\TeX\
-used in the \verb|PlanckTable.tex| template file produces results in the standard
-A\&A format.  A\&A prefers the caption to be ''as concise as possible so all
-additional description should be displayed in a footnote to the table.''  As
-you may have noticed in the 2013 results papers, the copy editors will change
-long captions to title phrases and put the rest in the Notes.  Since it's
-easier for us to check footnotes to tables if they are separate, and A\&A will
-change to their preferred format at the end, follow the prescription for
-footnotes given in Sect.~18.15.
-
+both the quantity and the uncertainty.  
 
 % \midinsert
 % \begingroup
@@ -1875,15 +1496,15 @@ footnotes given in Sect.~18.15.
 % \endgroup
 % \endinsert
 
-\item Tables should have a double rule at the top, a single rule between
-headings and the body of the table, and a rule at the bottom.  See Sect.~18.9.
-
-\item The spacing of lines in tables often requires no special attention, at
-least when there is no complicated structure.  However, one case that occurs
-fairly frequently in \Planck\ papers and requires special attention is that of
-table values with asymmetrical errors (Table~3).  Extra space in needed and
-easily obtained in this example with \verb|\noalign{\vskip 4 pt}| between the lines
-(see Sect.~18.7).
+%\item Tables should have a double rule at the top, a single rule between
+%headings and the body of the table, and a rule at the bottom.  See Sect.~18.9.
+%
+%\item The spacing of lines in tables often requires no special attention, at
+%least when there is no complicated structure.  However, one case that occurs
+%fairly frequently in \Planck\ papers and requires special attention is that of
+%table values with asymmetrical errors (Table~3).  Extra space in needed and
+%easily obtained in this example with \verb|\noalign{\vskip 4 pt}| between the lines
+%(see Sect.~18.7).
 
 % \midinsert
 % \begingroup
@@ -1927,20 +1548,20 @@ easily obtained in this example with \verb|\noalign{\vskip 4 pt}| between the li
 
 % \endinsert
 
-\item Blank spaces in the input La\TeX\ file are often ignored, and adding
-spaces in table input files can improve the human readability of a table.  But
-there is one case in tables to watch out for.   In \verb|\halign|, spaces following
-ampersands before a table entry are ignored; however, {\it spaces between a
-table entry and the next ampersand are {\bf not} ignored}, and change the
-spacing of column entries.  Consider the following lines, used in Table~4.  
-
-\verb|Quantity&15&4&10&8\cr|
-
-\verb|Quantity& 15& 4& 10& 8\cr|
-
-\verb|Quantity& 15 & 4 & 10 & 8 \cr|
-
-\medskip
+%\item Blank spaces in the input La\TeX\ file are often ignored, and adding
+%spaces in table input files can improve the human readability of a table.  But
+%there is one case in tables to watch out for.   In \verb|\halign|, spaces following
+%ampersands before a table entry are ignored; however, {\it spaces between a
+%table entry and the next ampersand are {\bf not} ignored}, and change the
+%spacing of column entries.  Consider the following lines, used in Table~4.  
+%
+%\verb|Quantity&15&4&10&8\cr|
+%
+%\verb|Quantity& 15& 4& 10& 8\cr|
+%
+%\verb|Quantity& 15 & 4 & 10 & 8 \cr|
+%
+%\medskip
 
 % \midinsert
 % \begingroup
@@ -1976,10 +1597,10 @@ spacing of column entries.  Consider the following lines, used in Table~4.
 % \endgroup
 % \endinsert
 
-\noindent The first two lines produce identical output, but the
-third line produces different output.  Given the importance of precise
-alignment of column entries (as discussed above in Table~2), the rule is
-{\bf no spaces before ``\verb|&|''s and ``\verb|\cr|''s}.
+%\noindent The first two lines produce identical output, but the
+%third line produces different output.  Given the importance of precise
+%alignment of column entries (as discussed above in Table~2), the rule is
+%{\bf no spaces before ``\verb|&|''s and ``\verb|\cr|''s}.
 
 \end{enumerate}
 

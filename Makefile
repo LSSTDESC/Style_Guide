@@ -58,7 +58,7 @@ DIFF = $(DIFPRE)$(THISBRANCH)
 ### fake targets
 .PHONY: default bib clean diff gitignore detach $(PAPER)
 # this ensures that the version to latexdiff against is always updated
-.PHONY: $(DRAFT).tex
+#.PHONY: $(DRAFT).tex
 
 # if called with no target specified, compile the paper and the differences
 # but skip the differences if we're on MASTERBRANCH currently, or not in a git repo at all
@@ -91,7 +91,7 @@ $(DIFF).pdf: $(DIFF).tex $(OTHERTEX) $(FIGURES)
 	./maketex $<
 
 $(DIFF).tex: $(DRAFT).tex $(PAPER).tex
-	latexdiff $^ | grep -v multicolumn > $@
+	latexdiff --exclude-textcmd="section,subsection,subsubsection,multicolumn" $^ > $@
 
 $(DRAFT).tex:
 	git show $(MASTERBRANCH):$(PAPER).tex > $@

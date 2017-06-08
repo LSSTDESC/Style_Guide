@@ -83,7 +83,7 @@ The start\_paper package is available to facilitate DESC paper development, in L
 \subsection{DESC\_macros.tex}
 
 La\TeX\ commands useful and specific to DESC papers are found in
-\verb|DESC\_macros.tex|, available <somewhere>.  To use, insert the line
+\verb|DESC\_macros.tex|, available {\bf somewhere}.  To use, insert the line
 \verb|\input DESC\_macros| after the initial \verb|\documentclass| command in your input
 file.
 
@@ -765,7 +765,7 @@ The use of British or American spelling depends on the journal.  Table {\bf refe
 &&\\
 &&\medskip\\
 
-\multirow[t]{6}{=}{{\bf Other examples}\\A few more British versions that should be used in \Planck\ papers.} &artefact& artifact\\
+\multirow[t]{6}{=}{{\bf Other examples}\\A few more British versions that should be used in Planck papers.} &artefact& artifact\\
 & disc  (except for a computer disk)& disk\\
 & formulae& formulas\\
 & grey& gray\\
@@ -977,7 +977,7 @@ Derivatives should be written with italic ``{\it d\/}''s, e.g., $dy/dx$.
 A\&A writes derivatives with roman ``d''s, e.g., ${\rm d}y/{\rm d}x$, and will
 change $d \rightarrow $ d in the proof stage.  The reason for not following
 the A\&A style is that the \TeX\ input is more straightforward and less prone
-to error with italic ``{\it d\/}''s, and the \Planck\ papers will require fewer
+to error with italic ``{\it d\/}''s, and the Planck papers will require fewer
 corrections in the final edit stage.  A\&A can then make the corrections
 uniformly. {\bf SD:  Do we have a preference?}
 
@@ -1186,7 +1186,7 @@ The La\TeX\ commands used to produce these are
 
 \subsection{Maps}
 
-{\Planck\ maps are in general ``pseudocolour'' maps, that is, they map
+{Planck maps are in general ``pseudocolour'' maps, that is, they map
 intensity or another quantity onto a color scale chosen to highlight the
 features of interest.  
 
@@ -1220,7 +1220,7 @@ results.~I\/}.  This is suitable for maps with low dynamic range and zero mean
 
 \item The transfer function/color map used in figures~9 and 10 of
 {\it Planck 2013 results.~I\/}.  This is suitable for maps with high dynamic
-range and zero mean (e.g., the \Planck\ frequency maps).  It can be used for
+range and zero mean (e.g., the Planck frequency maps).  It can be used for
 $I$, $Q$, and $U$ maps at all frequencies (but note that different scalings
 are needed for the $I$ maps at 545 and 853\,GHz, which have different units).
 
@@ -1229,7 +1229,7 @@ previous item, suitable for maps of polarization amplitude $P$ or foregrounds,
 quantities which are inherently positive.  
 \end{itemize}
 
-\smallskip
+%\smallskip
 
 %Details of these, with code for use in {\tt IDL} and {\tt Python}, can be found
 %in Paperplots.pdf and the code repository (specify).
@@ -1279,45 +1279,11 @@ quantities which are inherently positive.
 %\subsection{Requirements for figures with shading}
 %
 %See Paperplots.pdf and associated scripts at \url{http://github.com/zonca/paperplots/}.
-%
-%\subsection{Additional points}
-%
-%\begin{enumerate}
-%\item {\it File formats\/}.  Use graphics software that produces scaleable,
-%vector-graphic output, such as EPS, PDF, or \hbox{SVG}.  Do not use bitmap
-%formats (e.g., PNG, JPEG) except for photographs or images without annotation.
-%If an image needs to be annotated, the bitmap should be embedded in a vector
-%format such as \hbox{PDF}.  Never convert the annotation to a bitmap format.
-%If it is impossible to use a scalable vector format, then use a non-lossy,
-%high-resolution ($>300$\,pixels\,inch\mo) bitmap format such as \hbox{TIFF}.
-%Do not use JPEG: it will blur the annotation.
-%
-%
-%\item {\it File sizes\/}.  Giant files are awkward to deal with, and may make
-%submission to the journal and the arXiv difficult.  There is no specific limit
-%to the number of MB in any particular file, but general guidelines are: not to
-%use more pixels per inch than needed in images; and to apply (modest) JPEG
-%compression if necessary (but do not apply JPEG compression to line drawings
-%or to the annotation in images).  As a specific example, it is not possible to
-%represent all the information in an $N_{\rm side}=2048$ image in a journal
-%figure, so you shouldn't try.  It may be a good idea to smooth images before
-%downsampling them.  Note also that PostScript is an inefficient format for
-%figures; conversion to PDF will usually reduce the file size
-%(without loss) quite effectively.
 
+\subsection{Additional points}
 
-%\item {\it Bounding Boxes\/}.  If you are working with an EPS or PDF file,
-%make sure that the bounding box is set correctly within the file.  The bounding
-%box should be the minimum required to enclose the visible parts of the figure.
-%If you have several figures that should all be displayed on the same scale,
-%make sure they have identical bounding boxes.
-%{The Python and IDL scripts described and used in Paperplots.pdf and found
-%at \url{http://github.com/zonca/paperplots/} show how to do this.  As a last
-%resort, white space can be cropped out one figure at a time with {\tt Preview}
-%on Apple computers (click on the dotted square in the tool bar, draw a box
-%tight to the visible parts of the figure, copy, paste into a new file, and
-%save) or with the ``Document Setup/Edit Artboards'' tool in
-%{\tt Illustrator}.}
+\begin{enumerate}
+
 
 \item {\it More on fonts\/}.  Some graphics software packages use outline or
 ``Hershey'' fonts designed for use with pen-plotters.  They usually include a
@@ -1398,7 +1364,7 @@ and paste them into the figure if necessary.
 \end{enumerate}
 
 
-\section{TABLES}
+\section{TABLES} \label{sec:tables}
 
 \subsection{General comments on tables}
 
@@ -1417,7 +1383,7 @@ and paste them into the figure if necessary.
 %
 %\url{http://www.sciops.esa.int/index.php?project=PLANCK&page=Repositories}.
 %
-%A tutorial on how to use \verb|\halign| to produce tables for \Planck\ is given in
+%A tutorial on how to use \verb|\halign| to produce tables for Planck is given in
 %Sect.~18.2.  Before that, we list some things to do and not to do in tables.
 
 \begin{enumerate}
@@ -1501,7 +1467,7 @@ both the quantity and the uncertainty.
 %
 %\item The spacing of lines in tables often requires no special attention, at
 %least when there is no complicated structure.  However, one case that occurs
-%fairly frequently in \Planck\ papers and requires special attention is that of
+%fairly frequently in Planck papers and requires special attention is that of
 %table values with asymmetrical errors (Table~3).  Extra space in needed and
 %easily obtained in this example with \verb|\noalign{\vskip 4 pt}| between the lines
 %(see Sect.~18.7).

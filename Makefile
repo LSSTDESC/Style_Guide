@@ -91,7 +91,7 @@ $(DIFF).pdf: $(DIFF).tex $(OTHERTEX) $(FIGURES)
 	./maketex $<
 
 $(DIFF).tex: $(DRAFT).tex $(PAPER).tex
-	latexdiff $^ | grep -v multicolumn > $@
+	latexdiff --exclude-textcmd="section,subsection,subsubsection,multicolumn" $^ > $@
 
 $(DRAFT).tex:
 	git show $(MASTERBRANCH):$(PAPER).tex > $@

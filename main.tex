@@ -64,6 +64,8 @@ This Style Guide is intended to help authors of DESC collaboration papers prepar
 high-quality manuscripts in a uniform style, and to make the process of internal reviewing more efficient. It supplements the instructions
 to authors provided by the journals.  The advice in this guide is applicable to other DESC products, such as DESC Notes and conference papers, but some content is specific to journal papers.
 
+\FIXME{AM: Link to individual journal author instructions from here. Also link to the publication policy and author guide.}
+
 %\url{http://www.aanda.org/doc_journal/instructions/aa_instructions.pdf}.
 
 %\noindent A\&A also has a useful English usage guide, available at 
@@ -83,9 +85,11 @@ The start\_paper package is available to facilitate DESC paper development, in L
 \subsection{DESC\_macros.tex}
 
 La\TeX\ commands useful and specific to DESC papers are found in
-\verb|DESC\_macros.tex|, available {\bf somewhere}.  To use, insert the line
-\verb|\input DESC\_macros| after the initial \verb|\documentclass| command in your input
+\verb|DESC_macros.tex|, available {\bf somewhere}.  To use, insert the line
+\verb|\input{DESC_macros}| after the initial \verb|\documentclass| command in your input
 file.
+
+\COMMENT{AM: We eventually need to merge in the real lsstdesc\_macros file, if we intend to demo it (though I'm not sure we need to). I've briefly and inconclusively discussed with Phil the best way of distributing DESC macros and styles (e.g.\  the note style), but details are tbd.}
 
 \subsection{Active links}
 
@@ -97,6 +101,8 @@ Occasionally La\TeX\ will complain because of a hyperlink being split across
 a page break --- in such cases, then simplest solution is to find the
 offending link and enclose it within \verb|\mbox{}|.
 
+\COMMENT{AM: Add note about the `draft' option to hyperref.}
+
 
 \section{HOW TO REFER TO DESC AND LSST \label{sec:lsst_refs}}
 
@@ -105,6 +111,8 @@ Some advice goes here about how to refer to DESC, LSST, the LSST Project, and th
 Footnote a URL for the DESC Web site?
 
 LSST should be spelled out at the first use (in both the abstract and the main text of the paper).
+
+\COMMENT{AM: We may eventually need a standardized of referring to data releases, analogous to the different Planck surveys. General comments about when other experiments get italicized would be good, if they don't vary too much among journals (or just pointing out that they do would be good).}
 
 \subsection{The possessive form}
 
@@ -128,6 +136,8 @@ acronym is determined by how the acronym is conventionally pronounced,
 so it is ``an SFR estimate,'' but ``a UFO.''  Although most acronyms are
 pronounced as a series of letters, there are exceptions, which can also affect
 the article, e.g., ``a NASA mission.''
+
+\FIXME{AM: The removed ``Title'' section must be resurrected, if only for Key papers. At least, I assume there will be some standard titling of them.}
 
 \section{ABSTRACT}
 
@@ -157,6 +167,9 @@ rather than just made up!  Key words should be separated by en-dashes (\verb|--|
 \TeX), not some other form of abbreviation.
 
 {\bf SD:  Is there an ApJ-specific list of keywords, or are they standardized?}
+\COMMENT{AM: Each journal seems to have its own keyword list, although, in practice, they may actually be standardized.}
+
+\FIXME{AM: ``Authors and Acknowledgments'' should probably exist here, even if it's just a pointer to the author guide.}
 
 \section{UNITS}
 
@@ -180,7 +193,7 @@ density values were converted to janskys,''  not ``janskies.''
 
 %\item Use SI units. Avoid as far as possible non-SI units (including ergs,
 %inches, cm, cu.ft.). Use the correct SI abbreviations, e.g., ``kV'' not
-I %``KV,'' ``GHz'' not ``Ghz,''
+%``KV,'' ``GHz'' not ``Ghz,''
 
 %\item Microns as a unit of length should be written ``$\!$\micron,'' defined in
 %DESC\_macros.tex as both \verb|\micron| and \verb|\microns| (so you don't have to remember).
@@ -216,8 +229,10 @@ work well.  For example, \verb|2\pdeg8|, \verb|2\parcm8|, and \verb|2\parcs8| pr
 math mode.  A\&A provides \verb|\degr|, \verb|\arcmin|, \verb|\arcsec|, \verb|\fdg|, \verb|\farcm|, and
 \verb|\farcs|, for the same purpose, but the digits and angle symbols are not
 spaced as well.
+\FIXME{AM: Inconsistency with actual lsstdesc\_macros.} \COMMENT{AM: I believe that $2.8''$-type formatting is also generally acceptable, not to mention less absurd-looking, as long as one format or the other is used consistently.}
 
 \item Use ``${\rm deg}^2$'' rather than ``square degrees'' or ``sq.\ deg.''
+\COMMENT{AM: I'd advocate consistency within a given paper over conformity across papers here.}
 
 \item It is good practice to try to avoid ambiguity by making sure that units
 apply to both values and uncertainties, e.g., $x=(3\pm1)\,$m, not $x=3\pm1\,$m.
@@ -304,7 +319,7 @@ A\&A prefer to use ``S/N'' for ``signal-to-noise ratio,'' rather than ``SNR''
 to go with ``S/N'' (even if we suspect that the two uses of ``SNR'' would
 always be distinguished by context).  Note that this is an abbreviation for
 ``signal-to-noise ratio'' and not ``signal-to-noise.''
-
+\COMMENT{AM: Either abbreviation should be defined in-text the first time, like any other acronym.}
 
 \end{enumerate}
 
@@ -319,6 +334,7 @@ Author's Guide provides no explicit instruction on this point, and is itself
 inconsistent in its use of a following comma.  For uniformity, we will adopt
 use of the comma.  The question of capitalization is irrelevant, because
 ``i.e.'' and ``e.g.'' should not be used at the beginning of a sentence.
+\COMMENT{AM: Add some warning about how latex includes extra space after periods by default. So, an extra espace is needed for i.e., e.g.\ or anything similar if they should be followed by a normal space.}
 
 \item Precise rules for the use of commas are complicated.  As a rough
 guide, if adding a comma would help the reader to take a brief pause, which
@@ -335,9 +351,11 @@ more, e.g., ``chocolate, strawberry, and vanilla.''  The same applies to
 \item According to the A\&A Author's Guide, ``The following expressions should
 always be abbreviated unless they appear at the beginning of a sentence (i.e.,
 Sect., Sects., Fig., Figs., Col., Cols.).  Table is never abbreviated.''  {\bf SD:  Do we agree?}
+\COMMENT{AM: I prefer to spell these out always, and let the journal abbreviate them if they insist.}
 
 \item  Every internal reference to a figure or table should use
 \verb|\ref{label}| to ensure that a hyperlink is created in the final PDF file.
+\COMMENT{AM: Seems like a strange place for this note.}
 
 
 \item  The correct way to refer to a figure, table, or equation in
@@ -373,13 +391,14 @@ reserving ``universe'' for different theoretical possibilities.
 %possible.
 
 \item Software program names should be set in the fixed-width ``tt'' font,
-e.g., {\tt HEALPix}.
+e.g., {\tt HEALPix}. \COMMENT{AM: journal-specific}
 %, {\tt PLIK}, and {\tt Commander} (obtained with
 %\verb|{\tt HEALPix}|, \verb|{\tt PLIK}|, and \verb|{\tt Commander}|). 
 
 
 \item The abbreviation of declination is ``Dec,'' not ``DEC'' or ``Dec.''
 The abbreviation of right ascension is ``RA,'' not ``R.A.''
+\COMMENT{AM: News to me\ldots}
 
 \item  Words describing directions, such as ``north,'' ``southwest,'' and
 ``eastern,'' should not be capitalized unless they are part of a proper noun
@@ -394,7 +413,7 @@ Italics should be reserved for emphasis.
 Don't use italics for expressions in Latin (or other languages).  Italics should
 also not be used for special phrases; it is better to define a special phrase
 using quotations the first time it is introduced, and leave it at that.
-
+\COMMENT{AM: note differing uses of emph and it}
 
 \item
 Itemized lists should be properly punctuated.  This is achieved through one
@@ -447,6 +466,7 @@ closely-related papers and any papers yours depends on, but don't review the
 whole history of the subject.
 
 \item In the case of multiple citations for the same topic, the references should be cited in chronological order; if there's some reason to cite them out of order, the reason should be explained in the text.
+\COMMENT{AM: \ldots except that multiple references to the same authors in a list get grouped together, right? As in (Digel et~al. 2001; Mantz et~al. 2003, 2010; Peiris et~al. 2006).}
 
 \item There will be many DESC papers and we will fatigue readers if we
 reproduce the same description of LSST in every one.
@@ -557,8 +577,10 @@ no comma should precede ``that,'' but a comma should always precede ``which.''
 
 \item ``Between A and B,'' ``from A to B,'' or ``in the range A--B'' are
 \hbox{OK}.  ``Between A to B,'' ``from A--B,'' and ``between A--B'' are not.
+\COMMENT{AM: Prohibition on minus signs in this context.}
 
 \item For the plural of ``halo'' write ``halos,'' not ``haloes.''
+\COMMENT{AM: Might fall afoul of British spelling, when required.}
 
 \item It is better to use the term ``uncertainties'' than ``errors.''  When
 giving uncertainties, state the confidence interval and its probability
@@ -590,7 +612,7 @@ result is ``interesting,'' ``important,'' or ``critical.''
 subjects and need a plural verb, e.g., ``A and B are\dots.''
 
 \item Avoid using ``systematic'' or ``systematics'' as a noun.
-Use ``systematic errors'' or ``systematic effects.'' 
+Use ``systematic errors'' (or ``uncertainties''!) or ``systematic effects.'' 
 
 \item The names of things don't usually need to be capitalized, e.g.,
 ``orthomode transducer,'' not ``Orthomode Transducer,'' even when defining an
@@ -641,6 +663,7 @@ conversational emails, but when writing a paper its intended meaning is often
 unclear.  Instead put the comment at the end of the previous sentence (in
 brackets, or after a semi-colon), convert to a footnote if deemed necessary, or
 simply remove the brackets altogether.  {\bf SD:  I'm not getting this one}
+\COMMENT{AM: Agreed; journal styles differ on this anyway.}
 
 \item Use ``reliability'' rather than ``purity'' for the probability that a
 source is real.  For example, the reliability of the catalogue is 0.95.
@@ -943,6 +966,7 @@ that you are referring to with \verb|\ref| must have the corresponding \verb|\la
 same way as ordinary text.''  This means that displayed equations should
 usually be followed by a comma or period, which generally look better preceded
 by a thin space \verb|\,| or a medium space \verb|\>|.
+\COMMENT{AM: `label' should also be the mechanism for referring to figures, tables and sections. Let's make this a separate point from the punctuation note.}
 
 \item
 {\it Equation numbering\/}.  Although not obligatory, it is good practice to
@@ -980,6 +1004,7 @@ the A\&A style is that the \TeX\ input is more straightforward and less prone
 to error with italic ``{\it d\/}''s, and the Planck papers will require fewer
 corrections in the final edit stage.  A\&A can then make the corrections
 uniformly. {\bf SD:  Do we have a preference?}
+\COMMENT{AM: I don't see why we would. (Some journals use a special character rather than roman `d', so I've personally always found it easiest to write \$dx\$ myself and let them deal with it.)}
 
 \end{enumerate}
 
@@ -1034,6 +1059,7 @@ built-in abbreviations, e.g., \verb|\aap| for ``A\&A,'' \verb|\apj| for ``ApJ,''
 
 \item
 For papers with more than five authors, ApJ requires that the first three authors be listed before `et al.'
+\COMMENT{AM: Ok, {\bf but} I would think in this section we just need to tell people to use the bibsty provided by their journal (and probably distributed in start\_paper) and/or refer to the journal's guidelines. It's not difficult to modify a bibsty so that it prints arXiv numbers sensible instead of the egregious ``Arxiv e-prints''; similarly, it might be nice to modify the standard bibstys to include hyperlinks to ADS, when they don't already. And also refer them to the common DESC bib file, assuming we have one.}
 
 \end{enumerate}
 
@@ -1085,7 +1111,11 @@ extraneous white space around figures.
 In general, the first part of a caption should be a phrase ending with a period that functions as a title. This means that captions usually will {\it not\/} start with an article (``a'' or ``the'').  However, there may be exceptions, and brevity should be the rule!  Captions should certainly never start with ``This
 figure shows \dots''. {\bf SD:  I agree with the last part but not the first}
 
+\COMMENT{AM: I think we should keep some of the exhortions that appeared in the original. (1) Use vector graphics whenever feasible. (2) Produce graphics of (or close to) the size they will have in the paper. We might also encourage people to produce versions of figures with extra-large labels for use in talks. In addition, (3) captions should be descriptive enough that the basic content and message of a figure are understandable, independent of the main text.}
+
 \subsection{Line plots}
+
+\COMMENT{AM: This section seems to mean ``anything other than images and maps'', not strictly ``line plots''.}
 
 \begin{enumerate}
 \item {\it Format\/}. Output should be EPS, PDF, or other vector format
@@ -1129,6 +1159,8 @@ width (Fig.~1), 120\,mm width (Fig.~2), and two-column width (Fig.~3).
 them, see Paperplots.pdf and associated scripts at}
 
 \url{http://github.com/zonca/paperplots/}
+
+\FIXME{AM: side captions are definitely not accepted by all journals.}
 
 \def\fcaption{Comparison of the joint power spectrum estimates from the three 
 CBI mosaics with the measurements from BOOMERANG, DASI, and MAXIMA.  The 
@@ -1186,7 +1218,7 @@ The La\TeX\ commands used to produce these are
 
 \subsection{Maps}
 
-{Planck maps are in general ``pseudocolour'' maps, that is, they map
+{Astronomical maps are in general ``pseudocolour'' maps, that is, they map
 intensity or another quantity onto a color scale chosen to highlight the
 features of interest.  
 
@@ -1342,6 +1374,7 @@ coloured background) should be avoided where possible.
 \item {\it Consistency of style and color across figures\/}.  Use a uniform
 style for figures throughout the paper.  If a quantity is represented by a red
 dashed line in one figure, use the same style for it in other related figures.  
+\COMMENT{AM: In some circumstances, we will almost certainly want consistent color schemes used across papers. I'm thinking of cosmology parameter constraint plots in key papers, at least. That might be one application where we do want to provide script(s) to ensure that the key survey results are presented in a uniform-looking way.}
 
 \item {\it Multipanel figures\/}.  For a large set of similar figures (e.g.,
 SEDs for many objects), use a multipanel figure, which can extend over multiple
@@ -1367,6 +1400,8 @@ and paste them into the figure if necessary.
 \section{TABLES} \label{sec:tables}
 
 \subsection{General comments on tables}
+
+\COMMENT{AM: I would advocate something similar to what I said for figures: there should be a caption (or equivalent notes) that make the content understandable without having to refer to the text. I have seen far too many papers where neither the table title, its notes, nor the main text are sufficient to know wtf is being listed in a given column. (ApJ's caption-less table style is particularly bad for this.)}
 
 %La\TeX\ packages, including A\&A's aa.cls, try to simplify tables by writing
 %elaborate overlays for \verb|\halign|, a basic \TeX\ command.    Unfortunately,
@@ -1418,10 +1453,10 @@ for using increased numbers of digits.
 \item Missing values should be indicated by an ellipsis, ``\dots,'' obtained
 most easily with the \verb|\dots| command defined in Planck.tex, which works in
 both text and math modes.  Don't try to produce an ellipsis with periods (full
-stops).  The spacing will be wrong...
+stops).  The spacing will be wrong... \COMMENT{AM: I think em-dashes are also sometimes used.}
 
 \item When entries in a column are to be compared, align the decimal points in
-both the quantity and the uncertainty.  
+both the quantity and the uncertainty. \COMMENT{AM: Also, align $\pm$ symbols when possible.} \FIXME{AM: We can add some pointers re: how to do these things. Some example wouldn't be too hard to dredge up, though nothing as involved as the ones in the Planck guide.}
 
 % \midinsert
 % \begingroup
@@ -1577,6 +1612,8 @@ both the quantity and the uncertainty.
 \appendix
 
 \section{Use of commas}
+
+\COMMENT{AM: Move into ``English'' section?}
 
 \noindent
 Inserting commas can be helpful for making sentences readable.

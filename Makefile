@@ -19,6 +19,8 @@ MACRODIR ?= macros desc-tex/bst desc-tex/styles
 
 # instructions for creating DESCTEX
 MAKEDTDIR ?= git submodule add git@github.com:LSSTDESC/desc-tex.git
+# instructions for cloning DESCTEX, if necessary
+CLONEDT ?= git submodule update --init
 
 # prefix for difference files
 DIFPRE ?= diff_
@@ -84,6 +86,9 @@ gitignore: .gitignore
 
 $(DESCTEX):
 	$(MAKEDTDIR)
+
+$(DESCTEX)/.git:
+	$(CLONEDT)
 
 $(PAPER).pdf $(PAPER).aux $(PAPER).bbl $(PAPER).blg: $(PAPER).tex $(OTHERTEX) $(FIGURES)
 	./maketex $< $(LATEX) $(BIBTEX)

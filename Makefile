@@ -17,8 +17,6 @@ DESCTEX ?= desc-tex
 BIBDIR ?= desc-tex/bib
 MACRODIR ?= macros desc-tex/bst desc-tex/styles
 
-# instructions for creating DESCTEX
-MAKEDTDIR ?= git submodule add git@github.com:LSSTDESC/desc-tex.git
 # instructions for cloning DESCTEX, if necessary
 CLONEDT ?= git submodule update --init
 
@@ -83,9 +81,6 @@ gitignore: .gitignore
 
 
 ### rules!
-
-$(DESCTEX):
-	$(MAKEDTDIR)
 
 $(DESCTEX)/.git:
 	$(CLONEDT)

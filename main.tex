@@ -22,7 +22,8 @@
 
 \usepackage{sidecap}
 
-\input{macros/DESC_macros}
+%\input{macros/DESC_macros}
+\usepackage{desc-tex/styles/lsstdesc_macros}
 
 \begin{document}
 
@@ -85,11 +86,13 @@ The start\_paper package is available to facilitate DESC paper development, in L
 \subsection{DESC\_macros.tex}
 
 La\TeX\ commands useful and specific to DESC papers are found in
-\verb|DESC_macros.tex|, available {\bf somewhere}.  To use, insert the line
-\verb|\input{DESC_macros}| after the initial \verb|\documentclass| command in your input
+\verb|lsstdesc_macros.sty|, available as part of the \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} GitHub project, or directly downloadable \href{https://raw.githubusercontent.com/LSSTDESC/desc-tex/master/styles/lsstdesc_macros.sty?token=AKdGNisspyfcn5HL4yoV16o5vQh58v13ks5ZVaazwA%3D%3D}{here}.  To use, insert the line
+\begin{verbatim}
+\usepackage{relative/path/to/lsstdesc_macros}
+\end{verbatim}
+after the initial \verb|\documentclass| command in your input
 file.
 
-\COMMENT{AM: We eventually need to merge in the real lsstdesc\_macros file, if we intend to demo it (though I'm not sure we need to). I've briefly and inconclusively discussed with Phil the best way of distributing DESC macros and styles (e.g.\  the note style), but details are tbd.}
 
 \subsection{Active links}
 
@@ -180,7 +183,7 @@ italics!!  For example, $g = 9.8$\,m\,s$^{-2}$ is correct,
 but $g=9.8\,m\,s^{-2}$ is
 {\bf wrong}.  It may take extra work to keep the units out of math mode, or
 control the font inside math mode, but it must be done!  Commands for many
-common units are defined in Planck.tex so that they can be used in or out of
+common units are defined in \verb|lsstdesc_macros.sty| so that they can be used in or out of
 math mode, producing the correct (roman) fonts in either case.
 
 \item Units should {\it always\/} be singular, {\it never\/} plural.  For
@@ -211,7 +214,7 @@ density values were converted to janskys,''  not ``janskies.''
 notation at the first use, e.g., ``the flux density at 70\,GHz,
 $S_{70}$ ,$\ldots$.''
 
-\item Write km\,s\mo, {\it not\/} km/s.  This applies to all compound
+\item Write km\,s$^{-1}$, {\it not\/} km/s.  This applies to all compound
 units, e.g., MJy\,sr$^{-1}$, rather than MJy/sr.
 
 \item Write ``s,'' {\it not\/} ``sec.''
@@ -219,17 +222,18 @@ units, e.g., MJy\,sr$^{-1}$, rather than MJy/sr.
 %\item In figure labels and tables, enclose units in brackets, e.g.,
 %``Time [s],''  ``Frequency [Hz],'' ``Sensitivity [\muKs].''  '
 
-\item Degrees, arcminutes, and arcseconds are generally typeset as symbols,
-\deg, \arcm, \arcs, which can be obtained with \verb|\deg|, \verb|\arcm|, and \verb|\arcs|,
-defined in Planck.tex.  Non-integer values should place the symbol over the
-decimal point.  Spacing is a bit tricky because of the different shapes of the
-digits 0--9, but the commands \verb|\pdeg|, \verb|\parcm|, and \verb|\parcs| in DESC\_macros.tex
-work well.  For example, \verb|2\pdeg8|, \verb|2\parcm8|, and \verb|2\parcs8| produce 2\pdeg8,
-2\parcm8, and 2\parcs8, respectively.  All of these commands work in or out of
-math mode.  A\&A provides \verb|\degr|, \verb|\arcmin|, \verb|\arcsec|, \verb|\fdg|, \verb|\farcm|, and
-\verb|\farcs|, for the same purpose, but the digits and angle symbols are not
-spaced as well.
-\FIXME{AM: Inconsistency with actual lsstdesc\_macros.} \COMMENT{AM: I believe that $2.8''$-type formatting is also generally acceptable, not to mention less absurd-looking, as long as one format or the other is used consistently.}
+% \item Degrees, arcminutes, and arcseconds are generally typeset as symbols,
+% \deg, \arcm, \arcs, which can be obtained with \verb|\deg|, \verb|\arcm|, and \verb|\arcs|,
+% defined in Planck.tex.  Non-integer values should place the symbol over the
+% decimal point.  Spacing is a bit tricky because of the different shapes of the
+% digits 0--9, but the commands \verb|\pdeg|, \verb|\parcm|, and \verb|\parcs| in DESC\_macros.tex
+% work well.  For example, \verb|2\pdeg8|, \verb|2\parcm8|, and \verb|2\parcs8| produce 2\pdeg8,
+% 2\parcm8, and 2\parcs8, respectively.  All of these commands work in or out of
+% math mode.  A\&A provides \verb|\degr|, \verb|\arcmin|, \verb|\arcsec|, \verb|\fdg|, \verb|\farcm|, and
+% \verb|\farcs|, for the same purpose, but the digits and angle symbols are not
+% spaced as well.
+% \FIXME{AM: Inconsistency with actual lsstdesc\_macros.} \COMMENT{AM: I believe that $2.8''$-type formatting is also generally acceptable, not to mention less absurd-looking, as long as one format or the other is used consistently.}
+\item \FIXME{Removed item about placement of \degree, $'$, $''$ symbols wrt decimal points, as it used macros we don't have.}
 
 \item Use ``${\rm deg}^2$'' rather than ``square degrees'' or ``sq.\ deg.''
 \COMMENT{AM: I'd advocate consistency within a given paper over conformity across papers here.}
@@ -939,12 +943,12 @@ $<$ and $>$.  Note that ``{\tt <}'' and ``{\tt >}'' must never be used outside
 math mode.
 
 \item {\it Acronyms\/}. Try to avoid using an acronym as a variable
-(e.g., ``$SFR = 10$\,\Msolar\,yr\mo''), because it is cumbersome.  Define a new
+(e.g., ``$SFR = 10$\,\Msolar\,yr$^{-1}$''), because it is cumbersome.  Define a new
 symbol instead (e.g., ``the star formation rate, ${\cal R}$'').
 
 If you {\it do\/} use a multi-letter symbol for a variable, it {\bf must}
-be in roman, e.g., ``${\rm SFR} = 10\,\Msolar$\,yr\mo,'' obtained with
-``\verb|${\rm SFR} = 10\,\Msolar$\,yr\mo|.''
+be in roman, e.g., ``${\rm SFR} = 10\,\Msolar$\,yr$^{-1}$,'' obtained with
+``\verb|${\rm SFR} = 10\,\Msolar$\,yr$^{-1}$|.''
 
 \item {\it Long equations\/}. Don't try to make equations fit by using
 \verb|\small|!  Instead use \verb|\eqnarray| or something similar to break lines.
@@ -1168,7 +1172,7 @@ rectangles indicate the 68\% confidence intervals on band-power; for
 BOOME\-RANG, the solid rectangles indicate the 68\% confidence interval for 
 the statistical and sample variance errors, while the hatched rectangles show 
 the amount by which a $\pm1\sigma$ error in the beamwidth 
-($12\parcm9 \pm 1\parcm4$) would shift the estimates (all up or all down 
+($12.9' \pm 1.4'$) would shift the estimates (all up or all down 
 together). The {\it black curve} is the joint model (see text).}
 
 % Single-column figure 
@@ -1337,7 +1341,7 @@ Avoid unnecessary trailing zeros.
 Sky images should always have coordinates indicated by a labelled frame or
 graticule.  Use sexagesimal notation (e.g., h,m,s of RA and d,m,s of Dec) or
 decimal degrees, but do not mix the two: if you refer to a source RA of
-$12^{\rm h}\,30^{\rm m}$ in the text or a table, do not use 187\pdeg5 in a
+$12^{\rm h}\,30^{\rm m}$ in the text or a table, do not use 187.5\degree in a
 figure!
 
 \item {\it Captions and titles\/}.  Figures have captions.  They {\it should
@@ -1451,7 +1455,7 @@ for using increased numbers of digits.
 %It's tacky.  Better still, don't use boolean columns in tables at all.
 
 \item Missing values should be indicated by an ellipsis, ``\dots,'' obtained
-most easily with the \verb|\dots| command defined in Planck.tex, which works in
+most easily with the \verb|\dots| command, which works in
 both text and math modes.  Don't try to produce an ellipsis with periods (full
 stops).  The spacing will be wrong... \COMMENT{AM: I think em-dashes are also sometimes used.}
 

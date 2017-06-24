@@ -17,8 +17,6 @@ DESCTEX ?= desc-tex
 BIBDIR ?= desc-tex/bib
 MACRODIR ?= macros desc-tex/bst desc-tex/styles
 
-# instructions for creating DESCTEX
-MAKEDTDIR ?= git submodule add git@github.com:LSSTDESC/desc-tex.git
 # instructions for cloning DESCTEX, if necessary
 CLONEDT ?= git submodule update --init
 
@@ -65,12 +63,13 @@ DIFF = $(DIFPRE)$(THISBRANCH)
 
 # if called with no target specified, compile the paper and the differences
 # but skip the differences if we're on MASTERBRANCH currently, or not in a git repo at all
-default: $(DESCTEX) $(DESCTEX)/.git $(PAPER).pdf
-ifneq ($(THISBRANCH),$(MASTERBRANCH))
-ifneq ($(THISBRANCH),)
-default: $(DIFF).pdf
-endif
-endif
+default: $(DESCTEX)/.git $(PAPER).pdf
+### latexdiff seems to be particularly fragile when dealing with this project, so don't do it by default
+##ifneq ($(THISBRANCH),$(MASTERBRANCH))
+##ifneq ($(THISBRANCH),)
+##default: $(DIFF).pdf
+##endif
+##endif
 
 $(PAPER): $(PAPER).pdf
 
@@ -83,9 +82,6 @@ gitignore: .gitignore
 
 
 ### rules!
-
-$(DESCTEX):
-	$(MAKEDTDIR)
 
 $(DESCTEX)/.git:
 	$(CLONEDT)

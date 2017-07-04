@@ -22,7 +22,8 @@
 
 \usepackage{sidecap}
 
-\input{macros/DESC_macros}
+%\input{macros/DESC_macros}
+\usepackage{desc-tex/styles/lsstdesc_macros}
 
 \begin{document}
 
@@ -90,14 +91,16 @@ A\&A also has a useful English usage guide, available at
 
 The \verb|start\_paper| package \COMMENT{SD: Is package the right term?} is available to facilitate DESC paper development, in LaTeX and in GitHub...
 
-\subsection{DESC\_macros.tex}
+\subsection{lsstdesc\_macros.tex}
 
 La\TeX\ commands useful and specific to DESC papers are found in
-\verb|DESC_macros.tex|, available {\bf somewhere}.  To use, insert the line
-\verb|\input{DESC_macros}| after the initial \verb|\documentclass| command in your input
+\verb|lsstdesc_macros.sty|, available as part of the \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} GitHub project, or directly downloadable \href{https://raw.githubusercontent.com/LSSTDESC/desc-tex/master/styles/lsstdesc_macros.sty?token=AKdGNisspyfcn5HL4yoV16o5vQh58v13ks5ZVaazwA%3D%3D}{here}.  To use, insert the line
+\begin{verbatim}
+\usepackage{relative/path/to/lsstdesc_macros}
+\end{verbatim}
+after the initial \verb|\documentclass| command in your input
 file.
-
-\COMMENT{AM: We eventually need to merge in the real lsstdesc\_macros file, if we intend to demo it (though I'm not sure we need to). I've briefly and inconclusively discussed with Phil the best way of distributing DESC macros and styles (e.g.\  the note style), but details are tbd.}
+ß
 
 \COMMENT{SD: Is DESC\_macros the same as lsstdesc\_macros?}
 
@@ -203,7 +206,7 @@ italics!!  For example, $g = 9.8$\,m\,s$^{-2}$ is correct,
 but $g=9.8\,m\,s^{-2}$ is
 {\bf wrong}.  It may take extra work to keep the units out of math mode, or
 control the font inside math mode, but it must be done!  Commands for many
-common units are defined in Planck.tex so that they can be used in or out of
+common units are defined in \verb|lsstdesc\_macros.sty| so that they can be used in or out of
 math mode, producing the correct (roman) fonts in either case.
 
 \item Units should {\it always\/} be singular, {\it never\/} plural.  For
@@ -234,7 +237,7 @@ density values were converted to janskys,''  not ``janskies.''
 notation at the first use, e.g., ``the flux density at 70\,GHz,
 $S_{70}$ ,$\ldots$.''
 
-\item Write km\,s\mo, {\it not\/} km/s.  This applies to all compound
+\item Write km\,s$^{-1}$, {\it not\/} km/s.  This applies to all compound
 units, e.g., MJy\,sr$^{-1}$, rather than MJy/sr.
 
 \item Write ``s,'' {\it not\/} ``sec.''
@@ -243,16 +246,19 @@ units, e.g., MJy\,sr$^{-1}$, rather than MJy/sr.
 %``Time [s],''  ``Frequency [Hz],'' ``Sensitivity [\muKs].''  '
 
 \item Degrees, arcminutes, and arcseconds are generally typeset as symbols,
-\deg, \arcm, \arcs, which can be obtained with \verb|\deg|, \verb|\arcm|, and \verb|\arcs|,
-defined in {\tt DESC\_macros.tex}.  Non-integer values should place the symbol over the
+\deg, \amin, \asec, which can be obtained with \verb|\deg|, \verb|\amin|, and \verb|\asec||,
+defined in \verb|lsstdesc\_macros.tex|.  Non-integer values should place the symbol over the
 decimal point.  Spacing is a bit tricky because of the different shapes of the
-digits 0--9, but the commands \verb|\pdeg|, \verb|\parcm|, and \verb|\parcs| in {\tt DESC\_macros.tex}
-work well.  For example, \verb|2\pdeg8|, \verb|2\parcm8|, and \verb|2\parcs8| produce 2\pdeg8,
-2\parcm8, and 2\parcs8, respectively.  All of these commands work in or out of
-math mode.  A\&A provides \verb|\degr|, \verb|\arcmin|, \verb|\arcsec|, \verb|\fdg|, \verb|\farcm|, and
-\verb|\farcs|, for the same purpose, but the digits and angle symbols are not
-spaced as well.
+digits 0--9, but the commands \verb|\pdeg|, \verb|\parcm|, and \verb|\parcs| in \verb| lsstdesc\_macros.tex|
+work well.  
+%For example, \verb|2\pdeg8|, \verb|2\parcm8|, and \verb|2\parcs8| produce 2\pdeg8,
+%2\parcm8, and 2\parcs8, respectively.  All of these commands work in or out of
+%math mode.  A\&A provides \verb|\degr|, \verb|\arcmin|, \verb|\arcsec|, \verb|\fdg|, \verb|\farcm|, and
+%\verb|\farcs|, for the same purpose, but the digits and angle symbols are not
+%spaced as well.
 \FIXME{AM: Inconsistency with actual lsstdesc\_macros.} 
+\FIXME{SD: Where are the pdeg etc. macros?}
+
 %\COMMENT{AM: I believe that $2.8''$-type formatting is also generally acceptable, not to mention less absurd-looking, as long as one format or the other is used consistently.}
 % \COMMENT{SD:  Let's go with recommending one approach.}
 
@@ -942,7 +948,7 @@ the same paper unless you explicitly mean something different.  If in doubt,
 use ``$\approx$'' (and see the point above!).
 
 For ``less (and greater) than approximately'' either use the A\&A macro
-``$\backslash$la'' (and ``$\backslash$ga'') or the {\tt DESC\_macros.tex} macro
+``$\backslash$la'' (and ``$\backslash$ga'') or the \verb|lsstdesc\_macros.tex| macro
 ``$\backslash$lsim'' (and ``$\backslash$gsim''), but don't mix them.
 
 Avoid using the ``$O(x)$'' or ``${\cal O}(x)$'' notation except for describing
@@ -994,12 +1000,12 @@ $<$ and $>$.  Note that ``{\tt <}'' and ``{\tt >}'' must never be used outside
 math mode.
 
 \item {\it Acronyms\/}. Try to avoid using an acronym as a variable
-(e.g., ``$SFR = 10$\,\Msolar\,yr\mo''), because it is cumbersome.  Define a new
+(e.g., ``$SFR = 10$\,\Msolar\,yr$^{-1}$''), because it is cumbersome.  Define a new
 symbol instead (e.g., ``the star formation rate, ${\cal R}$'').
 
 If you {\it do\/} use a multi-letter symbol for a variable, it {\bf must}
-be in roman, e.g., ``${\rm SFR} = 10\,\Msolar$\,yr\mo,'' obtained with
-``\verb|${\rm SFR} = 10\,\Msolar$\,yr\mo|.''
+be in roman, e.g., ``${\rm SFR} = 10\,\Msolar$\,yr$^{-1}$,'' obtained with
+``\verb|${\rm SFR} = 10\,\Msolar$\,yr$^{-1}$|.''
 
 \item {\it Long equations\/}. Don't try to make equations fit by using
 \verb|\small|!  Instead use \verb|\eqnarray| or something similar to break lines.
@@ -1155,42 +1161,43 @@ If for some reason you {\bf do not} use a bibsty file, you will need to manually
 
 %In general, the first part of a caption should be a phrase ending with a period that functions as a title. This means that captions usually will {\it not\/} start with an article (``a'' or ``the'').  However, there may be exceptions, and brevity should be the rule!  
 
-%\subsection{Plots}
-%
-%\begin{enumerate}
-%\item {\it Format\/}. Whenever feasible should be EPS, PDF, or other vector format
-%compatible with the La\TeX\ \verb|\includegraphics| command. 
-%
-%\item {\it Line widths for axes, tick marks, etc.\/} Line widths in the range 0.5--0.8\,pt 
-%as printed by A\&A work well.  Lines of width 1\,pt are a bit too heavy for
-%the boundary box of a figure, although heavier lines can be used when
-%appropriate for important figure elements to make a clear presentation.  
-%%In some cases thinner lines may be needed in parts of a figure.  Quantization and
-%%resolution effects vary from printer to printer; what is seen in test prints
-%%may not be exactly what will be seen in A\&A.
-%
-%\item {\it Axes\/}. The figure should be enclosed in a frame on all four
-%sides, labelled with tick marks, numerical values, and axis labels.  Text
-%labels should not overlap.
-%
-%%\item {\it Orientation of numerical values on axes\/}. Numerical values should
-%%be oriented parallel to the axes.  The reason is straightforward.  If the
-%%numerical values on the vertical axis are perpendicular to the axis, the space
-%%they take up horizontally depends on the numbers.  The size of the figure box
-%%must adjust so that the overall width of the figure is 88, 120, or 180\,mm.  
-%%The figure frame size then depends on the numerical values on the axis.  Figure
-%%frames that should be exactly the same size will not be.  Individual images in
-%%composites will vary in size, and be impossible to align.  The solution,
-%%fortunately, is simple: run the numbers parallel to the axis.
-%
-%\item {\it Background grid\/}.  If a grid is needed, it should be drawn with
-%thin lines (0.5pt?) or grey lines, not dashed or dotted lines.
-%
-%\item {\it Legends\/}.  A legend within the plot identifying colors and
-%symbols should be included when necessary.  Opaque is preferable to
-%transparent, but in any case  the legend should not obscure data.
-%\end{enumerate}
-%
+
+\subsection{Plots}
+
+\begin{enumerate}
+\item {\it Format\/}. Whenever feasible should be EPS, PDF, or other vector format
+compatible with the La\TeX\ \verb|\includegraphics| command. 
+
+\item {\it Line widths for axes, tick marks, etc.\/} Line widths in the range 0.5--0.8\,pt 
+as printed by A\&A work well.  Lines of width 1\,pt are a bit too heavy for
+the boundary box of a figure, although heavier lines can be used when
+appropriate for important figure elements to make a clear presentation.  
+%In some cases thinner lines may be needed in parts of a figure.  Quantization and
+%resolution effects vary from printer to printer; what is seen in test prints
+%may not be exactly what will be seen in A\&A.
+
+\item {\it Axes\/}. The figure should be enclosed in a frame on all four
+sides, labelled with tick marks, numerical values, and axis labels.  Text
+labels should not overlap.
+
+%\item {\it Orientation of numerical values on axes\/}. Numerical values should
+%be oriented parallel to the axes.  The reason is straightforward.  If the
+%numerical values on the vertical axis are perpendicular to the axis, the space
+%they take up horizontally depends on the numbers.  The size of the figure box
+%must adjust so that the overall width of the figure is 88, 120, or 180\,mm.  
+%The figure frame size then depends on the numerical values on the axis.  Figure
+%frames that should be exactly the same size will not be.  Individual images in
+%composites will vary in size, and be impossible to align.  The solution,
+%fortunately, is simple: run the numbers parallel to the axis.
+
+\item {\it Background grid\/}.  If a grid is needed, it should be drawn with
+thin lines (0.5pt?) or grey lines, not dashed or dotted lines.
+
+\item {\it Legends\/}.  A legend within the plot identifying colors and
+symbols should be included when necessary.  Opaque is preferable to
+transparent, but in any case  the legend should not obscure data.
+\end{enumerate}
+
 %\subsection{Examples of line plots}
 %
 %Here is a sample figure set in the three sizes used by A\&A: single-column
@@ -1390,7 +1397,7 @@ Avoid unnecessary trailing zeros.
 Sky images should always have coordinates indicated by a labelled frame or
 graticule.  Use sexagesimal notation (e.g., h,m,s of RA and d,m,s of Dec) or
 decimal degrees, but do not mix the two: if you refer to a source RA of
-$12^{\rm h}\,30^{\rm m}$ in the text or a table, do not use 187\pdeg5 in a
+$12^{\rm h}\,30^{\rm m}$ in the text or a table, do not use 187.5\degree in a
 figure!
 
 \item {\it Captions and titles\/}.  Figures have captions.  They {\it should

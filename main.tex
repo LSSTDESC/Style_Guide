@@ -67,66 +67,54 @@ to authors provided by the journals.  The advice in this guide is applicable to 
 
 Related references:
 \begin{itemize}
-%\item{\url{http://lsst-desc.org/sites/default/files/LSST_DESC_Publication_Policy_v6_15aug2016.pdf}{DESC Publication Policy}}
-\item{\FIXME{Link to http://lsst-desc.org/sites/default/files/LSST\_DESC\_Publication\_Policy\_v6\_15aug2016.pdf will not compile because of the hyphen in the URL}}
-\item{\FIXME{Link to DESC Author Guide}}
+\item{\href{http://lsst-desc.org/sites/default/files/LSST_DESC_Publication_Policy_v6_15aug2016.pdf}{DESC Publication Policy}}
 
-\item{\url{https://www.aanda.org/doc_journal/instructions/aadoc.pdf}{Astronomy \& Astrophysics author guide}}
+\item{\href{https://www.aanda.org/doc_journal/instructions/aadoc.pdf}{Astronomy \& Astrophysics author guide}}
 
-\item{\url{http://journals.aas.org/authors/manuscript.html}{Astrophysical Journal author guide}}
+\item{\href{http://journals.aas.org/authors/manuscript.html}{Astrophysical Journal author guide}}
 
 \end{itemize}
 %\url{http://www.aanda.org/doc_journal/instructions/aa_instructions.pdf}.
 
-A\&A also has a useful English usage guide, available at 
-\url{http://www.aanda.org/doc_journal/instructions/aa_english_guide.pdf}.
-
-%\noindent Both can be found under ``Author Information'' at
-%\url{http://www.aanda.org/}.
-
+A\&A also has a \href{http://www.aanda.org/doc_journal/instructions/aa_english_guide.pdf}{useful English usage guide}. 
 
 \section{\TeX\ STUFF}
 
 \subsection{start\_paper}
 
-The \verb|start\_paper| package \COMMENT{SD: Is package the right term?} is available to facilitate DESC paper development, in LaTeX and in GitHub...
+The {\tt start\_paper} project is available to facilitate DESC paper development, in LaTeX and in GitHub...
 
-\subsection{lsstdesc\_macros.tex}
+\subsection{desc-tex}
 
-La\TeX\ commands useful and specific to DESC papers are found in
-\verb|lsstdesc_macros.sty|, available as part of the \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} GitHub project, or directly downloadable \href{https://raw.githubusercontent.com/LSSTDESC/desc-tex/master/styles/lsstdesc_macros.sty?token=AKdGNisspyfcn5HL4yoV16o5vQh58v13ks5ZVaazwA%3D%3D}{here}.  To use, insert the line
+La\TeX\ support files useful and specific to DESC papers are found in
+the \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} GitHub project.  It is directly downloadable \href{https://raw.githubusercontent.com/LSSTDESC/desc-tex/master/styles/lsstdesc_macros.sty?token=AKdGNisspyfcn5HL4yoV16o5vQh58v13ks5ZVaazwA\%3D\%3D}{here}.  
+These include the standard portion of the DESC Acknowledgments, a bibliography file of DESC papers, and class and style files for common journals.
+
+To use the {\tt lsstdesc\_macros.sty} style file from this project, once you have downloaded it, insert the line
 \begin{verbatim}
 \usepackage{relative/path/to/lsstdesc_macros}
 \end{verbatim}
 after the initial \verb|\documentclass| command in your input
 file.
-ß
-
-\COMMENT{SD: Is DESC\_macros the same as lsstdesc\_macros?}
 
 \subsection{Active links}
 
 To include active links in the output .pdf file, include 
 \verb|\usepackage{hyperref}| at the beginning of the La\TeX\ file and use
-\verb|\url{}|, e.g., \verb|\footnote{\url{http://www.asdc.asi.it/fermibsl/}}|.
+\verb|\href{}|, e.g., \verb|\footnote{\href{http://www.asdc.asi.it/fermibsl/}}|.
 
 Occasionally La\TeX\ will complain because of a hyperlink being split across
 a page break --- in such cases, then simplest solution is to find the
-offending link and enclose it within \verb|\mbox{}|.
-
-\COMMENT{AM: Add note about the `draft' option to hyperref.}
-
-\COMMENT{SD: Not sure what to say about it}
+offending link and enclose it within \verb|\mbox{}|.  N.B. The {\tt hypperref} package has a `draft' option that will ignore all linking.  This can be useful to get a draft paper to compile when La\TeX\ has split such a link.
 
 \section{HOW TO REFER TO DESC AND LSST} 
 
 \begin{itemize}
-\item{DESC should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote added with the URL for the DESC Web site, \verb|\footnote{\url{http://lsst-desc.org}}|. \FIXME{This does not currently work because of the hyphen in the URL}.  
-\COMMENT{SD: Another option might be to refer to the DESC white paper \url{http://adsabs.harvard.edu/abs/2012arXiv1211.0310L}, although this is dated.  I had thought that the SRM might be on the arXiv, but it does not seem to be.}}
+\item{DESC should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote added with the URL for the DESC Web site, \verb|\footnote{\href{http://lsst-desc.org}}|.}
+  
+\item{Depending on the context, you may also want to cite the \href{http://adsabs.harvard.edu/abs/2012arXiv1211.0310L}{DESC white paper}, or have a footnote to the DESC Science Roadmap via \verb|\footnote{\href{http://lsst-desc.org/sites/default/files/DESC_SRM_V1.pdf}}|, although both documents are somewhat dated.}
 
-Some advice goes here about how to refer to DESC, LSST, the LSST Project, and the LSST Camera Project, including recommended references.
-
-\item{LSST should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote provided to the LSST Web site, \verb|\footnote{\url{http://www.lsst.org}}|}
+\item{LSST should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote provided to the LSST Web site, \verb|\footnote{\href{http://www.lsst.org}}|}
 
 \end{itemize}
 
@@ -136,7 +124,7 @@ Some advice goes here about how to refer to DESC, LSST, the LSST Project, and th
 
 \subsection{The possessive form}
 
-Do not write LSST's or DESC's.  Instead write, e.g., the weak lensing pipeline for DESC.
+Do not write LSST's or DESC's.  Instead write, e.g., the DESC weak lensing pipeline.
 
 \section{DATES}
 
@@ -160,9 +148,6 @@ the article, e.g., ``a NASA mission.''
 \section{TITLE}
 
 Key papers will have standardized titles following a TBD convention, possibly involving a sequence number; otherwise, sequence numbers (papers I, II, III, etc.) are to be avoided.
-
-%\FIXME{AM: The removed ``Title'' section must be resurrected, if only for Key papers. At least, I assume there will be some standard titling of them.}
-
 
 \section{AUTHORS AND ACKNOWLEDGMENTS}
 
@@ -375,29 +360,29 @@ definitely the comma should be added.  However, in many instances the
 inclusion of a comma is a matter of taste.  We have added a discussion of
 some of the subtle issues in an Appendix.
 
-\item A\&A uses the ``serial comma'' (also called the ``Oxford comma''),
-i.e., a comma precedes the ``and'' before the final item in a list of three or
-more, e.g., ``chocolate, strawberry, and vanilla.''  The same applies to
-``or,'' e.g., ``stracciatella, fragola, or ``zuppa inglese.''
+%\item A\&A uses the ``serial comma'' (also called the ``Oxford comma''),
+%i.e., a comma precedes the ``and'' before the final item in a list of three or
+%more, e.g., ``chocolate, strawberry, and vanilla.''  The same applies to
+%``or,'' e.g., ``stracciatella, fragola, or ``zuppa inglese.''
 
-\item According to the A\&A Author's Guide, ``The following expressions should
-always be abbreviated unless they appear at the beginning of a sentence (i.e.,
-Sect., Sects., Fig., Figs., Col., Cols.).  Table is never abbreviated.''  {\bf SD:  Do we agree?}
-\COMMENT{AM: I prefer to spell these out always, and let the journal abbreviate them if they insist.}
-\COMMENT{SD: I had thought that the convention was to spell out Section, Figure, and Column in the text but to abbreviate them as Sec., Fig., and Col. in parenthetical notes.  I'd also vote for substituting \S for Section, except at the start of sentences.}
+%\item According to the A\&A Author's Guide, ``The following expressions should
+%always be abbreviated unless they appear at the beginning of a sentence (i.e.,
+%Sect., Sects., Fig., Figs., Col., Cols.).  Table is never abbreviated.''  {\bf SD:  Do we agree?}
+%\COMMENT{AM: I prefer to spell these out always, and let the journal abbreviate them if they insist.}
+%\COMMENT{SD: I had thought that the convention was to spell out Section, Figure, and Column in the text but to abbreviate them as Sec., Fig., and Col. in parenthetical notes.  I'd also vote for substituting \S for Section, except at the start of sentences.}
 
-\item  The correct way to refer to a figure, table, or equation in
-a paper is ``Fig.~1,'' ``Table~2,'' and ``Eq.~(3),'' respectively.  At
-the beginning of a sentence, write ``Figure'' and ``Equation'' in
-full.  When an equation is referred to in parentheses the brackets are
-dropped, so ``(see Eq.~42).''  
-To reference an equation number with parentheses,
-``Eq.~(3),'' use \verb|\eqref|; to reference the number without parentheses,
-``Eq.~3,'' use \verb|\ref|. 
-If referring to a figure, table, or equation in {\it another\/} paper, it is
-good practice to use the full uncapitalized words ``figure,'' ``table,'' or
-``equation,'' to avoid any confusion between the numbered items in the paper
-being referred to and those in the paper being written.   \COMMENT{SD:  Is this A\&A specific?}
+%\item  The correct way to refer to a figure, table, or equation in
+%a paper is ``Fig.~1,'' ``Table~2,'' and ``Eq.~(3),'' respectively.  At
+%the beginning of a sentence, write ``Figure'' and ``Equation'' in
+%full.  When an equation is referred to in parentheses the brackets are
+%dropped, so ``(see Eq.~42).''  
+%To reference an equation number with parentheses,
+%``Eq.~(3),'' use \verb|\eqref|; to reference the number without parentheses,
+%``Eq.~3,'' use \verb|\ref|. 
+%If referring to a figure, table, or equation in {\it another\/} paper, it is
+%good practice to use the full uncapitalized words ``figure,'' ``table,'' or
+%``equation,'' to avoid any confusion between the numbered items in the paper
+%being referred to and those in the paper being written.   \COMMENT{SD:  Is this A\&A specific?}
 
 \item The IAU formally recommends that the initial letters of the names of
 individual astronomical objects should be printed as capitals (see the IAU
@@ -407,7 +392,7 @@ and ``Earth is a planet in the Solar System'' are examples of correct spelling
 according to these rules.  However, ``zodiacal'' and ``ecliptic''
 should {\it not\/} be capitalized.
 
-\item Capitalize ``Galactic'' and "Galaxy" when referring to the Milky Way, e.g.,
+\item Capitalize ``Galactic'' and ``Galaxy" when referring to the Milky Way, e.g.,
 ``Galactic plane.''
 
 Capitalize ``Universe'' when referring to the cosmos in which we live,
@@ -771,6 +756,9 @@ using the word at all.
 as ``non-Gaussian'' and ``non-relativistic.''
 
 \item
+A reference to a paper \verb|\citet{<anything>}| is shorthand for a group of people, not a paper.  So one refers to previous work reported {\bf by} \verb|\citet{<anything>}| not {\bf in} \verb|\citet{<anything>}|/
+
+\item
 The use of British or American spelling depends on the journal.  Table~\ref{tab:spelling} summarizes the differences.
 
 \end{enumerate}
@@ -1100,7 +1088,7 @@ $\nu^{\hbox{\hglue 0.7pt}\beta}$, which makes it easy to ``tune'' the space.
 Use the La\TeX~bibsty bibliography style file provided by the journal, and/or refer to the bibliography guidelines of the journal.  For several journals, these are also available in \verb|start\_paper|.  For \FIXME{name the journals} the \verb|start\_paper| versions of the bibsty files have been modified so that arXiv numbers are displayed instead of the egregious ``Arxiv e-prints'' \FIXME{Can we do this?}; the bibsty files have also been \FIXME{will be} modified to include hyperlinks to ADS, if they did not already.  
 
 \item
-The   \verb|DESC\_tex| GitHub repository includes DESC\_bib, which contains a bibliography of recommended and commonly cited references in DESC papers.  These will include LSST and DESC product papers.  \FIXME{None yet}
+The   \verb|DESC\_tex| GitHub repository includes DESC\_bib, which contains a bibliography of recommended and commonly cited references in DESC papers.  These will include LSST and DESC product papers.  (DESC\_bib will become more useful over time; currently it is more or less a placeholder.)
 
 \end{itemize}
 
@@ -1434,8 +1422,8 @@ coloured background) should be avoided where possible.
 \item {\it Consistency of style and color across figures\/}.  Use a uniform
 style for figures throughout the paper.  If a quantity is represented by a red
 dashed line in one figure, use the same style for it in other related figures.  
-\COMMENT{AM: In some circumstances, we will almost certainly want consistent color schemes used across papers. I'm thinking of cosmology parameter constraint plots in key papers, at least. That might be one application where we do want to provide script(s) to ensure that the key survey results are presented in a uniform-looking way.}
-\COMMENT{SD: I think that we'll need to establish the convention with the first such paper, then update the Style Guide with it.}
+
+\item{{\it Consistency of style and color for key plots\/}.  In some circumstances, e.g., for plots of cosmology parameter constraints, we will almost certainly want consistent color schemes used across papers.  No specifics are provided here but the intent will be to follow conventions established in previous DESC papers for the corresponding type of plot. }
 
 \item {\it Multipanel figures\/}.  For a large set of similar figures (e.g.,
 SEDs for many objects), use a multipanel figure, which can extend over multiple

@@ -13,11 +13,12 @@ BIBTEX ?= bibtex
 # NB .tex files other than PAPER in the CWD are ignored, so use MACRODIR for them
 FIGDIR ?= figures
 TABDIR ?= tables
-BIBDIR ?= bib
-MACRODIR ?= macros
+DESCTEX ?= desc-tex
+BIBDIR ?= desc-tex/bib
+MACRODIR ?= macros desc-tex/bst desc-tex/styles
 
-# instructions for creating BIBDIR
-MAKEBIBDIR ?= 
+# instructions for cloning DESCTEX, if necessary
+CLONEDT ?= git submodule update --init
 
 # prefix for difference files
 DIFPRE ?= diff_
@@ -62,12 +63,13 @@ DIFF = $(DIFPRE)$(THISBRANCH)
 
 # if called with no target specified, compile the paper and the differences
 # but skip the differences if we're on MASTERBRANCH currently, or not in a git repo at all
-default: $(PAPER).pdf
-ifneq ($(THISBRANCH),$(MASTERBRANCH))
-ifneq ($(THISBRANCH),)
-default: $(DIFF).pdf
-endif
-endif
+default: $(DESCTEX)/.git $(PAPER).pdf
+### latexdiff seems to be particularly fragile when dealing with this project, so don't do it by default
+##ifneq ($(THISBRANCH),$(MASTERBRANCH))
+##ifneq ($(THISBRANCH),)
+##default: $(DIFF).pdf
+##endif
+##endif
 
 $(PAPER): $(PAPER).pdf
 
@@ -81,8 +83,8 @@ gitignore: .gitignore
 
 ### rules!
 
-$(BIBDIR):
-	$(MAKEBIBDIR)
+$(DESCTEX)/.git:
+	$(CLONEDT)
 
 $(PAPER).pdf $(PAPER).aux $(PAPER).bbl $(PAPER).blg: $(PAPER).tex $(OTHERTEX) $(FIGURES)
 	./maketex $< $(LATEX) $(BIBTEX)

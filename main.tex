@@ -75,7 +75,7 @@ Related references:
 
 \item \href{https://academic.oup.com/mnras/pages/General_Instructions}{MNRAS author guide}
 \end{itemize}
-%\url{http://www.aanda.org/doc_journal/instructions/aa_instructions.pdf}.
+
 
 A\&A also has a \href{http://www.aanda.org/doc_journal/instructions/aa_english_guide.pdf}{useful English usage guide}. 
 
@@ -102,7 +102,7 @@ The \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} documentation expl
 
 To include active hyperlinks in the output .pdf file, include 
 \verb|\usepackage{hyperref}| at the beginning of the La\TeX\ file and use
-\verb|\href{}|, e.g., \verb|\footnote{\href{http://www.asdc.asi.it/fermibsl/}}|.
+\verb|\url{}|, e.g., \verb|\footnote{\url{http://www.asdc.asi.it/fermibsl/}}|.
 
 Occasionally, La\TeX\ will fail because of a hyperlink being split across
 a page break (often the error message does not identify this as the underlying problem). In such cases, then simplest solution is to find the
@@ -111,7 +111,7 @@ offending link and enclose it within \verb|\mbox{}|. Note that the {\tt hypperre
 \section{How to Refer to DESC and LSST} 
 
 \begin{itemize}
-\item{DESC should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote added with the URL for the DESC Web site, \verb|\footnote{\href{http://lsst-desc.org}}|.}
+\item{DESC should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote added with the URL for the DESC Web site, \verb|\footnote{\url{http://lsst-desc.org}}|.}
   
 \item{Depending on the context, you may also want to cite the \href{http://adsabs.harvard.edu/abs/2012arXiv1211.0310L}{DESC white paper}, or have a footnote to the DESC Science Roadmap via \\\verb|\footnote{\url{http://lsst-desc.org/sites/default/files/DESC_SRM_V1.pdf}}|, \\although both documents are somewhat dated.}
 
@@ -168,7 +168,7 @@ levels) when appropriate.  Avoid vague statements such as ``We discuss the
 implications of the observations.''  It is usually best to write an abstract
 in an impersonal style (avoiding ``I'' and ``we'').
 
-It is preferable to write the abstract as a single paragraph, if not using the ``traditional'' A\&A format.  Shorter is
+It is preferable to write the abstract as a single paragraph, if not using the ``structured'' A\&A format.  Shorter is
 better.  References should be avoided in the abstract.  Acronyms should only
 be defined if they are used again in the abstract.
 
@@ -1485,10 +1485,8 @@ for using increased numbers of digits.
 %It's tacky.  Better still, don't use boolean columns in tables at all.
 
 \item {\it Missing values\/}. Missing values should be indicated by an ellipsis, ``\dots,'' obtained
-with the \verb|\ldots| command.  Don't try to produce an ellipsis with periods (full
+with the \verb|\ldots| command (or \verb|\nodata| in ApJ articles).  Don't try to produce an ellipsis with periods (full
 stops).  The spacing will be wrong...
-
-\COMMENT{SD: ApJ at least uses nodata for empty entries in tables. AM: What does this entail for authors? Actual empty space, or something like ``N/A''?}
 
 \item {\it Alignment\/}. When entries in a column are to be compared, align the decimal points in
 both the quantity and the uncertainty. Align $\pm$ symbols when possible. \FIXME{Add some pointers/examples of how to do this.}

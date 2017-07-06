@@ -58,7 +58,7 @@
 \fancyhead[C]{\rightmark}
 \pagenumbering{arabic}
 \setcounter{page}{1}
-
+s
 \section{Purpose}
 
 This Style Guide is intended to help authors of DESC collaboration papers prepare
@@ -111,11 +111,11 @@ offending link and enclose it within \verb|\mbox{}|. Note that the {\tt hypperre
 \section{How to Refer to DESC and LSST} 
 
 \begin{itemize}
-\item{DESC should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote added with the URL for the DESC Web site, \verb|\footnote{\href{http://lsst-desc.org}}|.}
+\item{DESC should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote added with the URL for the DESC Web site, \verb|\footnote{\url{http://lsst-desc.org}}|.}
   
-\item{Depending on the context, you may also want to cite the \href{http://adsabs.harvard.edu/abs/2012arXiv1211.0310L}{DESC white paper}, or have a footnote to the DESC Science Roadmap via \\\verb|\footnote{\href{http://lsst-desc.org/sites/default/files/DESC_SRM_V1.pdf}}|, \\although both documents are somewhat dated.}
+\item{Depending on the context, you may also want to cite the \url{http://adsabs.harvard.edu/abs/2012arXiv1211.0310L}{DESC white paper}, or have a footnote to the DESC Science Roadmap via \\\verb|\footnote{\url{http://lsst-desc.org/sites/default/files/DESC_SRM_V1.pdf}}|, \\although both documents are somewhat dated.}
 
-\item{LSST should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote provided to the LSST Web site, \verb|\footnote{\href{http://www.lsst.org}}|}
+\item{LSST should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote provided to the LSST Web site, \verb|\footnote{\url{http://www.lsst.org}}|}
 
 \end{itemize}
 
@@ -1485,10 +1485,8 @@ for using increased numbers of digits.
 %It's tacky.  Better still, don't use boolean columns in tables at all.
 
 \item {\it Missing values\/}. Missing values should be indicated by an ellipsis, ``\dots,'' obtained
-with the \verb|\ldots| command.  Don't try to produce an ellipsis with periods (full
+with the \verb|\ldots| command (or \verb|\nodata| in ApJ articles).  Don't try to produce an ellipsis with periods (full
 stops).  The spacing will be wrong...
-
-\COMMENT{SD: ApJ at least uses backslash-nodata for empty entries in tables. AM: What does this entail for authors? Actual empty space, or something like ``N/A''?  SD: In the typeset table, the backslash-nodata entries appear as ellipsis.}
 
 \item {\it Alignment\/}. When entries in a column are to be compared, align the decimal points in
 both the quantity and the uncertainty. Align $\pm$ symbols when possible. \FIXME{Add some pointers/examples of how to do this.}

@@ -551,7 +551,7 @@ abstract or introduction.
 \section{Use (and Misuse) of the English Language}
 
 %Use standard British words and spellings.  We take the Oxford English Dictionary (OED) as our authority on British spelling.  Examples follow.  The
-f%irst six highlight differences between standard British and European usage.
+%first six highlight differences between standard British and European usage.
 %To repeat, use standard British usage!
 
 \begin{enumerate}
@@ -845,7 +845,7 @@ The use of British or American spelling depends on the journal.  Table~\ref{tab:
 
 
 
-\section{La\TeX\ and \TeX; Typesetting Mathematics}
+\section{Typesetting Mathematics in La\TeX\ and \TeX}
 
 \begin{enumerate}
 
@@ -905,7 +905,7 @@ including in such expressions as ``high-$z$'' (obtained with \verb|high-$z$|).
 text.   Write an equation, or use words.  For example, write ``frequencies of
 30\,GHz and above,'' rather than ``frequencies $\ge 30$ GHz.''  Similarly,
 write ``an average factor of about 1.8,'' rather than ``an average factor of
-$\simeq 1.8$.''  
+$\simeq 1.8$.''  % Boo.
 %Better yet (see 15.9 below), write ``an average factor of
 %1.8,'' omitting the meaningless ``about.''  
 
@@ -923,9 +923,8 @@ Don't use both ``$\simeq$'' (\verb|\simeq|) and ``$\approx$'' (\verb|\approx|) i
 the same paper unless you explicitly mean something different.  If in doubt,
 use ``$\approx$'' (and see the point above!).
 
-For ``less (and greater) than approximately'' either use the A\&A macro
-``$\backslash$la'' (and ``$\backslash$ga'') or the \verb|lsstdesc\_macros.tex| macro
-``$\backslash$lsim'' (and ``$\backslash$gsim''), but don't mix them.
+For ``less (and greater) than approximately'' either use journal-supplied macros or the {\tt lsstdesc\_macros.tex} macros
+\verb|\ltsim| (and \verb|\gtsim| \FIXME{[to be added]}), but don't mix them.
 
 Avoid using the ``$O(x)$'' or ``${\cal O}(x)$'' notation except for describing
 asymptotic behavior or scaling.  Instead just say ``about $10^{-6}$'' or
@@ -1073,10 +1072,10 @@ $\nu^{\hbox{\hglue 0.7pt}\beta}$, which makes it easy to ``tune'' the space.
 \begin{itemize}
 
 \item
-Use the La\TeX~bibsty bibliography style file provided by the journal, and/or refer to the bibliography guidelines of the journal.  For several journals, these are also available in \verb|start\_paper|.  For \FIXME{name the journals} the \verb|start\_paper| versions of the bibsty files have been modified so that arXiv numbers are displayed instead of the egregious ``Arxiv e-prints'' \FIXME{Can we do this?}; the bibsty files have also been \FIXME{will be} modified to include hyperlinks to ADS, if they did not already.  
+Use the La\TeX~bibsty bibliography style file provided by the journal, and/or refer to the bibliography guidelines of the journal.  For several journals, these are also available in {\tt desc-tex}.  For some journals,  {\tt desc-tex} provides \FIXME{(todo)} modified bibsty files that display arXiv numbers instead of the egregious ``Arxiv e-prints'' and/or include hyperlinks to ADS (given the appropriate bibitem entries).
 
 \item
-The   \verb|DESC\_tex| GitHub repository includes DESC\_bib, which contains a bibliography of recommended and commonly cited references in DESC papers.  These will include LSST and DESC product papers.  (DESC\_bib will become more useful over time; currently it is more or less a placeholder.)
+The   {\tt desc-tex} GitHub repository includes {\tt lsstdesc.bib}, a bibliography of recommended and commonly cited references in DESC papers.  These will include LSST and DESC product papers.  ({\tt lsstdesc.bib} will become more useful over time; currently it is more or less a placeholder.)
 
 \end{itemize}
 
@@ -1145,7 +1144,7 @@ If for some reason you {\bf do not} use a bibsty file, you will need to manually
 compatible with the La\TeX\ \verb|\includegraphics| command. 
 
 \item {\it Line widths for axes, tick marks, etc.\/} Line widths in the range 0.5--0.8\,pt 
-as printed by A\&A work well.  Lines of width 1\,pt are a bit too heavy for
+ work well.  Lines of width 1\,pt are a bit too heavy for
 the boundary box of a figure, although heavier lines can be used when
 appropriate for important figure elements to make a clear presentation.  
 %In some cases thinner lines may be needed in parts of a figure.  Quantization and
@@ -1170,8 +1169,7 @@ labels should not overlap.
 thin lines (0.5pt?) or grey lines, not dashed or dotted lines.
 
 \item {\it Legends\/}.  A legend within the plot identifying colors and
-symbols should be included when necessary.  Opaque is preferable to
-transparent, but in any case  the legend should not obscure data.
+symbols should be included when necessary.  The legend should not obscure data.
 \end{enumerate}
 
 %\subsection{Examples of line plots}
@@ -1268,7 +1266,7 @@ index (R, G, B or C, M, Y, K values). Choice of a color map requires careful
 deliberation, depending on what features of the map are to be highlighted.
 ``Undefined'' or unmeasured pixel values should be indicated using a color
 that does not appear in the color map (e.g., white or grey).
-\FIXME{SD: Do we need this?  Or can we make more specific recommendations regarding the color map?}
+\COMMENT{SD: Do we need this?  Or can we make more specific recommendations regarding the color map?}
 
 \end{itemize}
 %\smallskip
@@ -1349,16 +1347,16 @@ that does not appear in the color map (e.g., white or grey).
 \verb|\ref{label}| to ensure that a hyperlink is created in the final PDF file.
 
 \item {\it Sizes and proportions\/}. Pay particular attention to the size of characters and
-extraneous white space around figures.  Gauging sizes and proportions is easiest when you produce figures of (or close to) the size they will have in the paper.  Note that for talks, versions of figures with extra-large labels may be useful.
+extraneous white space around figures.  Gauging sizes and proportions is easiest when you produce figures of (or close to) the size they will have in the paper.  Note that for talks, versions of figures with larger fonts and/or symbols may be useful.
 
-\item {\it Captions\/}.  Captions should never start with ``This figure shows \dots''.  Captions should be descriptive enough that the basic content and message of a figure are understandable, independent of the main text.  Conversely, the main text should not duplicate the information in the caption, e.g., about colors and line styles.
+\item {\it Captions\/}.  Captions should never start with ``This figure shows \dots''.  Captions should be descriptive enough that the basic content and message of a figure are understandable, independent of the main text.  Conversely, the main text should not excessively duplicate the information in the caption, e.g., about colors and line styles.
 
 \item {\it More on fonts\/}.  Some graphics software packages use outline or
 ``Hershey'' fonts designed for use with pen-plotters.  They usually include a
 sans-serif font that looks similar to Helvetica, but you may need to adjust
 the line-thickness as well as the character height to get characters of
 appropriate weight.  Typically the line-thickness should be about 1/10 of the
-character height  {\it to be checked}.
+character height  \FIXME{to be checked}.
 
 \item {\it Tick marks and numeric labels\/}. Have tick marks projecting out of
 the frame only if it is necessary to make them visible.  Use sensible
@@ -1367,7 +1365,7 @@ exponents.  Avoid overlapping labels.  At least two, and preferably more than
 two labels should appear on each axis.  Do not use more significant figures
 than are needed in labels (i.e., 10, not 10.00 or 9.999).  It is not necessary
 to have the same number of decimal places in axis labels.  For example,
-|0.01, 0.1, 1, 10, 100| is better than |0.01, 0.10, 1.00, 10.00, 100.00|.
+0.01, 0.1, 1, 10, 100 is better than 0.01, 0.10, 1.00, 10.00, 100.00.
 Avoid unnecessary trailing zeros.
 
 Sky images should always have coordinates indicated by a labelled frame or
@@ -1383,7 +1381,7 @@ not\/} have titles or anything else above the frame of the figure.
 quantity plotted, possibly a symbol, and units if applicable, with the units
 in square brackets, e.g., { Detector temperature $T_{\rm det}$ [$\mu$K]},
 { Multipole order $\ell$}, or { Length [mm]}.  However, if logarithms
-are involved, { Log(length/mm)} is preferable.  { Detector volts [V]}
+are involved, { log(length/mm)} is preferable.  { Detector volts [V]}
 is incorrect; it should be { Detector reading [V]} or possibly
 { Detector voltage [V]}.  In labels as elsewhere (Sect.~10.8), use exponents,
 not fractions in units: { km\,s$^{-1}$}, not { km/s}.  Don't use a dot
@@ -1411,7 +1409,7 @@ coloured background) should be avoided where possible.
 style for figures throughout the paper.  If a quantity is represented by a red
 dashed line in one figure, use the same style for it in other related figures.  
 
-\item{{\it Consistency of style and color for key plots\/}.  In some circumstances, e.g., for plots of cosmology parameter constraints, we will almost certainly want consistent color schemes used across papers.  No specifics are provided here but the intent will be to follow conventions established in previous DESC papers for the corresponding type of plot. }
+\item{{\it Consistency of style and color for key plots\/}.  In some circumstances, e.g., for plots of cosmology parameter constraints, we will probably want consistent color schemes used across papers.  No specifics are provided here, but the intent will be to follow conventions established in previous DESC papers for the corresponding type of plot. }
 
 \item {\it Multipanel figures\/}.  For a large set of similar figures (e.g.,
 SEDs for many objects), use a multipanel figure, which can extend over multiple
@@ -1422,7 +1420,7 @@ right'' in the text or caption.  Use ``(a),''  ``(b),'' $\dots$ labels if
 necessary.  In case two panels are referenced in the caption, use
 ``{\it Left\/}: \dots,'' ``{\it Right\/}: \dots ,'' ``{\it Upper\/}: \dots,''
 ``{\it Lower\/}: \dots,''
-etc.  To achieve this, type, e.g., |\emph{Left}:| \dots.
+etc.  To achieve this, type, e.g., \verb|\emph{Left}:| \dots.
 Note that the colon is outside the brackets.
 
 \item {\it Mathematical symbols in figures\/}.  Mathematical symbols in
@@ -1464,7 +1462,7 @@ quantity; in many cases a
 single digit on uncertainties is sufficient.  We will follow the specific
 policy of the Particle Data Group, described on page~5 of
 
-{http://pdg.lbl.gov/2013/reviews/rpp2013-rev-rpp-intro.pdf} \FIXME{Make a hyperlink},
+\url{http://pdg.lbl.gov/2013/reviews/rpp2013-rev-rpp-intro.pdf},
 
 \noindent which says ``The basic rule states that if the three
 highest-order digits of the error lie between 100 and 354, we round to two
@@ -1487,14 +1485,13 @@ for using increased numbers of digits.
 %It's tacky.  Better still, don't use boolean columns in tables at all.
 
 \item {\it Missing values\/}. Missing values should be indicated by an ellipsis, ``\dots,'' obtained
-most easily with the \verb|\dots| command defined in \verb|DESC_macros.tex|, which works in
-both text and math modes.  Don't try to produce an ellipsis with periods (full
-stops).  The spacing will be wrong... \COMMENT{AM: I think em-dashes are also sometimes used.}
+with the \verb|\ldots| command.  Don't try to produce an ellipsis with periods (full
+stops).  The spacing will be wrong...
 
-\COMMENT{SD:  ApJ at least uses nodata for empty entries in tables.}
+\COMMENT{SD: ApJ at least uses nodata for empty entries in tables. AM: What does this entail for authors? Actual empty space, or something like ``N/A''?}
 
 \item {\it Alignment\/}. When entries in a column are to be compared, align the decimal points in
-both the quantity and the uncertainty. \COMMENT{AM: Also, align $\pm$ symbols when possible.} \FIXME{AM: We can add some pointers re: how to do these things. Some example wouldn't be too hard to dredge up, though nothing as involved as the ones in the Planck guide.}
+both the quantity and the uncertainty. Align $\pm$ symbols when possible. \FIXME{Add some pointers/examples of how to do this.}
 
 % \midinsert
 % \begingroup

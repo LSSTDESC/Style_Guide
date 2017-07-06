@@ -73,6 +73,7 @@ Related references:
 
 \item{\href{http://journals.aas.org/authors/manuscript.html}{Astrophysical Journal author guide}}
 
+\item \href{https://academic.oup.com/mnras/pages/General_Instructions}{MNRAS author guide}
 \end{itemize}
 %\url{http://www.aanda.org/doc_journal/instructions/aa_instructions.pdf}.
 
@@ -87,39 +88,39 @@ The {\tt start\_paper} project is available to facilitate DESC paper development
 \subsection{desc-tex}
 
 La\TeX\ support files useful and specific to DESC papers are found in
-the \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} GitHub project.  It is directly downloadable \href{https://raw.githubusercontent.com/LSSTDESC/desc-tex/master/styles/lsstdesc_macros.sty?token=AKdGNisspyfcn5HL4yoV16o5vQh58v13ks5ZVaazwA\%3D\%3D}{here}.  
-These include the standard portion of the DESC Acknowledgments, a bibliography file of DESC papers, and class and style files for common journals.
+the \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} GitHub project.
+It provides common macros, the standard portion of the DESC Acknowledgments, a bibliography file of DESC papers, and class and style files for common journals.
+The \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} documentation explains how to use these resources, including the {\tt lsstdesc\_macros.sty} file referred to elsewhere in this guide.
+% To use the {\tt lsstdesc\_macros.sty} style file from this project, once you have downloaded it, insert the line
+% \begin{verbatim}
+% \usepackage{desc-tex/styles/lsstdesc_macros}
+% \end{verbatim}
+% after the initial \verb|\documentclass| command in your input
+% file.
 
-To use the {\tt lsstdesc\_macros.sty} style file from this project, once you have downloaded it, insert the line
-\begin{verbatim}
-\usepackage{relative/path/to/lsstdesc_macros}
-\end{verbatim}
-after the initial \verb|\documentclass| command in your input
-file.
+\subsection{Active hyperlinks}
 
-\subsection{Active links}
-
-To include active links in the output .pdf file, include 
+To include active hyperlinks in the output .pdf file, include 
 \verb|\usepackage{hyperref}| at the beginning of the La\TeX\ file and use
 \verb|\href{}|, e.g., \verb|\footnote{\href{http://www.asdc.asi.it/fermibsl/}}|.
 
-Occasionally La\TeX\ will complain because of a hyperlink being split across
-a page break --- in such cases, then simplest solution is to find the
-offending link and enclose it within \verb|\mbox{}|.  N.B. The {\tt hypperref} package has a `draft' option that will ignore all linking.  This can be useful to get a draft paper to compile when La\TeX\ has split such a link.
+Occasionally, La\TeX\ will fail because of a hyperlink being split across
+a page break (often the error message does not identify this as the underlying problem). In such cases, then simplest solution is to find the
+offending link and enclose it within \verb|\mbox{}|. Note that the {\tt hypperref} package has a `draft' option that will disable all linking; this can be useful to get a draft paper to compile when La\TeX\ has split such a link. This is a better solution while a paper is in development, since the offending link may no longer fall on a page break once all material has been added to the paper.
 
 \section{How to Refer to DESC and LSST} 
 
 \begin{itemize}
 \item{DESC should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote added with the URL for the DESC Web site, \verb|\footnote{\href{http://lsst-desc.org}}|.}
   
-\item{Depending on the context, you may also want to cite the \href{http://adsabs.harvard.edu/abs/2012arXiv1211.0310L}{DESC white paper}, or have a footnote to the DESC Science Roadmap via \verb|\footnote{\href{http://lsst-desc.org/sites/default/files/DESC_SRM_V1.pdf}}|, although both documents are somewhat dated.}
+\item{Depending on the context, you may also want to cite the \href{http://adsabs.harvard.edu/abs/2012arXiv1211.0310L}{DESC white paper}, or have a footnote to the DESC Science Roadmap via \\\verb|\footnote{\url{http://lsst-desc.org/sites/default/files/DESC_SRM_V1.pdf}}|, \\although both documents are somewhat dated.}
 
-\item{LSST should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote provided to the LSST Web site, \verb|\footnote{\href{http://www.lsst.org}}|}
+\item{LSST should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote provided to the LSST Web site, \verb|\footnote{\url{http://www.lsst.org}}|}
 
 \end{itemize}
 
-\COMMENT{AM: We may eventually need a standardized of referring to data releases, analogous to the different Planck surveys. General comments about when other experiments get italicized would be good, if they don't vary too much among journals (or just pointing out that they do would be good).}
-
+\COMMENT{AM: We may eventually need a standardized of referring to data releases, analogous to the different Planck surveys.}
+%General comments about when other experiments get italicized (which used to appear here) would be good, if they don't vary too much among journals (in which case, pointing out that they do vary would be helpful).
 
 
 \subsection{The possessive form}
@@ -147,11 +148,11 @@ the article, e.g., ``a NASA mission.''
 
 \section{Title}
 
-Key papers will have standardized titles following a TBD convention, possibly involving a sequence number; otherwise, sequence numbers (papers I, II, III, etc.) are to be avoided.
+Key papers will have standardized titles following a \FIXME{TBD} convention, possibly involving a sequence number; otherwise, sequence numbers (papers I, II, III, etc.) are to be avoided.
 
 \section{Authors and Acknowledgments}
 
-Guidelines for defining author lists and the text for the Acknowledgments section, including contribution statements, are presented in the DESC Author Guide.  The Publication Policy is fairly prescriptive on each of these topics.  \FIXME{Add link to the Author Guide}
+Guidelines for defining author lists and the text for the Acknowledgments section, including contribution statements, are presented in the \href{https://github.com/LSSTDESC/Author_Guide/blob/compiled/main.pdf}{DESC Author Guide}.  The Publication Policy is fairly prescriptive on each of these topics.
 
 \section{Abstract}
 
@@ -167,12 +168,12 @@ levels) when appropriate.  Avoid vague statements such as ``We discuss the
 implications of the observations.''  It is usually best to write an abstract
 in an impersonal style (avoiding ``I'' and ``we'').
 
-It is preferable to write the abstract as a single paragraph, if not using the A\&A format.  Shorter is
+It is preferable to write the abstract as a single paragraph, if not using the ``traditional'' A\&A format.  Shorter is
 better.  References should be avoided in the abstract.  Acronyms should only
 be defined if they are used again in the abstract.
 
 Key words appear at the end of the abstract.  These must be selected from
-the approved lists:
+the approved lists, e.g.
 
 \url{http://www.aanda.org/index.php?option=com_content\&task=view\&id=170\&Itemid=173},
 
@@ -187,11 +188,11 @@ rather than just made up!  Key words should be separated by en-dashes (\verb|--|
 \begin{enumerate}
 
 \item Units should {\it always\/} be in a roman font, {\it never\/} in
-italics!!  For example, $g = 9.8$\,m\,s$^{-2}$ is correct,
+italics!  For example, $g = 9.8$\,m\,s$^{-2}$ is correct,
 but $g=9.8\,m\,s^{-2}$ is
 {\bf wrong}.  It may take extra work to keep the units out of math mode, or
 control the font inside math mode, but it must be done!  Commands for many
-common units are defined in \verb|lsstdesc\_macros.sty| so that they can be used in or out of
+common units are defined in {\tt lsstdesc\_macros.sty} so that they can be used in or out of
 math mode, producing the correct (roman) fonts in either case.
 
 \item Units should {\it always\/} be singular, {\it never\/} plural.  For
@@ -211,7 +212,7 @@ density values were converted to janskys,''  not ``janskies.''
 
 \item Units should be separated from numbers (and from other units) by a
 ``thinspace,'' available in La\TeX\ in both math and non-math modes as
-``\verb|\,|\,\,''  
+``\verb|\,|''.
 %For example, $H_0 = 68$\kmsMpc\ is obtained by
 %\verb|$H_0=68$\,km\,s$^{-1}$\,Mpc$^{-1}$|
 %or \verb|$H_0=68\,{\rm km}\,{\rm s}^{-1}\,{\rm Mpc}^{-1}$|.
@@ -220,10 +221,10 @@ density values were converted to janskys,''  not ``janskies.''
 
 \item Avoid units in subscripts --- it's better to define an appropriate
 notation at the first use, e.g., ``the flux density at 70\,GHz,
-$S_{70}$ ,$\ldots$.''
+$S_{70}$, $\ldots$''
 
 \item Write km\,s$^{-1}$, {\it not\/} km/s.  This applies to all compound
-units, e.g., MJy\,sr$^{-1}$, rather than MJy/sr.
+units, e.g., MJy\,sr$^{-1}$, rather than MJy/sr. For convenience, macros for several common compound units are provided by {\tt lsstdesc\_macros.sty}.
 
 \item Write ``s,'' {\it not\/} ``sec.''
 
@@ -231,18 +232,16 @@ units, e.g., MJy\,sr$^{-1}$, rather than MJy/sr.
 %``Time [s],''  ``Frequency [Hz],'' ``Sensitivity [\muKs].''  '
 
 \item Degrees, arcminutes, and arcseconds are generally typeset as symbols,
-\deg, \amin, \asec, which can be obtained with \verb|\deg|, \verb|\amin|, and \verb|\asec||,
-defined in \verb|lsstdesc\_macros.tex|.  Non-integer values should place the symbol over the
+\degree, $'$, $''$, which can be obtained with \verb|$^\circ$| (or \verb|\degree| in {\tt lsstdesc\_macros.sty}), \verb|$'$|, and \verb|$''$|. Non-integer values should place the symbol over the
 decimal point.  Spacing is a bit tricky because of the different shapes of the
-digits 0--9, but the commands \verb|\pdeg|, \verb|\parcm|, and \verb|\parcs| in \verb| lsstdesc\_macros.tex|
+digits 0--9, but the commands \verb|\pdeg|, \verb|\parcm|, and \verb|\parcs| in {\tt lsstdesc\_macros.sty}
 work well.  
 %For example, \verb|2\pdeg8|, \verb|2\parcm8|, and \verb|2\parcs8| produce 2\pdeg8,
 %2\parcm8, and 2\parcs8, respectively.  All of these commands work in or out of
 %math mode.  A\&A provides \verb|\degr|, \verb|\arcmin|, \verb|\arcsec|, \verb|\fdg|, \verb|\farcm|, and
 %\verb|\farcs|, for the same purpose, but the digits and angle symbols are not
 %spaced as well.
-\FIXME{AM: Inconsistency with actual lsstdesc\_macros.} 
-\FIXME{SD: Where are the pdeg etc. macros?}
+\FIXME{pdeg etc.\ macros don't exist yet in {\tt lsstdesc\_macros.sty}}
 
 %\COMMENT{AM: I believe that $2.8''$-type formatting is also generally acceptable, not to mention less absurd-looking, as long as one format or the other is used consistently.}
 % \COMMENT{SD:  Let's go with recommending one approach.}
@@ -298,9 +297,9 @@ Galactic longitude is written ``$l$,'' obtained with \verb|$l$|.
 
 \item Use the percent symbol ``\%'' rather than ``per cent'' or ``percent''
 following a number, with a thin space (\verb|\,|) before the \% sign (e.g., 73\,\%).
-But in a phrase such as ``a few percent'' write out the words.
+But in a phrase such as ``a few percent'' write out the words. \FIXME{Conflicts with at least some journal styles.}
 
-\item Use \verb|\Msolar| and \verb|\Lsolar| for \Msolar\ and \Lsolar.
+\item Write solar mass and luminosity as \Msolar\ (\verb|$M_\odot$|) and \Lsolar\ (\verb|$L_\odot$|). These are abbreviated as either \verb|\Msolar| or \verb|\Msun| (and similarly for $L$) in {\tt lsstdesc\_macros.sty}.
 
 %\item Write CO (or similar) transitions as ``CO $J$=1$\rightarrow$0,''
 %obtained with \verb|CO $J$=1$\rightarrow$0|.  Note that setting ``=1'' in text mode
@@ -344,21 +343,13 @@ just as in ``X-ray.''
 
 \begin{enumerate}
 
-\item The abbreviations ``i.e.'' and ``e.g.'' should be in roman font and
-should always be followed by a comma, e.g., ``i.e., something.''  The A\&A
-Author's Guide provides no explicit instruction on this point, and is itself
-inconsistent in its use of a following comma.  For uniformity, we will adopt
-use of the comma.  The question of capitalization is irrelevant, because
-``i.e.'' and ``e.g.'' should not be used at the beginning of a sentence.
-\COMMENT{AM: Add some warning about how latex includes extra space after periods by default. So, an extra espace is needed for i.e., e.g.\ or anything similar if they should be followed by a normal space.}
-\COMMENT{SD:  I'm not sure how to phrase this warning; I'm afraid that I have not noticed the issue myself}
+\item The abbreviations ``i.e.''\ and ``e.g.''\ should be in roman font and
+should always be followed by a comma, e.g., ``i.e., something.''  The question of capitalization is irrelevant, because
+``i.e.''\ and ``e.g.''\ should not be used at the beginning of a sentence.
+%\COMMENT{AM: Add some warning about how latex includes extra space after periods by default. So, an extra espace is needed for i.e., e.g.\ or anything similar if they should be followed by a normal space.}
+%\COMMENT{SD:  I'm not sure how to phrase this warning; I'm afraid that I have not noticed the issue myself}
 
-\item Precise rules for the use of commas are complicated.  As a rough
-guide, if adding a comma would help the reader to take a brief pause, which
-would avoid ambiguities and make the sentence easier to understand, then
-definitely the comma should be added.  However, in many instances the
-inclusion of a comma is a matter of taste.  We have added a discussion of
-some of the subtle issues in an Appendix.
+\item When using expressions such as ``cf.''\ or ``vs.''\ (or if defying the previous rule), a normal-sized space must be explicitly placed afterwards, to avoid La\TeX\ deciding that the sentence has ended and accordingly using an extra-large space. Compare cf. some paper (\verb|cf. some paper|) with cf.\ some paper (\verb|cf.\ some paper|).
 
 %\item A\&A uses the ``serial comma'' (also called the ``Oxford comma''),
 %i.e., a comma precedes the ``and'' before the final item in a list of three or
@@ -403,13 +394,7 @@ reserving ``universe'' for different theoretical possibilities.
 %transliterated following the preference of the owner of the name, as far as
 %possible.
 
-\item Software program names should be set in the fixed-width ``tt'' font,
-e.g., {\tt HEALPix}. \COMMENT{AM: journal-specific}
-
-\COMMENT{SD: So do we remove this recommendation or try to enumerate the conventions by journal?}
-%, {\tt PLIK}, and {\tt Commander} (obtained with
-%\verb|{\tt HEALPix}|, \verb|{\tt PLIK}|, and \verb|{\tt Commander}|). 
-
+\item Software program names should generally be set in the fixed-width ``tt'' font ({\tt HEALPix}), or small-caps ``sc'' font ({\sc healpix}), depending on the journal.
 
 %\item The abbreviation of declination is ``Dec,'' not ``DEC'' or ``Dec.''
 %The abbreviation of right ascension is ``RA,'' not ``R.A.''
@@ -420,17 +405,15 @@ e.g., {\tt HEALPix}. \COMMENT{AM: journal-specific}
 (like ``North America'').
 
 
-\item The Oxford English Dictionary (OED, the ultimate authority for standard
-English) capitalizes ``Gaussian.''  
+\item ``Gaussian''  should be capitalized.
 
 \item
 Italics should be reserved for emphasis.
 Don't use italics for expressions in Latin (or other languages).  Italics should
 also not be used for special phrases; it is better to define a special phrase
 using quotations the first time it is introduced, and leave it at that.
-\COMMENT{AM: note differing uses of emph and it}
 
-\COMMENT{SD: What are they?}
+The correct way to italicize for emphasis in La\TeX\ is using \verb|\emph|: \emph{this} and {\it this} (\verb|\emph{this}| and \verb|{\it this}|) may all be typset identically, but text-to-speech software may well interpret them differently. Note that $this$ (\verb|$this$|) is not even typeset, let alone pronounced, correctly.
 
 \item
 Itemized lists should be properly punctuated.  This is achieved through one
@@ -468,7 +451,13 @@ semi-colon-separated list.}
 
 \smallskip
 \noindent
-Whether these are numbered or unnumbered lists is a matter of choice, but numerical lists are preferred when the order is important, or if specific items are going to be referred to in the text.  The particular bullet symbol used is also a choice (within reason!), but the A\&A default is dashes.  If the items in a list are essentially whole paragraphs, then it may be better to use the {\tt $\backslash$paragraph$\{\dots\}$} environment, which gives a separate heading for each item.
+Whether these are numbered or unnumbered lists is a matter of choice, but numerical lists are preferred when the order is important, or if specific items are going to be referred to in the text.  The particular bullet symbol used is generally dictated by the journal style.  If the items in a list are essentially whole paragraphs, then it may be better to use the {\tt $\backslash$paragraph$\{\dots\}$} environment, which gives a separate heading for each item.
+
+\item Precise rules for the use of commas are complicated.  As a rough 
+guide, if adding a comma would help the reader to take a brief pause, which 
+would avoid ambiguities and make the sentence easier to understand, then 
+definitely the comma should be added.  However, in many instances the 
+inclusion of a comma is a matter of taste.  See also the next item.
 
 \item
 Inserting commas can be helpful for making sentences readable.
@@ -523,13 +512,13 @@ closely-related papers and any papers yours depends on, but don't review the
 whole history of the subject.
 
 \item In the case of multiple citations for the same topic, the references should be cited in chronological order; if there's some reason to cite them out of order, the reason should be explained in the text.
-An exception is that multiple references to the same authors in a list get grouped together, as in (Marshall et~al. 2001; Mantz et~al. 2003, 2010; Peiris et~al. 2006).
+An exception is that multiple references to the same authors in a list get grouped together, as in (Wood-Vasey et~al. 2001; Mantz et~al. 2003, 2010; Peiris et~al. 2006).
 
 \item There will be many DESC papers and we will fatigue readers if we
 reproduce the same description of LSST in every one.
  There is no requirement to use a ``standard paragraph,''
 but it is still appropriate to cite {\it all\/} instrument and product papers
-on which a new paper depends
+on which a new paper depends.
 Refer (once)
 to the relevant LSST or DESC product papers (see Section~\ref{sec:references}), and summarize as briefly as
 possible any characteristics of the instrument that the reader needs to know
@@ -561,14 +550,14 @@ abstract or introduction.
 
 \section{Use (and Misuse) of the English Language}
 
-Use standard British words and spellings.  We take the Oxford English Dictionary (OED) as our authority on British spelling.  Examples follow.  The
-first six highlight differences between standard British and European usage.
-To repeat, use standard British usage!
+%Use standard British words and spellings.  We take the Oxford English Dictionary (OED) as our authority on British spelling.  Examples follow.  The
+f%irst six highlight differences between standard British and European usage.
+%To repeat, use standard British usage!
 
 \begin{enumerate}
 
 \item {\it Noise\/} as it will be used in DESC papers is a singular noun.  ``The {\bf noises} of
-the images is not correct.
+the images'' is not correct.
 
 \item
  {\it Significance\/} is similarly used as a singular noun, so that
@@ -594,7 +583,7 @@ thermal fluctuations from the data directly'' is incorrect, because
 {\bf to remove} is not an object.
 \end{itemize}
 
-\item {\it Permit\/} is also a transitive verb.  See item 5 above.
+\item {\it Permit\/} is also a transitive verb.  See item 3 above.
 
 \item One of the weirdnesses of English usage, that sometimes verbs are
 followed by an infinitive while at other times they are followed by a gerund,
@@ -602,8 +591,7 @@ is explained quite well at
 
 \url{http://www.englishpage.com/gerunds/index.htm}.
 
-\item ``{\it Modelisation\/}'' (or ``modelization'') is not in the
-OED, at least not yet.  Don't use it.  ``Model'' or ``modelling'' are probably
+\item ``{\it Modelisation\/}'' (or ``modelization'') is not a word, at least not yet.  Don't use it.  ``Model'' or ``modelling'' are probably
 what you want.
 
 \item
@@ -633,7 +621,7 @@ If that doesn't all make sense, concentrate on the example, and remember that
 no comma should precede ``that,'' but a comma should always precede ``which.''
 
 \item ``Between A and B,'' ``from A to B,'' or ``in the range A--B'' are
-\hbox{OK}.  ``Between A to B,'' ``from A--B,'' and ``between A--B'' are not.  Note that the dash is an en-dash (\verb|--|) and not a math mode minus sign (\verb|$-$|).
+\hbox{OK}.  ``Between A to B,'' ``from A--B,'' and ``between A--B'' are not.  Note that the dash is an en-dash (\verb|--|) and {\bf not} a math mode minus sign (\verb|$-$|).
 
 \item It is better to use the term ``uncertainties'' than ``errors.''  When
 giving uncertainties, state the confidence interval and its probability
@@ -695,7 +683,7 @@ multiple galaxies, but ``the clusters masses'' is incorrect.
 
 \item The ampersand, ``\&,'' is not acceptable in a sentence.  Write, e.g.,
 ``using the 100 and 143$\,$GHz channels,'' not ``using the 100 \& 143$\,$GHz
-channels.''
+channels.'' An exception is when the \& is specified by citation style, as in ``Author1 \& Author2 (2017).''
 
 \item Spell out numbers up to and including ten; use digits above ten except at
 the beginning of a sentence.\footnote{And don't ask about the
@@ -710,8 +698,8 @@ higher'' or ``a factor of 2.''
 Sentences should not start with numbers or variables.  Rewrite the sentence
 if necessary.
 
-\item Use ``reliability'' rather than ``purity'' for the probability that a
-source is real.  For example, the reliability of the catalogue is 0.95.
+%\item Use ``reliability'' rather than ``purity'' for the probability that a
+%source is real.  For example, the reliability of the catalogue is 0.95.
 
 \item
 Use ``data set'' rather than ``dataset'' or ``data-set.''
@@ -756,7 +744,7 @@ using the word at all.
 as ``non-Gaussian'' and ``non-relativistic.''
 
 \item
-A reference to a paper \verb|\citet{<anything>}| is shorthand for a group of people, not a paper.  So one refers to previous work reported {\bf by} \verb|\citet{<anything>}| not {\bf in} \verb|\citet{<anything>}|/
+A reference to a paper \verb|\citet{Author17}| is shorthand for a group of people, not a paper.  Thus, one refers to previous work reported {\bf by} Author et~al.\ (2017), never {\bf in} Author et~al.\ (2017).
 
 \item
 The use of British or American spelling depends on the journal.  Table~\ref{tab:spelling} summarizes the differences.

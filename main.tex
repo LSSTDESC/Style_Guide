@@ -29,15 +29,27 @@
 
 \input{macros/affiliations}
 \title{\vspace{5cm}LSST DESC Style Guide}
-\author{DESC Publications Board: Seth Digel$^1$ (Publication Manager), Pierre Astier,$^2$ David Kirkby,$^3$\\ Rachel Mandelbaum,$^4$ Adam Mantz,$^5$ Phil Marshall,$^1$ Hiranya Peiris,$^6$ and Michael Wood-Vasey$^7$
+\author{DESC Publication Board: Pierre Astier,$^{1,2,3}$ Seth Digel$^{4,5}$ (Publication Manager),  David Kirkby,$^6$\\ Rachel Mandelbaum,$^7$ Adam Mantz,$^{5,8}$ Phil Marshall,$^{4,5}$ Hiranya Peiris,$^9$ and Michael Wood-Vasey$^{10}$
   \medskip\\
-    {\small$^1$\slac}\\
-    {\small$^2$}\\
-    {\small$^3$}\\
-    {\small$^4$}\\
-    {\small$^5$\suphysics}\\
-    {\small$^6$}\\
-    {\small$^7$}
+  \begin{tabular}{l}
+    {\small$^1$\lpnhe}\\
+    {\small$^2$\diderot}\\
+    {\small$^3$\cnrs}\\
+    {\small$^4$\slac}\\
+    {\small$^5$\kipac}\\
+    {\small$^6$\uci}\\
+    {\small$^7$\cmu}\\
+    {\small$^8$\stanford}\\
+    {\small$^9$\ucl}\\
+    {\small$^{10}$\pitt}    
+  \end{tabular}
+    % {\small$^1$\slac}\\
+    % {\small$^2$\lpnhe}\\
+    % {\small$^3$\uci}\\
+    % {\small$^4$\cmu}\\
+    % {\small$^5$\suphysics}\\
+    % {\small$^6$\ucl}\\
+    % {\small$^7$\pitt}
 }
 \date{\version}
 \maketitle
@@ -57,6 +69,9 @@
 \fancyhead[C]{\rightmark}
 \pagenumbering{arabic}
 \setcounter{page}{1}
+
+\section{Credit}
+The LSST DESC Style Guide borrows extensively, with permission, from the ``Style Guide for {\it Planck} Papers 2015," by C. R. Lawrence, T. J. Pearson, Douglas Scott, L. Spencer, and A. Zonca.  The \TeX\ source was provided to DESC by C. R. Lawrence and the La\TeX\ repository for the DESC Guide was developed by Adam Mantz.
 
 \section{Purpose}
 
@@ -80,11 +95,11 @@ A\&A also has a \href{http://www.aanda.org/doc_journal/instructions/aa_english_g
 
 \section{\TeX\ Stuff}
 
-\subsection{start\_paper}
+\subsection{\tt start\_paper}
 
 The {\tt start\_paper} project is available to facilitate DESC paper development, in LaTeX and in GitHub...
 
-\subsection{desc-tex}
+\subsection{\tt desc-tex}
 
 La\TeX\ support files useful and specific to DESC papers are found in
 the \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} GitHub project.
@@ -603,7 +618,8 @@ what you want.
 
 \item {\it That\/} and {\it which\/} should be used as explained in this paragraph from the A\&A English Guide:
 
-``That'' (not in phrases such as ``enough \dots that \dots'') is never
+\begin{quotation}
+\noindent ``That'' (not in phrases such as ``enough \dots that \dots'') is never
 preceded by a comma, because it introduces a restrictive clause.  If tempted
 to use a comma there, then check that ``which'' is not more appropriate
 (=non-restrictive).  That ``that'' is already used for so many functions makes
@@ -615,6 +631,7 @@ non-restrictive.  Example: ``Both metallicity components appear to have a
 common origin, which is different from that of the dark-matter halo.'' vs.\
 ``Both metallicity components appear to have a common origin that is different
 from that of the dark-matter halo.''
+\end{quotation}
 
 If that doesn't all make sense, concentrate on the example, and remember that
 no comma should precede ``that,'' but a comma should always precede ``which.''
@@ -1071,7 +1088,7 @@ $\nu^{\hbox{\hglue 0.7pt}\beta}$, which makes it easy to ``tune'' the space.
 \begin{itemize}
 
 \item
-Use the La\TeX~bibsty bibliography style file provided by the journal, and/or refer to the bibliography guidelines of the journal.  For several journals, these are also available in {\tt desc-tex}.  For some journals,  {\tt desc-tex} provides \FIXME{(todo)} modified bibsty files that display arXiv numbers instead of the egregious ``Arxiv e-prints'' and/or include hyperlinks to ADS (given the appropriate bibitem entries).
+Use the La\TeX~bibsty bibliography style file provided by the journal, and/or refer to the bibliography guidelines of the journal.  For several journals, these are also available in {\tt desc-tex}.  For some journals,  {\tt desc-tex} provides modified bibsty files that display arXiv numbers instead of the egregious ``Arxiv e-prints'' and/or include hyperlinks to ADS (given the appropriate bibitem entries).
 
 \item
 The   {\tt desc-tex} GitHub repository includes {\tt lsstdesc.bib}, a bibliography of recommended and commonly cited references in DESC papers.  These will include LSST and DESC product papers.  ({\tt lsstdesc.bib} will become more useful over time; currently it is more or less a placeholder.)
@@ -1463,14 +1480,17 @@ policy of the Particle Data Group, described on page~5 of
 
 \url{http://pdg.lbl.gov/2013/reviews/rpp2013-rev-rpp-intro.pdf},
 
-\noindent which says ``The basic rule states that if the three
+\noindent which says 
+\begin{quotation}
+\noindent The basic rule states that if the three
 highest-order digits of the error lie between 100 and 354, we round to two
 significant digits.  If they lie between 355 and 949, we round to one
 significant digit.  Finally, if they lie between 950 and 999, we round up to
 1000 and keep two significant digits.  In all cases, the central value is given
 with a precision that matches that of the error.  So, for example, the result
 $0.827\pm0.119$ would appear as $0.83\pm0.12$, while
-$0.827\pm0.367$ would turn into $0.8\pm0.4$.''
+$0.827\pm0.367$ would turn into $0.8\pm0.4$.
+\end{quotation}
 
 There {\it may\/} be cases where using more precision is justified, e.g.,
 when there is an important scientific point to make by comparing uncertainties.

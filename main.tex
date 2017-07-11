@@ -98,7 +98,7 @@ A\&A also has a \href{http://www.aanda.org/doc_journal/instructions/aa_english_g
 
 \subsection{\tt start\_paper}
 
-The \href{https://github.com/LSSTDESC/start_paper}{\tt start\_paper} project is intended to streamline the process of developing DESC papers and notes, in various formates (La\TeX, Jupyter notebook, \ldots). \FIXME{add details}
+The \href{https://github.com/LSSTDESC/start_paper}{\tt start\_paper} project is intended to streamline the process of developing DESC papers and notes, in various formats (La\TeX, Jupyter notebook, \ldots). \FIXME{add details}
 
 \subsection{\tt desc-tex}
 
@@ -1110,22 +1110,28 @@ If for some reason you {\bf do not} use a bibsty file, you will need to manually
 
 \subsection{Colors} \label{sec:figcolor}
 
-Any figures with color should use color combinations that are colorblind-friendly. \FIXME{More explicit guidance to be included here. For now, some links:}
-
-A suggestion that was used in SDSS-IV and HSC: \url{https://jiffyclub.github.io/palettable/tableau/}. Look for the palette ColorBlind\_10, here is how to use it in python:
-
+Any figures with color should use color combinations that are colorblind-friendly.  Here are some
+suggestions for color palettes that can be used when identifying different line colors or making
+color maps:
+\begin{itemize}
+\item \url{https://jiffyclub.github.io/palettable/tableau/} palette ColorBlind\_10.  Here is an
+  example python code snippet that shows how to use it:
 \begin{verbatim}
+import matplotlib.pyplot as pl
 import palettable
 colors = palettable.tableau.ColorBlind_10.mpl_colors
 ax = pl.subplot(221)
 ax.set_color_cycle(colors)
 \end{verbatim}
+\item \url{http://mkweb.bcgsc.ca/colorblind/}
+\end{itemize}
 
-More color palette suggestions: \url{http://mkweb.bcgsc.ca/colorblind/}
+For those who want more information or ideas, a longer narrative discussion on how to design figures
+for color blind people can be found at \\ \url{http://www.somersault1824.com/tips-for-designing-scientific-figures-for-color-blind-readers/}.
 
-A page with a longer narrative discussion about how to design figures for color blind people: \url{http://www.somersault1824.com/tips-for-designing-scientific-figures-for-color-blind-readers/}
-
-Links to color blindness simulators, which let you select color palettes and/or upload figures and see what they would look like for people with various forms of color blindness
+Finally, if you want to check how well you are doing, there are several online color blindness
+simulators,  which let you select color palettes and/or upload figures and see what they would look
+like for people with various forms of color blindness:
 \begin{itemize}
 \item \url{http://colororacle.org/}
 \item \url{http://www.vischeck.com/vischeck/vischeckImage.php}

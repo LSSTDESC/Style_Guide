@@ -9,11 +9,14 @@ function parse_git_branch {
 
 current=$(parse_git_branch)
 orphan=compiled
-files=main.pdf
+origfile=main.pdf
+file=Style_Guide.pdf
 message=upload
 safe=safety
 
-[ ${#files[@]} -ge 1 ] || {
+cp $origfile $file
+
+[ ${#file[@]} -ge 1 ] || {
     echo "No files to upload."
     exit
 }
@@ -21,11 +24,11 @@ safe=safety
 # because this process is destructive, make a copy of everything
 mkdir $safe || exit $?
 rm -f $safe/* # oh, the irony
-cp -v $files $safe/
+cp -v $file $safe/
 
 git checkout --orphan $orphan && \
     git rm -rf . && \
-    git add $files && \
+    git add $file && \
     git commit -m "$message" && \
     git push -f origin $orphan
 
@@ -34,3 +37,4 @@ git branch -D $orphan
 
 mv -v $safe/* .
 rmdir $safe
+rm -f $file

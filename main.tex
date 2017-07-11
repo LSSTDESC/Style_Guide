@@ -1108,6 +1108,30 @@ If for some reason you {\bf do not} use a bibsty file, you will need to manually
 
 \section{Figures}
 
+\subsection{Colors} \label{sec:figcolor}
+
+Any figures with color should use color combinations that are colorblind-friendly. \FIXME{More explicit guidance to be included here. For now, some links:}
+
+A suggestion that was used in SDSS-IV and HSC: \url{https://jiffyclub.github.io/palettable/tableau/}. Look for the palette ColorBlind\_10, here is how to use it in python:
+
+\begin{verbatim}
+import palettable
+colors = palettable.tableau.ColorBlind_10.mpl_colors
+ax = pl.subplot(221)
+ax.set_color_cycle(colors)
+\end{verbatim}
+
+More color palette suggestions: \url{http://mkweb.bcgsc.ca/colorblind/}
+
+A page with a longer narrative discussion about how to design figures for color blind people: \url{http://www.somersault1824.com/tips-for-designing-scientific-figures-for-color-blind-readers/}
+
+Links to color blindness simulators, which let you select color palettes and/or upload figures and see what they would look like for people with various forms of color blindness
+\begin{itemize}
+\item \url{http://colororacle.org/}
+\item \url{http://www.vischeck.com/vischeck/vischeckImage.php}
+\item \url{http://www.color-blindness.com/coblis-color-blindness-simulator/}
+\end{itemize}
+
 %\subsection{General comments on figures}
 
 %Scripts have been developed showing how to drive {\tt Python} (Andrea Zonca),
@@ -1280,7 +1304,7 @@ index (R, G, B or C, M, Y, K values). Choice of a color map requires careful
 deliberation, depending on what features of the map are to be highlighted.
 ``Undefined'' or unmeasured pixel values should be indicated using a color
 that does not appear in the color map (e.g., white or grey).
-\COMMENT{SD: Do we need this?  Or can we make more specific recommendations regarding the color map?}
+\COMMENT{SD: Do we need this?  Or can we make more specific recommendations regarding the color map?} See Section~\ref{sec:figcolor}.
 
 \end{itemize}
 %\smallskip

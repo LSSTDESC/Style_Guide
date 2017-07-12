@@ -38,3 +38,5 @@ git branch -D $orphan
 mv -v $safe/* .
 rmdir $safe
 rm -f $file
+
+git submodule update --init

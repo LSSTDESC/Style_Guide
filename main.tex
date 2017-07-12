@@ -29,7 +29,7 @@
 
 \input{macros/affiliations}
 \title{\vspace{5cm}LSST DESC Style Guide}
-\author{DESC Publication Board: Pierre Astier,$^{1,2,3}$ Seth Digel$^{4,5}$ (Publication Manager),  David Kirkby,$^6$\\ Rachel Mandelbaum,$^7$ Adam Mantz,$^{5,8}$ Phil Marshall,$^{4,5}$ Hiranya Peiris,$^9$ and Michael Wood-Vasey$^{10}$
+\author{DESC Publication Board: Pierre Astier,$^{1,2,3}$ Seth Digel$^{4,5}$ (Publication Manager),  David Kirkby,$^6$\\ Rachel Mandelbaum,$^7$ Adam Mantz,$^{5,8}$ Phil Marshall,$^{4,5}$ Hiranya Peiris,$^{9,10}$ and Michael Wood-Vasey$^{11}$
   \medskip\\
   \begin{tabular}{l}
     {\small$^1$\lpnhe}\\
@@ -41,7 +41,8 @@
     {\small$^7$\cmu}\\
     {\small$^8$\stanford}\\
     {\small$^9$\ucl}\\
-    {\small$^{10}$\pitt}    
+    {\small$^{10}$\okc}\\
+    {\small$^{11}$\pitt}    
   \end{tabular}
     % {\small$^1$\slac}\\
     % {\small$^2$\lpnhe}\\
@@ -97,7 +98,7 @@ A\&A also has a \href{http://www.aanda.org/doc_journal/instructions/aa_english_g
 
 \subsection{\tt start\_paper}
 
-The {\tt start\_paper} project is available to facilitate DESC paper development, in LaTeX and in GitHub...
+The \href{https://github.com/LSSTDESC/start_paper}{\tt start\_paper} project is intended to streamline the process of developing DESC papers and notes, in various formats (La\TeX, Jupyter notebook, \ldots). \FIXME{add details}
 
 \subsection{\tt desc-tex}
 
@@ -170,21 +171,18 @@ Guidelines for defining author lists and the text for the Acknowledgments sectio
 
 \section{Abstract}
 
-The abstract is a summary of the paper, not part of the paper.  Do not include
-anything in the abstract that is not also included (usually at greater length)
-in the text of the paper. Do not treat the abstract as an introduction to the
-paper; the paper should make sense without the abstract.  Do not include
-references in the abstract.
+The abstract is a summary of the paper, not part of the paper. Here are some ``do's'' and ``don'ts'': 
+\begin{itemize}
+\item {\bf Do} include all significant or important conclusions of the paper including numerical results (with uncertainties or confidence levels) when appropriate.
+\item {\bf Do} write the abstract as a single paragraph, if not using the ``structured'' A\&A format.  
+\item {\bf Do} be concise.
+\item {\bf Don't} include anything in the abstract that is not also included (usually at greater length) in the text of the paper.
+\item {\bf Don't} treat the abstract as an introduction to the paper; the paper should make sense without the abstract and vice versa.
+\item {\bf Don't} include references in the abstract if you can avoid it.
+\item {\bf Don't} use vague statements such as ``We discuss the implications of the observations.''
+\item {\bf Don't} define acronyms unless they are used again in the abstract. 
+\end{itemize}
 
-All significant or important conclusions of the paper should be contained
-in the abstract, including numerical results (with uncertainties or confidence
-levels) when appropriate.  Avoid vague statements such as ``We discuss the
-implications of the observations.''  It is usually best to write an abstract
-in an impersonal style (avoiding ``I'' and ``we'').
-
-It is preferable to write the abstract as a single paragraph, if not using the ``structured'' A\&A format.  Shorter is
-better.  References should be avoided in the abstract.  Acronyms should only
-be defined if they are used again in the abstract.
 
 Key words appear at the end of the abstract.  These must be selected from
 the approved lists, e.g.
@@ -195,7 +193,7 @@ the approved lists, e.g.
 rather than just made up!  Key words should be separated by en-dashes (\verb|--| in
 \TeX), not some other form of abbreviation.
 
-\COMMENT{AM: Each journal seems to have its own keyword list, although, in practice, they may actually be standardized.}
+\COMMENT{Each journal seems to have its own keyword list, although, in practice, they may actually be standardized.} \FIXME{Link to them.}
 
 \section{Units}
 
@@ -1110,6 +1108,38 @@ If for some reason you {\bf do not} use a bibsty file, you will need to manually
 
 \section{Figures}
 
+\subsection{Colors} \label{sec:figcolor}
+
+Any figures with color should use color combinations that are colorblind-friendly.  Here are some
+suggestions for color palettes that can be used when identifying different line colors or making
+color maps:
+\begin{itemize}
+\item \url{https://jiffyclub.github.io/palettable/tableau/} palette ColorBlind\_10.  Here is an
+  example python code snippet that shows how to use it:
+\begin{verbatim}
+import matplotlib.pyplot as pl
+import palettable
+colors = palettable.tableau.ColorBlind_10.mpl_colors
+ax = pl.subplot(221)
+ax.set_color_cycle(colors)
+\end{verbatim}
+\item \url{http://mkweb.bcgsc.ca/colorblind/}
+\end{itemize}
+
+For those who want more information or ideas, a longer narrative discussion on how to design figures
+for color blind people can be found at \\ \url{http://www.somersault1824.com/tips-for-designing-scientific-figures-for-color-blind-readers/}.
+
+Finally, if you want to check how well you are doing, there are several online color blindness
+simulators,  which let you select color palettes and/or upload figures and see what they would look
+like for people with various forms of color blindness:
+\begin{itemize}
+\item \url{http://colororacle.org/}
+\item \url{http://www.vischeck.com/vischeck/vischeckImage.php}
+\item \url{http://www.color-blindness.com/coblis-color-blindness-simulator/}
+\end{itemize}
+
+For line plots, whenever practical, different line styles should be used to distinguish lines \emph{even if they are different colors}.
+
 %\subsection{General comments on figures}
 
 %Scripts have been developed showing how to drive {\tt Python} (Andrea Zonca),
@@ -1156,8 +1186,8 @@ If for some reason you {\bf do not} use a bibsty file, you will need to manually
 \subsection{Plots}
 
 \begin{enumerate}
-\item {\it Format\/}. Whenever feasible should be EPS, PDF, or other vector format
-compatible with the La\TeX\ \verb|\includegraphics| command. 
+\item {\it Format\/}. Whenever feasible figures should be in EPS, PDF, or another vector format
+compatible with the La\TeX\ \verb|\includegraphics| command. Vector graphics can be rendered at any zoom level without pixilation, and (usually) require less disk storage. This is not necessarily the case for images or plots with a very large number of points (e.g., 10's of thousands), however; such graphics should be saved in raster rather than vector format (e.g., PNG, JPEG, TIFF) at print-quality resolution.
 
 \item {\it Line widths for axes, tick marks, etc.\/} Line widths in the range 0.5--0.8\,pt 
  work well.  Lines of width 1\,pt are a bit too heavy for
@@ -1282,7 +1312,9 @@ index (R, G, B or C, M, Y, K values). Choice of a color map requires careful
 deliberation, depending on what features of the map are to be highlighted.
 ``Undefined'' or unmeasured pixel values should be indicated using a color
 that does not appear in the color map (e.g., white or grey).
-\COMMENT{SD: Do we need this?  Or can we make more specific recommendations regarding the color map?}
+%\COMMENT{SD: Do we need this?  Or can we make more specific recommendations regarding the color
+%map?} 
+See Section~\ref{sec:figcolor} for some notes on how to make the map colorblind-friendly.
 
 \end{itemize}
 %\smallskip

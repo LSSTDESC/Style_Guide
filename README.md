@@ -1,5 +1,5 @@
 # Style_Guide
-Style guide for DESC publications
+Style guide for DESC publications. Find the compiled PDF [here](https://github.com/LSSTDESC/Style_Guide/blob/compiled/Style_Guide.pdf).
 
 ## Authors
 

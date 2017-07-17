@@ -1110,12 +1110,25 @@ If for some reason you {\bf do not} use a bibsty file, you will need to manually
 
 \subsection{Colors} \label{sec:figcolor}
 
-Any figures with color should use color combinations that are colorblind-friendly.  Here are some
-suggestions for color palettes that can be used when identifying different line colors or making
-color maps:
+Color can be a very useful way to distinguish different types of data in figures, but care should be taken to ensure that figures are interpretable by the color blind (or to those who print papers in black and white). For scatter and line plots, this means that color should not be the only distinguishing feature used -- different line styles/weights and different plot symbols should be used to distinguish different types of data \emph{even if they also use different colors}. Also avoid using very light greens and yellows, which can be challenging for anyone to see, whether on screens or in print.
+
+In addition, colors used in figures should be chosen such that, at a minimum, the figure can be understood by those with deuteranopia (the most common form of red-green colorblindness). This is an issue of accessibility, equivalent to the requirement that DESC papers contain clear, understandable prose. The guidelines below should cover most cases.
+
+To check how clear your figures are to those with different forms of color blindness, we recommend the following very cool tools:
 \begin{itemize}
-\item \url{https://jiffyclub.github.io/palettable/tableau/} palette ColorBlind\_10.  Here is an
-  example python code snippet that shows how to use it:
+\item \url{http://colororacle.org/}: installed software that alters the appearance of your entire desktop.
+\item \url{http://www.vischeck.com/vischeck/vischeckImage.php}: web-based interface or installed software to convert individual figures.
+\item \url{http://www.color-blindness.com/coblis-color-blindness-simulator/}: web interface for individual figures.
+\end{itemize}
+
+For those who want more information or ideas, a longer narrative discussion on how to design figures for color blind people can be found at \\ \url{http://www.somersault1824.com/tips-for-designing-scientific-figures-for-color-blind-readers/}.
+
+\subsubsection{Color recommendations for scatter and line plots}
+
+\begin{itemize}
+\item 1 color: black or dark blue
+\item 2 colors: (black or blue) and (red or green)
+\item $>2$ colors: one of the palettes shown in Figure~\ref{fig:palettes}. The 8-color palette (left) is from \url{http://jfly.iam.u-tokyo.ac.jp/color/} and corresponds to the sequence \#000000, \#E69F00, \#56B4E9, \#009E73, \#F0E442, \#0072B2, \#D55E00, \#CC79A7 (and the RGB/CMKY codes shown).\footnote{RGB tuples or hex codes can be used in place of, e.g., `k' or `b' to specify colors in {\tt matplotlib}; see \href{https://matplotlib.org/users/colors.html}{this webpage}.} The 10-color palette shown is from the \href {https://jiffyclub.github.io/palettable/tableau/}{tableau} package for Python, and can be used as follows:
 \begin{verbatim}
 import matplotlib.pyplot as pl
 import palettable
@@ -1123,22 +1136,25 @@ colors = palettable.tableau.ColorBlind_10.mpl_colors
 ax = pl.subplot(221)
 ax.set_color_cycle(colors)
 \end{verbatim}
-\item \url{http://mkweb.bcgsc.ca/colorblind/}
 \end{itemize}
 
-For those who want more information or ideas, a longer narrative discussion on how to design figures
-for color blind people can be found at \\ \url{http://www.somersault1824.com/tips-for-designing-scientific-figures-for-color-blind-readers/}.
+\begin{figure*} 
+ \includegraphics[scale=1.15]{figures/pallete}
+ \hspace{1cm}
+ \begin{minipage}[b]{0.5\textwidth}
+   \includegraphics[scale=0.55]{figures/ColorBlind_10_discrete}\vspace{10mm}
+ \end{minipage}
+ \caption{Recommended color palettes for scatter and line plots with several types of data. Credit: Masataka Okabe and Kei Ito (left panel).}
+ \label{fig:palettes}
+\end{figure*}
 
-Finally, if you want to check how well you are doing, there are several online color blindness
-simulators,  which let you select color palettes and/or upload figures and see what they would look
-like for people with various forms of color blindness:
-\begin{itemize}
-\item \url{http://colororacle.org/}
-\item \url{http://www.vischeck.com/vischeck/vischeckImage.php}
-\item \url{http://www.color-blindness.com/coblis-color-blindness-simulator/}
-\end{itemize}
+\subsubsection{Color recommendations for shading and filled contour plots}
 
-For line plots, whenever practical, different line styles should be used to distinguish lines \emph{even if they are different colors}. Analogously, scatter plots should use different symbol shapes to distinguish data sets, even when they appear in different colors.
+For simple shading, the same advice as for line and scatter plots applies. For more complex cases, e.g.\ parameter constrain plots where pairs of similar colors (for 1 and $2\sigma$ contours) are desired\ldots \FIXME{to be expanded}
+
+\subsubsection{Color recommendations for continuous color maps}
+
+\FIXME{To be written}
 
 %\subsection{General comments on figures}
 
@@ -1691,12 +1707,6 @@ both the quantity and the uncertainty. Align $\pm$ symbols when possible. \FIXME
 
 %\noindent{\bf The remainder of this section has not been copied, as it is even more technical and specific to the \verb|\halign| method of formatting tables.}
 
-
-%\appendix
-
-%\section{Use of commas}
-
-%\COMMENT{AM: Move into ``English'' section?}
 
 
 

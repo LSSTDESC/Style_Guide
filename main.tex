@@ -1128,7 +1128,7 @@ For those who want more information or ideas, a longer narrative discussion on h
 \begin{itemize}
 \item 1 color: black or dark blue
 \item 2 colors: (black or blue) and (red or green)
-\item $>2$ colors: one of the palettes shown in Figure~\ref{fig:palettes}. The 8-color palette (left) is from \url{http://jfly.iam.u-tokyo.ac.jp/color/} and corresponds to the sequence \#000000, \#E69F00, \#56B4E9, \#009E73, \#F0E442, \#0072B2, \#D55E00, \#CC79A7 (and the RGB/CMKY codes shown). \COMMENT{How do people use this in Python?} The 10-color palette shown is from the \href {https://jiffyclub.github.io/palettable/tableau/}{tableau} package for Python, and can be used as follows:
+\item $>2$ colors: one of the palettes shown in Figure~\ref{fig:palettes}. The 8-color palette (left) is from \url{http://jfly.iam.u-tokyo.ac.jp/color/} and corresponds to the sequence \#000000, \#E69F00, \#56B4E9, \#009E73, \#F0E442, \#0072B2, \#D55E00, \#CC79A7 (and the RGB/CMKY codes shown).\footnote{RGB tuples or hex codes can be used in place of, e.g., `k' or `b' to specify colors in {\tt matplotlib}; see \href{https://matplotlib.org/users/colors.html}{this webpage}.} The 10-color palette shown is from the \href {https://jiffyclub.github.io/palettable/tableau/}{tableau} package for Python, and can be used as follows:
 \begin{verbatim}
 import matplotlib.pyplot as pl
 import palettable
@@ -1150,7 +1150,7 @@ ax.set_color_cycle(colors)
 
 \subsubsection{Color recommendations for shading and filled contour plots}
 
-For simple shading, the same advise as for line and scatter plots applies. For more complex cases, e.g.\ parameter constrain plots where pairs of similar colors (for 1 and $2\sigma$ contours) are desired\ldots \FIXME{to be expanded}
+For simple shading, the same advice as for line and scatter plots applies. For more complex cases, e.g.\ parameter constrain plots where pairs of similar colors (for 1 and $2\sigma$ contours) are desired\ldots \FIXME{to be expanded}
 
 \subsubsection{Color recommendations for continuous color maps}
 

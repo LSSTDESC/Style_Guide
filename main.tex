@@ -1112,7 +1112,7 @@ If for some reason you {\bf do not} use a bibsty file, you will need to manually
 
 Color can be a very useful way to distinguish different types of data in figures, but care should be taken to ensure that figures are interpretable by the color blind (or to those who print papers in black and white). For scatter and line plots, this means that color should not be the only distinguishing feature used -- different line styles/weights and different plot symbols should be used to distinguish different types of data \emph{even if they also use different colors}. Also avoid using very light greens and yellows, which can be challenging for anyone to see, whether on screens or in print.
 
-In addition, colors used in figures should be chosen such that, at a minimum, the figure can be understood by those with deuteranopia (the most common form of red-green colorblindness). This is an issue of accessibility, equivalent to the requirement that DESC papers contain clear, understandable prose. The guidelines below should cover most cases.
+In addition, colors used in figures should be chosen such that, at a minimum, the figure can be understood by those with deuteranopia (green deficiency, the most common form of red-green colorblindness), and ideally also by those with protanopia or tritanopia (red and blue deficiencies, respectively). This is an issue of accessibility, equivalent to the requirement that DESC papers contain clear, understandable prose. The guidelines below should cover most cases.
 
 To check how clear your figures are to those with different forms of color blindness, we recommend the following very cool tools:
 \begin{itemize}
@@ -1127,7 +1127,7 @@ For those who want more information or ideas, a longer narrative discussion on h
 
 \begin{itemize}
 \item 1 color: black or dark blue
-\item 2 colors: (black or blue) and (red or green)
+\item 2 colors: blue and red
 \item $>2$ colors: one of the palettes shown in Figure~\ref{fig:palettes}. The 8-color palette (left) is from \url{http://jfly.iam.u-tokyo.ac.jp/color/} and corresponds to the sequence \#000000, \#E69F00, \#56B4E9, \#009E73, \#F0E442, \#0072B2, \#D55E00, \#CC79A7 (and the RGB/CMKY codes shown).\footnote{RGB tuples or hex codes can be used in place of, e.g., `k' or `b' to specify colors in {\tt matplotlib}; see \href{https://matplotlib.org/users/colors.html}{this webpage}.} The 10-color palette shown is from the \href {https://jiffyclub.github.io/palettable/tableau/}{tableau} package for Python, and can be used as follows:
 \begin{verbatim}
 import matplotlib.pyplot as pl

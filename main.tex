@@ -1132,11 +1132,18 @@ For those who want more information or ideas, a longer narrative discussion on h
 \begin{itemize}
 \item 1 color: black or dark blue
 \item 2 colors: blue and red
-\item $>2$ colors: one of the palettes shown in Figure~\ref{fig:palettes}. The 8-color palette (left) is from \url{http://jfly.iam.u-tokyo.ac.jp/color/} and corresponds to the sequence \#000000, \#E69F00, \#56B4E9, \#009E73, \#F0E442, \#0072B2, \#D55E00, \#CC79A7 (and the RGB/CMKY codes shown).\footnote{RGB tuples or hex codes can be used in place of, e.g., `k' or `b' to specify colors in {\tt matplotlib}; see \href{https://matplotlib.org/users/colors.html}{this webpage}.} The 10-color palette shown is from the \href {https://jiffyclub.github.io/palettable/tableau/}{tableau} package for Python, and can be used as follows:
+\item $>2$ colors: one of the palettes shown in Figure~\ref{fig:palettes}. The 8-color palette (left) is from \url{http://jfly.iam.u-tokyo.ac.jp/color/} and corresponds to the sequence \#000000, \#E69F00, \#56B4E9, \#009E73, \#F0E442, \#0072B2, \#D55E00, \#CC79A7 (and the RGB/CMKY codes shown).\footnote{RGB tuples or hex codes can be used in place of, e.g., `k' or `b' to specify colors in {\tt matplotlib}; see \href{https://matplotlib.org/users/colors.html}{this webpage}.} The 10-color palette shown is from the \href {https://jiffyclub.github.io/palettable/tableau/}{tableau} package for Python. Example Python code showing how to use these two palettes appears below.
 \begin{verbatim}
 import matplotlib.pyplot as pl
+
+# first palette
+colors = ["#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", \
+ "#D55E00", "#CC79A7"]
+
+# second palette
 import palettable
 colors = palettable.tableau.ColorBlind_10.mpl_colors
+
 ax = pl.subplot(221)
 ax.set_color_cycle(colors)
 \end{verbatim}

@@ -9,6 +9,10 @@
 \setlength{\textheight}{9.25in}
 \setlength{\headsep}{0.25in} 
 \setlength{\topmargin}{-0.75in}
+\renewcommand\floatpagefraction{.9}
+\renewcommand\topfraction{.9}
+\renewcommand\bottomfraction{.9}
+\renewcommand\textfraction{.1}   
 
 \usepackage{fancyhdr}
 \renewcommand{\headrulewidth}{0pt}
@@ -1112,7 +1116,7 @@ If for some reason you {\bf do not} use a bibsty file, you will need to manually
 
 Color can be a very useful way to distinguish different types of data in figures, but care should be taken to ensure that figures are interpretable by the color blind (or to those who print papers in black and white). For scatter and line plots, this means that color should not be the only distinguishing feature used -- different line styles/weights and different plot symbols should be used to distinguish different types of data \emph{even if they also use different colors}. Also avoid using very light greens and yellows, which can be challenging for anyone to see, whether on screens or in print.
 
-In addition, colors used in figures should be chosen such that, at a minimum, the figure can be understood by those with deuteranopia (the most common form of red-green colorblindness). This is an issue of accessibility, equivalent to the requirement that DESC papers contain clear, understandable prose. The guidelines below should cover most cases.
+In addition, colors used in figures should be chosen such that, at a minimum, the figure can be understood by those with deuteranopia (green deficiency, the most common form of red-green colorblindness), and ideally also by those with protanopia or tritanopia (red and blue deficiencies, respectively). This is an issue of accessibility, equivalent to the requirement that DESC papers contain clear, understandable prose. The guidelines below should cover most cases.
 
 To check how clear your figures are to those with different forms of color blindness, we recommend the following very cool tools:
 \begin{itemize}
@@ -1127,12 +1131,19 @@ For those who want more information or ideas, a longer narrative discussion on h
 
 \begin{itemize}
 \item 1 color: black or dark blue
-\item 2 colors: (black or blue) and (red or green)
-\item $>2$ colors: one of the palettes shown in Figure~\ref{fig:palettes}. The 8-color palette (left) is from \url{http://jfly.iam.u-tokyo.ac.jp/color/} and corresponds to the sequence \#000000, \#E69F00, \#56B4E9, \#009E73, \#F0E442, \#0072B2, \#D55E00, \#CC79A7 (and the RGB/CMKY codes shown).\footnote{RGB tuples or hex codes can be used in place of, e.g., `k' or `b' to specify colors in {\tt matplotlib}; see \href{https://matplotlib.org/users/colors.html}{this webpage}.} The 10-color palette shown is from the \href {https://jiffyclub.github.io/palettable/tableau/}{tableau} package for Python, and can be used as follows:
+\item 2 colors: blue and red
+\item $>2$ colors: one of the palettes shown in Figure~\ref{fig:palettes}. The 8-color palette (left) is from \url{http://jfly.iam.u-tokyo.ac.jp/color/} and corresponds to the sequence \#000000, \#E69F00, \#56B4E9, \#009E73, \#F0E442, \#0072B2, \#D55E00, \#CC79A7 (and the RGB/CMKY codes shown).\footnote{RGB tuples or hex codes can be used in place of, e.g., `k' or `b' to specify colors in {\tt matplotlib}; see \href{https://matplotlib.org/users/colors.html}{this webpage}.} The 10-color palette shown is from the \href {https://jiffyclub.github.io/palettable/tableau/}{tableau} package for Python. Example Python code showing how to use these two palettes appears below.
 \begin{verbatim}
 import matplotlib.pyplot as pl
+
+# first palette
+colors = ["#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", \
+ "#D55E00", "#CC79A7"]
+
+# second palette
 import palettable
 colors = palettable.tableau.ColorBlind_10.mpl_colors
+
 ax = pl.subplot(221)
 ax.set_color_cycle(colors)
 \end{verbatim}
@@ -1150,11 +1161,53 @@ ax.set_color_cycle(colors)
 
 \subsubsection{Color recommendations for shading and filled contour plots}
 
-For simple shading, the same advice as for line and scatter plots applies. For more complex cases, e.g.\ parameter constrain plots where pairs of similar colors (for 1 and $2\sigma$ contours) are desired\ldots \FIXME{to be expanded}
+For simple shading, the same advice as for line and scatter plots applies. For more complex cases, e.g.\ parameter constraint plots where pairs of similar colors (for 1$\sigma$ and $2\sigma$ contours) are desired, more care is needed. One collection of color pairs that works reasonably well is illustrated in Figure~\ref{fig:colorcontours} and enumerated as RGB triplets in Table~\ref{tab:colorpairs}. In addition to choosing appropriate color combinations, consider doing the following.
+\begin{itemize}
+\item Avoid transparency -- it looks fancy, but can easily result in unnecessary color confusion. ``Faux transparency,'' accomplished by using dashed/dotted outlines (as in Figure~\ref{fig:colorcontours}) is often preferable.
+\item Place labels directly on or adjacent to (with arrows as needed) shaded areas rather than using a legend (\emph{unlike} Figure~\ref{fig:colorcontours}).
+\end{itemize}
+
+\begin{figure*} 
+ \includegraphics[scale=0.18]{figures/color_contours_deut}
+ \includegraphics[scale=0.18]{figures/color_contours_prot}
+ \includegraphics[scale=0.18]{figures/color_contours_trit}
+ \includegraphics[scale=0.75]{figures/color_contours_normal}
+ \hspace{5mm}
+ \begin{minipage}[b]{0.6\textwidth}
+   \caption{
+     Images filtered to simulate the effects of deuteranopia (top-left), protanopia (top-center), and tritanopia (top-right) are compared with the original (bottom-left). This color scheme performs relatively well under the former two (more common) forms of color blindness. (Credit: original by A.~Mantz, distorted versions via \href{http://www.color-blindness.com/coblis-color-blindness-simulator/}{\tt color-blindness.com}.)
+   }
+   \label{fig:colorcontours}
+   \vspace{15mm}
+ \end{minipage}
+\end{figure*}
+
+\begin{table*}
+  \begin{center}
+    \caption{
+      RGB triplets on the range $[0,1]$, corresponding to the colors used in Figure~\ref{fig:colorcontours}.
+    }
+    \label{tab:colorpairs}
+    \vspace{-1ex}
+    \begin{tabular}{lcc}
+      \hline
+      Color & Dark variant & Light variant \\
+      \hline
+      Blue & (0.026, 0.818, 1.000) & (0.714, 0.936, 1.000) \\
+      Brown & (0.784, 0.294, 0.098) & (0.784, 0.502, 0.294) \\
+      Gold & (1.000, 0.400, 0.000) & (1.000, 0.753, 0.000) \\
+      Green & (0.333, 1.000, 0.492) & (0.670, 1.000, 0.761) \\
+      Purple & (0.737, 0.275, 0.890) & (0.831, 0.686, 0.976) \\
+      Red & (1.000, 0.443, 0.442) & (1.000, 0.642, 0.610) \\
+      \hline
+   \end{tabular}
+  \end{center}
+\end{table*} 
+
 
 \subsubsection{Color recommendations for continuous color maps}
 
-\FIXME{To be written}
+\FIXME{To be written.} (Quick note: DS9 ``b'' and ``rainbow'' -- surprisingly -- color maps appear to be pretty robust.)
 
 %\subsection{General comments on figures}
 

@@ -100,10 +100,6 @@ A\&A also has a \href{http://www.aanda.org/doc_journal/instructions/aa_english_g
 
 \section{\TeX\ Stuff}
 
-\subsection{\tt start\_paper}
-
-The \href{https://github.com/LSSTDESC/start_paper}{\tt start\_paper} project is intended to streamline the process of developing DESC papers and notes, in various formats (La\TeX, Jupyter notebook, \ldots). \FIXME{add details}
-
 \subsection{\tt desc-tex}
 
 La\TeX\ support files useful and specific to DESC papers are found in
@@ -116,6 +112,10 @@ The \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} documentation expl
 % \end{verbatim}
 % after the initial \verb|\documentclass| command in your input
 % file.
+
+\subsection{\tt start\_paper}
+
+The \href{https://github.com/LSSTDESC/start_paper}{\tt start\_paper} project is intended to make the process of starting to write a DESC paper or note, and later transforming notes into papers, as simple as possible. It includes templates in various formats (La\TeX, Jupyter notebook, Markdown, and reStructuredText). It incorporates \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex}, as well as utilities for generating author and contribution lists formatted for various journals.
 
 \subsection{Active hyperlinks}
 
@@ -1205,9 +1205,14 @@ For simple shading, the same advice as for line and scatter plots applies. For m
 \end{table*} 
 
 
-\subsubsection{Color recommendations for continuous color maps}
+\subsubsection{Color recommendations for continuous color maps} \label{sec:colormaps}
 
-\FIXME{To be written.} (Quick note: DS9 ``b'' and ``rainbow'' -- surprisingly -- color maps appear to be pretty robust.)
+We expect to streamline this section in the future, with the benefit of experience. In the meantime, here are some options:
+\begin{itemize}
+\item Single-color gradients are, of course, acceptable.
+\item The {\tt b} and {\tt rainbow} color maps in DS9 appear to be relatively robust.
+\item One- and two-color gradient maps based on the Okabe \& Ito palette (left panel of Figure~\ref{fig:palettes}) can be easily used in Python thanks to the \href{https://github.com/nesanders/colorblind-colormap}{\tt nesanders/colorblind-colormap} project on GitHub. The GitHub page includes example code.
+\end{itemize}
 
 %\subsection{General comments on figures}
 
@@ -1383,7 +1388,7 @@ deliberation, depending on what features of the map are to be highlighted.
 that does not appear in the color map (e.g., white or grey).
 %\COMMENT{SD: Do we need this?  Or can we make more specific recommendations regarding the color
 %map?} 
-See Section~\ref{sec:figcolor} for some notes on how to make the map colorblind-friendly.
+See Section~\ref{sec:colormaps} for some notes on how to make the map colorblind-friendly.
 
 \end{itemize}
 %\smallskip

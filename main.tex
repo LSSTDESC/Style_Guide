@@ -1205,9 +1205,14 @@ For simple shading, the same advice as for line and scatter plots applies. For m
 \end{table*} 
 
 
-\subsubsection{Color recommendations for continuous color maps}
+\subsubsection{Color recommendations for continuous color maps} \label{sec:colormaps}
 
-\FIXME{To be written.} (Quick note: DS9 ``b'' and ``rainbow'' -- surprisingly -- color maps appear to be pretty robust.)
+We expect to streamline this section in the future, with the benefit of experience. In the meantime, here are some options:
+\begin{itemize}
+\item Single-color gradients are, of course, acceptable.
+\item The {\tt b} and {\tt rainbow} color maps in DS9 appear to be relatively robust.
+\item One- and two-color gradient maps based on the Okabe \& Ito palette (left panel of Figure~\ref{fig:palettes}) can be easily used in Python thanks to the \href{https://github.com/nesanders/colorblind-colormap}{\tt nesanders/colorblind-colormap} project on GitHub. The GitHub page includes example code.
+\end{itemize}
 
 %\subsection{General comments on figures}
 
@@ -1383,7 +1388,7 @@ deliberation, depending on what features of the map are to be highlighted.
 that does not appear in the color map (e.g., white or grey).
 %\COMMENT{SD: Do we need this?  Or can we make more specific recommendations regarding the color
 %map?} 
-See Section~\ref{sec:figcolor} for some notes on how to make the map colorblind-friendly.
+See Section~\ref{sec:colormaps} for some notes on how to make the map colorblind-friendly.
 
 \end{itemize}
 %\smallskip

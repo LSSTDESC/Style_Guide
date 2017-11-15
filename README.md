@@ -18,4 +18,4 @@ The 2017 DESC Publications Board:
 
 ## Origin
 
-The LSST DESC Style Guide is adapted with permission from the Planck Style Guide, which was produced by the Planck Collaboration. We are very grateful to the original authors, C. R. Lawrence, T. J. Pearson, Douglas Scott, L. Spencer, and A. Zonca, for allowing us to make our adaptation public under the [GPL 3.0 License](https://github.com/LSSTDESC/Style_Guide/blob/master/LICENSE). 
+The LSST DESC Style Guide is adapted with permission from the Planck Style Guide, which was produced by the Planck Collaboration. We are very grateful to the original authors, C. R. Lawrence, T. J. Pearson, D. Scott, L. Spencer, and A. Zonca, for allowing us to make our adaptation public under the [GPL 3.0 License](https://github.com/LSSTDESC/Style_Guide/blob/master/LICENSE). 

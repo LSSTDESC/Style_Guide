@@ -6,9 +6,9 @@ Suggestions for changes should be posted to the LSST DESC Publications Board via
 
 ## Authors
 
-The 2017 DESC Publications Board:
-* Seth Digel (Publication Manager)
+The 2016-2018 DESC Publication Board:
 * Pierre Astier
+* Seth Digel (Publication Manager)
 * David Kirkby
 * Rachel Mandelbaum
 * Adam Mantz

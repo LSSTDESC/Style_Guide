@@ -1,6 +1,1 @@
-# Style_Guide
-Style guide for DESC publications
-
-Authors: DESC Publications Board
-
-This document is modified from the Planck Style Guide, kindly provided by Charles Laurence on behalf of the Planck Collaboration.
+This branch contains the original source files for the [Style Guide for Planck Papers](https://www.cosmos.esa.int/documents/387566/387653/Planck_Style_Guide.pdf) ([Planck Archive](https://www.cosmos.esa.int/web/planck/publications)), from which the LSST-DESC Style Guide was derived. We are very grateful to the original authors, C. R. Lawrence, T. J. Pearson, D. Scott, L. Spencer, and A. Zonca, for allowing us to distribute our adaptation under the [CC-BY](https://github.com/LSSTDESC/Style_Guide/blob/master/LICENSE).

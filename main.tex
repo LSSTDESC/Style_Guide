@@ -8,7 +8,7 @@
 \hypersetup{draft=false}
 \setlength{\textheight}{9.25in}
 \setlength{\headsep}{0.25in} 
-\setlength{\topmargin}{-0.75in}
+\setlength{\topmargin}{-1in}
 \renewcommand\floatpagefraction{.9}
 \renewcommand\topfraction{.9}
 \renewcommand\bottomfraction{.9}
@@ -150,7 +150,7 @@ offending link and enclose it within \verb|\mbox{}|. Note that the {\tt hypperre
 
 \end{itemize}
 
-\COMMENT{AM: We may eventually need a standardized of referring to data releases, analogous to the different Planck surveys.}
+%\COMMENT{AM: We may eventually need a standardized of referring to data releases, analogous to the different Planck surveys.}
 %General comments about when other experiments get italicized (which used to appear here) would be good, if they don't vary too much among journals (in which case, pointing out that they do vary would be helpful).
 
 
@@ -162,7 +162,7 @@ Do not write LSST's or DESC's.  Instead write, e.g., the DESC weak lensing pipel
 
 Use Year Month Day format, UTC.
 
-\COMMENT{SD:  Advice about hours-minutes-seconds format?}   
+%\COMMENT{SD:  Advice about hours-minutes-seconds format?}   
 
 \section{Acronyms}
 
@@ -200,16 +200,16 @@ The abstract is a summary of the paper, not part of the paper. Here are some ``d
 \end{itemize}
 
 
-Key words appear at the end of the abstract.  These must be selected from
-the approved lists, e.g.
+% Key words appear at the end of the abstract.  These must be selected from
+% the approved lists, e.g.
 
-\url{http://www.aanda.org/index.php?option=com_content\&task=view\&id=170\&Itemid=173},
+% \url{http://www.aanda.org/index.php?option=com_content\&task=view\&id=170\&Itemid=173},
 
-\noindent
-rather than just made up!  Key words should be separated by en-dashes (\verb|--| in
-\TeX), not some other form of abbreviation.
+% \noindent
+% rather than just made up!  Key words should be separated by en-dashes (\verb|--| in
+% \TeX), not some other form of abbreviation.
 
-\COMMENT{Each journal seems to have its own keyword list, although, in practice, they may actually be standardized.} \FIXME{Link to them.}
+% \COMMENT{Each journal seems to have its own keyword list, although, in practice, they may actually be standardized.} \FIXME{Link to them.}
 
 \section{Units}
 
@@ -269,7 +269,7 @@ work well.
 %math mode.  A\&A provides \verb|\degr|, \verb|\arcmin|, \verb|\arcsec|, \verb|\fdg|, \verb|\farcm|, and
 %\verb|\farcs|, for the same purpose, but the digits and angle symbols are not
 %spaced as well.
-\FIXME{pdeg etc.\ macros don't exist yet in {\tt lsstdesc\_macros.sty}}
+\FIXME{Bug: these macros don't exist yet in {\tt lsstdesc\_macros.sty}, but can be copied in.}
 
 %\COMMENT{AM: I believe that $2.8''$-type formatting is also generally acceptable, not to mention less absurd-looking, as long as one format or the other is used consistently.}
 % \COMMENT{SD:  Let's go with recommending one approach.}
@@ -954,7 +954,7 @@ the same paper unless you explicitly mean something different.  If in doubt,
 use ``$\approx$'' (and see the point above!).
 
 For ``less (and greater) than approximately'' either use journal-supplied macros or the {\tt lsstdesc\_macros.tex} macros
-\verb|\ltsim| (and \verb|\gtsim| \FIXME{[to be added]}), but don't mix them.
+\verb|\ltsim| (and \verb|\gtsim|) \FIXME{[to be added]}, but don't mix them.
 
 Avoid using the ``$O(x)$'' or ``${\cal O}(x)$'' notation except for describing
 asymptotic behavior or scaling.  Instead just say ``about $10^{-6}$'' or
@@ -1490,7 +1490,7 @@ extraneous white space around figures.  Gauging sizes and proportions is easiest
 sans-serif font that looks similar to Helvetica, but you may need to adjust
 the line-thickness as well as the character height to get characters of
 appropriate weight.  Typically the line-thickness should be about 1/10 of the
-character height  \FIXME{to be checked}.
+character height. %  \FIXME{to be checked}.
 
 \item {\it Tick marks and numeric labels\/}. Have tick marks projecting out of
 the frame only if it is necessary to make them visible.  Use sensible

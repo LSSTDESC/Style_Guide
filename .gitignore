@@ -1,6 +1,6 @@
 main.pdf
 main.master.tex
-diff_*.tex
+diff_*
 
 
 ## Core latex/pdflatex auxiliary files:

@@ -112,12 +112,13 @@ A\&A also has a \href{http://www.aanda.org/doc_journal/instructions/aa_english_g
 
 \section{\TeX\ Stuff}
 
-\subsection{\tt desc-tex}
+\subsection{{\tt desc-tex} and {\tt lsst-texmf}}
 
 La\TeX\ support files useful and specific to DESC papers are found in
 the \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} GitHub project.
 It provides common macros, the standard portion of the DESC Acknowledgments, a bibliography file of DESC papers, and class and style files for common journals.
 The \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} documentation explains how to use these resources, including the {\tt lsstdesc\_macros.sty} file referred to elsewhere in this guide.
+\href{https://github.com/lsst/lsst-texmf}{\tt lsst-texmf} provides similar utilities for LSST Project publications, most notably a bibliography of Project documents.
 % To use the {\tt lsstdesc\_macros.sty} style file from this project, once you have downloaded it, insert the line
 % \begin{verbatim}
 % \usepackage{desc-tex/styles/lsstdesc_macros}
@@ -1112,7 +1113,11 @@ The   {\tt desc-tex} GitHub repository includes {\tt lsstdesc.bib}, a bibliograp
 If for some reason you {\bf do not} use a bibsty file, you will need to manually keep track of the bibliography and conformance with the formatting conventions of the journal.  Needing to fix errors at the copy-editing stage, when you have lost control of the paper source, is annoying and time consuming.
 
 \begin{itemize}
-\item Cite software according to the journal's style; e.g., often this is done with a footnote providing the URL of the software's webpage or source code repository. DESC software should also be cited with a reference to the publication presenting it, where available. Note that the specific release (version) used by a given work should always be explicitly cited.
+\item Cite software according to the journal's style, which generally dictates the typeface to be used for the names of codes (or the use of a macro to accomplish the same, e.g.\ \verb|\software| in AASTeX); often a footnote providing the URL of the software's webpage or source code repository is recommended. DESC software should also be cited with a reference to the publication presenting it, where available. Note that the specific release (version) used by a given work should always be explicitly cited. For example,
+\begin{verbatim}
+To calculate X, we used the DESC software package \software{code name} version 1.0
+\citep{code paper}.\footnote{\url{code website}}
+\end{verbatim}
 \end{itemize}
 
 %\item

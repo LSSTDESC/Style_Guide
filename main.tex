@@ -8,7 +8,7 @@
 \hypersetup{draft=false}
 \setlength{\textheight}{9.25in}
 \setlength{\headsep}{0.25in} 
-\setlength{\topmargin}{-0.75in}
+\setlength{\topmargin}{-0.85in}
 \renewcommand\floatpagefraction{.9}
 \renewcommand\topfraction{.9}
 \renewcommand\bottomfraction{.9}
@@ -18,7 +18,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \fancyhead[L]{}
 \fancyhead[R]{
-  \centering{\includegraphics[width=5.25in,angle=0]{figures/header}}
+  \centering{\includegraphics[width=0.95\textwidth,angle=0]{figures/header}}
 }
 \fancyfoot{}
 \pagestyle{fancy}
@@ -84,7 +84,7 @@ Pearson, D. Scott, L. Spencer, and A. Zonca.\footnote{The
 can be downloaded from the Planck Archive at 
 \url{https://www.cosmos.esa.int/web/planck/publications}} We are very 
 grateful to these authors for allowing us to distribute our adaptation 
-under the GPL 3.0 License.\footnote{A copy of the GPL 3 License may be 
+under the CC-BY License.\footnote{A copy of the CC-BY License may be 
 obtained from this document's repository at 
 \url{https://github.com/LSSTDESC/Style\_Guide}} The 
 \TeX\ source was provided to DESC by C. R. Lawrence and the La\TeX\ 
@@ -112,12 +112,13 @@ A\&A also has a \href{http://www.aanda.org/doc_journal/instructions/aa_english_g
 
 \section{\TeX\ Stuff}
 
-\subsection{\tt desc-tex}
+\subsection{{\tt desc-tex} and {\tt lsst-texmf}}
 
 La\TeX\ support files useful and specific to DESC papers are found in
 the \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} GitHub project.
 It provides common macros, the standard portion of the DESC Acknowledgments, a bibliography file of DESC papers, and class and style files for common journals.
 The \href{https://github.com/LSSTDESC/desc-tex}{\tt desc-tex} documentation explains how to use these resources, including the {\tt lsstdesc\_macros.sty} file referred to elsewhere in this guide.
+\href{https://github.com/lsst/lsst-texmf}{\tt lsst-texmf} provides similar utilities for LSST Project publications, most notably a bibliography of Project documents.
 % To use the {\tt lsstdesc\_macros.sty} style file from this project, once you have downloaded it, insert the line
 % \begin{verbatim}
 % \usepackage{desc-tex/styles/lsstdesc_macros}
@@ -150,7 +151,7 @@ offending link and enclose it within \verb|\mbox{}|. Note that the {\tt hypperre
 
 \end{itemize}
 
-\COMMENT{AM: We may eventually need a standardized of referring to data releases, analogous to the different Planck surveys.}
+%\COMMENT{AM: We may eventually need a standardized of referring to data releases, analogous to the different Planck surveys.}
 %General comments about when other experiments get italicized (which used to appear here) would be good, if they don't vary too much among journals (in which case, pointing out that they do vary would be helpful).
 
 
@@ -162,7 +163,7 @@ Do not write LSST's or DESC's.  Instead write, e.g., the DESC weak lensing pipel
 
 Use Year Month Day format, UTC.
 
-\COMMENT{SD:  Advice about hours-minutes-seconds format?}   
+%\COMMENT{SD:  Advice about hours-minutes-seconds format?}   
 
 \section{Acronyms}
 
@@ -200,16 +201,16 @@ The abstract is a summary of the paper, not part of the paper. Here are some ``d
 \end{itemize}
 
 
-Key words appear at the end of the abstract.  These must be selected from
-the approved lists, e.g.
+% Key words appear at the end of the abstract.  These must be selected from
+% the approved lists, e.g.
 
-\url{http://www.aanda.org/index.php?option=com_content\&task=view\&id=170\&Itemid=173},
+% \url{http://www.aanda.org/index.php?option=com_content\&task=view\&id=170\&Itemid=173},
 
-\noindent
-rather than just made up!  Key words should be separated by en-dashes (\verb|--| in
-\TeX), not some other form of abbreviation.
+% \noindent
+% rather than just made up!  Key words should be separated by en-dashes (\verb|--| in
+% \TeX), not some other form of abbreviation.
 
-\COMMENT{Each journal seems to have its own keyword list, although, in practice, they may actually be standardized.} \FIXME{Link to them.}
+% \COMMENT{Each journal seems to have its own keyword list, although, in practice, they may actually be standardized.} \FIXME{Link to them.}
 
 \section{Units}
 
@@ -269,7 +270,7 @@ work well.
 %math mode.  A\&A provides \verb|\degr|, \verb|\arcmin|, \verb|\arcsec|, \verb|\fdg|, \verb|\farcm|, and
 %\verb|\farcs|, for the same purpose, but the digits and angle symbols are not
 %spaced as well.
-\FIXME{pdeg etc.\ macros don't exist yet in {\tt lsstdesc\_macros.sty}}
+\FIXME{Bug: these macros don't exist yet in {\tt lsstdesc\_macros.sty}, but can be copied in.}
 
 %\COMMENT{AM: I believe that $2.8''$-type formatting is also generally acceptable, not to mention less absurd-looking, as long as one format or the other is used consistently.}
 % \COMMENT{SD:  Let's go with recommending one approach.}
@@ -954,7 +955,7 @@ the same paper unless you explicitly mean something different.  If in doubt,
 use ``$\approx$'' (and see the point above!).
 
 For ``less (and greater) than approximately'' either use journal-supplied macros or the {\tt lsstdesc\_macros.tex} macros
-\verb|\ltsim| (and \verb|\gtsim| \FIXME{[to be added]}), but don't mix them.
+\verb|\ltsim| (and \verb|\gtsim|) \FIXME{[to be added]}, but don't mix them.
 
 Avoid using the ``$O(x)$'' or ``${\cal O}(x)$'' notation except for describing
 asymptotic behavior or scaling.  Instead just say ``about $10^{-6}$'' or
@@ -1105,11 +1106,19 @@ $\nu^{\hbox{\hglue 0.7pt}\beta}$, which makes it easy to ``tune'' the space.
 Use the La\TeX~bibsty bibliography style file provided by the journal, and/or refer to the bibliography guidelines of the journal.  For several journals, these are also available in {\tt desc-tex}.  For some journals,  {\tt desc-tex} provides modified bibsty files that display arXiv numbers instead of the egregious ``Arxiv e-prints'' and/or include hyperlinks to ADS (given the appropriate bibitem entries).
 
 \item
-The   {\tt desc-tex} GitHub repository includes {\tt lsstdesc.bib}, a bibliography of recommended and commonly cited references in DESC papers.  These will include LSST and DESC product papers.  ({\tt lsstdesc.bib} will become more useful over time; currently it is more or less a placeholder.)
+The   {\tt desc-tex} GitHub repository includes {\tt lsstdesc.bib}, a bibliography of recommended and commonly cited references in DESC papers.  These will include DESC product papers.  ({\tt lsstdesc.bib} will become more useful over time; currently it is more or less a placeholder.) The {\tt lsst-texmf} repository similarly provides a bibliography of LSST Project publications.
 
 \end{itemize}
 
 If for some reason you {\bf do not} use a bibsty file, you will need to manually keep track of the bibliography and conformance with the formatting conventions of the journal.  Needing to fix errors at the copy-editing stage, when you have lost control of the paper source, is annoying and time consuming.
+
+\begin{itemize}
+\item Cite software according to the journal's style, which generally dictates the typeface to be used for the names of codes (or the use of a macro to accomplish the same, e.g.\ \verb|\software| in AASTeX); often a footnote providing the URL of the software's webpage or source code repository is recommended. DESC software should also be cited with a reference to the publication presenting it, where available. Note that the specific release (version) used by a given work should always be explicitly cited. For example,
+\begin{verbatim}
+To calculate X, we used the DESC software package \software{code name} version 1.0
+\citep{code paper}.\footnote{\url{code website}}
+\end{verbatim}
+\end{itemize}
 
 %\item
 %Use a consistent format for journal abbreviations, i.e., avoid having a
@@ -1490,7 +1499,7 @@ extraneous white space around figures.  Gauging sizes and proportions is easiest
 sans-serif font that looks similar to Helvetica, but you may need to adjust
 the line-thickness as well as the character height to get characters of
 appropriate weight.  Typically the line-thickness should be about 1/10 of the
-character height  \FIXME{to be checked}.
+character height. %  \FIXME{to be checked}.
 
 \item {\it Tick marks and numeric labels\/}. Have tick marks projecting out of
 the frame only if it is necessary to make them visible.  Use sensible

@@ -2,7 +2,7 @@
 
 \usepackage{multirow}
 \usepackage{datetime2}
-\newcommand*{\version}{Version 1.0.0 (2018-04-20)} %{Version \today}
+\newcommand*{\version}{Version 1.1.0 (2020-04-21)} %{Version \today}
 
 \input{macros/preamble_article}
 \hypersetup{draft=false}
@@ -140,14 +140,28 @@ Occasionally, La\TeX\ will fail because of a hyperlink being split across
 a page break (often the error message does not identify this as the underlying problem). In such cases, then simplest solution is to find the
 offending link and enclose it within \verb|\mbox{}|. Note that the {\tt hypperref} package has a `draft' option that will disable all linking; this can be useful to get a draft paper to compile when La\TeX\ has split such a link. This is a better solution while a paper is in development, since the offending link may no longer fall on a page break once all material has been added to the paper.
 
-\section{How to Refer to DESC and LSST} 
+\section{How to Refer to DESC, LSST, Rubin Observatory, the Telescope, and Camera} 
+
+This section is informed by the name usage guide for Vera C. Rubin Observatory\footnote{\url{https://project.lsst.org/documents/name-use-guide}} and guidelines developed among the LSST science collaborations\footnote{\url{http://bit.ly/RubinLSSTSCsnaming}}.
 
 \begin{itemize}
-\item{DESC should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote added with the URL for the DESC Web site, \verb|\footnote{\url{http://lsst-desc.org}}|.}
-  
-\item{Depending on the context, you may also want to cite the \href{http://adsabs.harvard.edu/abs/2012arXiv1211.0310L}{DESC white paper}, or have a footnote to the DESC Science Roadmap via \\\verb|\footnote{\url{http://lsst-desc.org/sites/default/files/DESC_SRM_V1.pdf}}|, \\although both documents are somewhat dated.}
+\item{At the first use (in both the abstract and the main text of the paper) DESC should be spelled out with the observatory and survey:  ``Rubin Observatory Legacy Survey of Space and Time (LSST) Dark Energy Science Collaboration (DESC)''.}
 
-\item{LSST should be spelled out at the first use (in both the abstract and the main text of the paper) and a footnote provided to the LSST Web site, \verb|\footnote{\url{http://www.lsst.org}}|}
+\item{Where LSST is first referenced in the main text include a footnote to the LSST Web site,\\ \verb|\footnote{\url{http://www.lsst.org}}|.}
+
+\item{If LSST has been defined previously the first reference to DESC would be to ``Rubin Observatory LSST Dark Energy Science Collaboration (DESC)''.}
+
+\item{Subsequently use ``LSST DESC'' or ``DESC'' for the collaboration.}
+
+\item{At the first reference to the collaboration in the main text include a footnote with the URL for the DESC Web site, \verb|\footnote{\url{http://lsstdesc.org}}|.}
+
+\item{Depending on the context, you may also want to cite the \href{http://adsabs.harvard.edu/abs/2012arXiv1211.0310L}{DESC white paper}, or have a footnote to the DESC Science Roadmap via \\\verb|\footnote{\url{https://doi.org/10.5281/zenodo.3547567}}|}. % \\although both documents are somewhat dated.}
+
+\item{The first reference to the observatory by itself should be to ``Vera C. Rubin Observatory''.  Subsequent references should be either ``Rubin Observatory'' or ``Rubin'' (not VRO, and not preceded with ``the'').  }
+
+\item{The telescope should be referred to as the ``Simonyi Survey Telescope at Rubin Observatory''.}
+
+\item{The camera should be referred to as ``Rubin Observatory LSST Camera'' at the first reference.  Subsequently, use the ``LSST Camera''.}
 
 \end{itemize}
 
